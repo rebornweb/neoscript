@@ -15,12 +15,12 @@
          <% if $ProductDetails %>
                 
                 <% loop $ProductDetails %>
-		<article class="simpleCart_shelfItem">
+		<div class="simpleCart_shelfItem">
 		<div class="photo">$Photo.SetWidth(150)</div>
                     <div class="item_name">$Name</div>  
 			<div class="item_price">$$CostPrice</div>
 <a href="javascript:;" class="item_add">Add to Cart</a>
-        </article>
+        </div>
 	        <% end_loop %>
 
 

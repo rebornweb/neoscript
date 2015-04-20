@@ -100,6 +100,7 @@ background-color:#333;
 z-index:1000;
 width:85%;
 margin-top:3%;
+padding-bottom: 20%;
 padding:4px;
 opacity:0.8;
 -moz-opacity:0.8;
@@ -107,9 +108,9 @@ opacity:0.8;
 filter: Alpha(opacity=80);
 }
 
-.simpleCart_items, article.simpleCart_shelfItem{
+.simpleCart_items, div.simpleCart_shelfItem{
   position:relative;
-  width:90%;
+ 
 
   background-color:#333;
  opacity:0.8;

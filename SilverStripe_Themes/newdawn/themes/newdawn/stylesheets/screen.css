@@ -138,6 +138,7 @@ section#content {
   z-index: 1000;
   width: 85%;
   margin-top: 3%;
+  padding-bottom: 20%;
   padding: 4px;
   opacity: 0.8;
   -moz-opacity: 0.8;
@@ -145,10 +146,9 @@ section#content {
   filter: Alpha(opacity=80);
 }
 
-/* line 110, ../sass/screen.scss */
-.simpleCart_items, article.simpleCart_shelfItem {
+/* line 111, ../sass/screen.scss */
+.simpleCart_items, div.simpleCart_shelfItem {
   position: relative;
-  width: 90%;
   background-color: #333;
   opacity: 0.8;
   -moz-opacity: 0.8;
@@ -156,25 +156,25 @@ section#content {
   filter: Alpha(opacity=80);
 }
 
-/* line 123, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 div.simpleCart_items {
   z-index: 300;
   float: right;
 }
 
-/* line 129, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 a.simpleCart_checkout {
   position: relative;
   z-index: 200;
   float: right;
 }
 
-/* line 136, ../sass/screen.scss */
+/* line 137, ../sass/screen.scss */
 table tbody {
   line-height: 1.2;
 }
 
-/* line 140, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 nav {
   /*background-color: #232323;*/
   position: relative;
@@ -184,12 +184,12 @@ nav {
   width: 60%;
 }
 
-/* line 151, ../sass/screen.scss */
+/* line 152, ../sass/screen.scss */
 nav ul {
   height: 100%;
 }
 
-/* line 155, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 nav ul li {
   cursor: pointer;
   display: inline-block;
@@ -206,7 +206,7 @@ nav ul li {
   user-select: none;
 }
 
-/* line 172, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 nav.navmain ul a {
   position: relative;
   display: inline-block;
@@ -223,7 +223,7 @@ nav.navmain ul a {
   user-select: none;
 }
 
-/* line 188, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 nav.navmain ul a:hover {
   height: 33%;
   transition: background-color 1s ease-out;
@@ -233,17 +233,17 @@ nav.navmain ul a:hover {
   background-color: #E55A54;
 }
 
-/* line 200, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 nav ul li ul {
   position: absolute;
 }
 
-/* line 202, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 nav ul li ul a {
   background-color: #222;
 }
 
-/* line 206, ../sass/screen.scss */
+/* line 207, ../sass/screen.scss */
 nav ul li ul a:hover {
   transition: background-color 1s ease-out;
   -moz-transition: background-color 1s ease-out;
@@ -251,70 +251,70 @@ nav ul li ul a:hover {
   -o-transition: background-color 1s ease-out;
 }
 
-/* line 213, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 nav ul li ul.fallback {
   display: none;
 }
 
 /*For Dropdown*/
-/* line 214, ../sass/screen.scss */
+/* line 215, ../sass/screen.scss */
 nav ul li:hover ul.fallback {
   display: block;
 }
 
 /*For Dropdown*/
-/* line 219, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
 nav .logo {
   /*If a space means next element down the tree*/
   position: relative;
   visibility: visible;
 }
 
-/* line 226, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 #Form_Form {
   position: relative;
   width: 40%;
 }
 
-/* line 232, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 #Form_Form input, #Form_Form textarea {
   width: 80%;
 }
 
-/* line 236, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 #Form_Form input#Form_Form_action_submit {
   width: 40%;
 }
 
-/* line 240, ../sass/screen.scss */
+/* line 241, ../sass/screen.scss */
 .simpleCart_items {
   position: relative;
 }
 
-/* line 245, ../sass/screen.scss */
+/* line 246, ../sass/screen.scss */
 div.simpleCart_items div {
   display: inline-block;
   padding: 5px;
 }
 
-/* line 250, ../sass/screen.scss */
+/* line 251, ../sass/screen.scss */
 div.simpleCart_items div.headerRow {
   display: none;
 }
 
-/* line 254, ../sass/screen.scss */
+/* line 255, ../sass/screen.scss */
 .bg-holder {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-/* line 261, ../sass/screen.scss */
+/* line 262, ../sass/screen.scss */
 .bg-holder#pic1 {
   background-image: url("../img/red.jpg");
 }
 
-/* line 265, ../sass/screen.scss */
+/* line 266, ../sass/screen.scss */
 .bg-holder#picother {
   background-image: url("../img/red.jpg");
 }
@@ -323,7 +323,7 @@ div.simpleCart_items div.headerRow {
 .bg-holder#pic2 {
 background-image: url('../img/city.jpg');
 } */
-/* line 276, ../sass/screen.scss */
+/* line 277, ../sass/screen.scss */
 footer {
   background-color: #232323;
   /*For Sticky Footer*/
@@ -340,7 +340,7 @@ footer {
 }
 
 /*All for Dawnmenu Btmenu Mobile Menu*/
-/* line 299, ../sass/screen.scss */
+/* line 300, ../sass/screen.scss */
 .bt-menu {
   position: fixed;
   top: 0;
@@ -356,13 +356,13 @@ footer {
   transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 }
 
-/* line 316, ../sass/screen.scss */
+/* line 317, ../sass/screen.scss */
 .bt-menu a {
   text-decoration: none;
   font-size: 1em;
 }
 
-/* line 321, ../sass/screen.scss */
+/* line 322, ../sass/screen.scss */
 .bt-menu.bt-menu-open {
   height: 100%;
   border-width: 0px 0px 50px 150px;
@@ -371,18 +371,18 @@ footer {
   transition: border-width 0.3s, background-color 0.3s;
 }
 
-/* line 329, ../sass/screen.scss */
+/* line 330, ../sass/screen.scss */
 .bt-overlay {
   position: absolute;
   width: 100%;
 }
 
-/* line 334, ../sass/screen.scss */
+/* line 335, ../sass/screen.scss */
 .bt-menu-open .bt-overlay {
   height: 100%;
 }
 
-/* line 338, ../sass/screen.scss */
+/* line 339, ../sass/screen.scss */
 .bt-menu-trigger {
   position: fixed;
   top: 0px;
@@ -394,7 +394,7 @@ footer {
   cursor: pointer;
 }
 
-/* line 349, ../sass/screen.scss */
+/* line 350, ../sass/screen.scss */
 .bt-menu-trigger span {
   position: absolute;
   top: 50%;
@@ -414,7 +414,7 @@ footer {
   transition: background-color 0.3s;
 }
 
-/* line 366, ../sass/screen.scss */
+/* line 367, ../sass/screen.scss */
 .bt-menu-trigger span:before,
 .bt-menu-trigger span:after {
   position: absolute;
@@ -427,31 +427,31 @@ footer {
   transition: transform 0.3s;
 }
 
-/* line 380, ../sass/screen.scss */
+/* line 381, ../sass/screen.scss */
 .bt-menu-trigger span:before {
   -webkit-transform: translateY(-250%);
   transform: translateY(-250%);
 }
 
-/* line 385, ../sass/screen.scss */
+/* line 386, ../sass/screen.scss */
 .bt-menu-trigger span:after {
   -webkit-transform: translateY(250%);
   transform: translateY(250%);
 }
 
-/* line 390, ../sass/screen.scss */
+/* line 391, ../sass/screen.scss */
 .bt-menu-open .bt-menu-trigger span:before {
   -webkit-transform: translateY(-300%);
   transform: translateY(-300%);
 }
 
-/* line 395, ../sass/screen.scss */
+/* line 396, ../sass/screen.scss */
 .bt-menu-open .bt-menu-trigger span:after {
   -webkit-transform: translateY(300%);
   transform: translateY(300%);
 }
 
-/* line 400, ../sass/screen.scss */
+/* line 401, ../sass/screen.scss */
 .bt-menu ul {
   position: fixed;
   margin: 0;
@@ -467,19 +467,19 @@ footer {
   text-decoration: none;
 }
 
-/* line 415, ../sass/screen.scss */
+/* line 416, ../sass/screen.scss */
 .bt-menu ul:first-of-type {
   top: 75px;
   left: 0;
 }
 
-/* line 420, ../sass/screen.scss */
+/* line 421, ../sass/screen.scss */
 .bt-menu ul:nth-of-type(2) {
   right: 0;
   bottom: 0;
 }
 
-/* line 427, ../sass/screen.scss */
+/* line 428, ../sass/screen.scss */
 .bt-menu ul li {
   display: block;
   outline: none;
@@ -493,20 +493,20 @@ footer {
   color: #F7F7F7;
 }
 
-/* line 438, ../sass/screen.scss */
+/* line 439, ../sass/screen.scss */
 .bt-menu ul:nth-of-type(2) li {
   float: left;
   font-size: 0px;
 }
 
-/* line 443, ../sass/screen.scss */
+/* line 444, ../sass/screen.scss */
 .bt-menu ul li {
   visibility: hidden;
   opacity: 0;
   /*This controls the scaling animations*/
 }
 
-/* line 451, ../sass/screen.scss */
+/* line 452, ../sass/screen.scss */
 .bt-menu ul li a {
   color: #F7F7F7;
   display: block;
@@ -520,13 +520,13 @@ footer {
   text-decoration: none;
 }
 
-/* line 463, ../sass/screen.scss */
+/* line 464, ../sass/screen.scss */
 .bt-menu ul li a:hover {
   color: #E55A54;
   font-size: 1.2em;
 }
 
-/* line 470, ../sass/screen.scss */
+/* line 471, ../sass/screen.scss */
 .bt-menu.bt-menu-open ul:first-of-type li,
 .bt-menu.bt-menu-open ul:nth-of-type(2) li {
   visibility: visible;
@@ -538,7 +538,7 @@ footer {
 }
 
 /* First menu */
-/* line 482, ../sass/screen.scss */
+/* line 483, ../sass/screen.scss */
 .bt-menu ul li:hover {
   transition: background-color 1s ease-out;
   -moz-transition: background-color 1s ease-out;
@@ -547,7 +547,7 @@ footer {
   background-color: #222;
 }
 
-/* line 494, ../sass/screen.scss */
+/* line 495, ../sass/screen.scss */
 .bt-menu ul:first-of-type li {
   width: 150px;
   height: 50px;
@@ -558,7 +558,7 @@ footer {
 */
 }
 
-/* line 506, ../sass/screen.scss */
+/* line 507, ../sass/screen.scss */
 .bt-menu.bt-menu-open ul:first-of-type li {
   /*
 	-webkit-transform: translate3d(0,0,0);
@@ -567,7 +567,7 @@ footer {
 }
 
 /* Second menu */
-/* line 514, ../sass/screen.scss */
+/* line 515, ../sass/screen.scss */
 .bt-menu ul:nth-of-type(2) li {
   width: 60px;
   height: 50px;
@@ -599,7 +599,7 @@ footer {
 	transition-delay: 0.4s;
 }
 */
-/* line 544, ../sass/screen.scss */
+/* line 545, ../sass/screen.scss */
 .bt-menu.bt-menu-open ul:nth-of-type(2) li {
   	/*
       -webkit-transform: scale(1);
@@ -619,12 +619,12 @@ footer {
 	transition: color 0.2s;
 }
 */
-/* line 564, ../sass/screen.scss */
+/* line 565, ../sass/screen.scss */
 .bt-menu ul:first-of-type li:last-child a {
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.2), inset 0 -1px rgba(0, 0, 0, 0.2);
 }
 
-/* line 568, ../sass/screen.scss */
+/* line 569, ../sass/screen.scss */
 .bt-menu ul:nth-of-type(2) li a {
   color: transparent;
   text-align: center;
@@ -643,25 +643,25 @@ footer {
 */
 /*Fix this later to display none*/
 @media (min-width: 1200px) {
-  /* line 597, ../sass/screen.scss */
+  /* line 598, ../sass/screen.scss */
   section#content {
     position: relative;
     left: 10%;
   }
 
-  /* line 603, ../sass/screen.scss */
+  /* line 604, ../sass/screen.scss */
   nav.bt-menu, nav.bt-menu li.link {
     display: none;
   }
 }
 /* Portrait tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1200px) {
-  /* line 612, ../sass/screen.scss */
+  /* line 613, ../sass/screen.scss */
   nav.bt-menu, nav.bt-menu li.link {
     visibility: visibile;
   }
 
-  /* line 616, ../sass/screen.scss */
+  /* line 617, ../sass/screen.scss */
   section#content {
     position: relative;
     z-index: 400;
@@ -669,68 +669,68 @@ footer {
     left: 17%;
   }
 
-  /* line 623, ../sass/screen.scss */
+  /* line 624, ../sass/screen.scss */
   nav.navmain {
     visibility: hidden;
   }
 }
 @media (max-width: 992px) {
-  /* line 632, ../sass/screen.scss */
+  /* line 633, ../sass/screen.scss */
   nav.bt-menu, nav.bt-menu li.link {
     visibility: visible;
   }
 
-  /* line 636, ../sass/screen.scss */
+  /* line 637, ../sass/screen.scss */
   section#content {
     position: relative;
     left: 15%;
   }
 
-  /* line 644, ../sass/screen.scss */
+  /* line 645, ../sass/screen.scss */
   nav.navmain {
     visibility: hidden;
   }
 
-  /* line 650, ../sass/screen.scss */
+  /* line 651, ../sass/screen.scss */
   nav.logo a {
     visibility: visible;
   }
 }
 @media (max-width: 500px) {
-  /* line 657, ../sass/screen.scss */
+  /* line 658, ../sass/screen.scss */
   nav.bt-menu, nav.bt-menu li.link {
     visibility: visible;
   }
 
-  /* line 661, ../sass/screen.scss */
+  /* line 662, ../sass/screen.scss */
   section#content {
     left: 5%;
     width: 85%;
   }
 
-  /* line 668, ../sass/screen.scss */
+  /* line 669, ../sass/screen.scss */
   nav.navmain {
     left: 30%;
     visibility: hidden;
   }
 
-  /* line 675, ../sass/screen.scss */
+  /* line 676, ../sass/screen.scss */
   nav.logo a {
     visibility: visible;
   }
 
-  /* line 680, ../sass/screen.scss */
+  /* line 681, ../sass/screen.scss */
   #Form_Form {
     position: relative;
     width: 100%;
   }
 
-  /* line 687, ../sass/screen.scss */
+  /* line 688, ../sass/screen.scss */
   .bg-holder#pic1 {
     background-image: url("../img/redmobile.jpg");
   }
 
-  /* line 691, ../sass/screen.scss */
+  /* line 692, ../sass/screen.scss */
   .bg-holder#picother {
     background-image: url("../img/redmobile.jpg");
   }
