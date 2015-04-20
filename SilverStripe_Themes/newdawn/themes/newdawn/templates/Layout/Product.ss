@@ -11,7 +11,7 @@
 
     <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
     <a href="javascript:;" class="simpleCart_checkout">Checkout</a>
-	
+	  <div class="simpleCart_items"></div>
          <% if $ProductDetails %>
                 
                 <% loop $ProductDetails %>
@@ -27,7 +27,7 @@
 
             <% end_if %>
         
-  <div class="simpleCart_items"></div>
+
 
 
 </article>

@@ -110,20 +110,26 @@ filter: Alpha(opacity=80);
 .simpleCart_items, article.simpleCart_shelfItem{
   position:relative;
   width:90%;
+
   background-color:#333;
  opacity:0.8;
 -moz-opacity:0.8;
 -khtml-opacity:0.8;
 filter: Alpha(opacity=80); 
     
-    
-    } 
 
+
+    } 
+div.simpleCart_items{
+    z-index: 300;
+ float:right; 
+  
+}
 
 a.simpleCart_checkout{
 position:relative;
 z-index:200;
-float:right;  
+float:right;
   
 }
 
