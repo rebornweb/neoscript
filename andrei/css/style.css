@@ -1,0 +1,297 @@
+@font-face {
+    font-family: "museosans100";
+    src: url("fonts/museosans_100.woff") format('woff');
+}
+
+
+@keyframes tabby{
+
+0%{background-color:black;color:ghostwhite;}
+
+100%{background-color:ghostwhite;color:red;}
+
+}
+
+
+
+@-moz-keyframes tabby{
+
+0%{background-color:black;color:ghostwhite;}
+
+100%{background-color:ghostwhite;color:red;}
+
+}
+
+
+
+@-webkit-keyframes tabby{
+
+0%{background-color:black;color:ghostwhite;}
+
+100%{background-color:ghostwhite;color:red;}
+
+}
+
+@-o-keyframes tabby{
+
+0%{background-color:black;color:ghostwhite;}
+
+100%{background-color:ghostwhite;color:red;}
+
+}
+
+
+
+body
+{
+background:url('../img/background.jpg') repeat;
+
+font-family:museosans100, sans-serif;
+color:ghostwhite;
+}
+
+
+#nav
+{
+	
+background-color:black;
+font-size:1.5em;
+width:50%;
+
+border-right: 7px white solid;
+border-radius: 0px 23px 23px 0px;
+
+-moz-border-radius: 0px 23px 23px 0px;
+-webkit-border-radius: 0px 23px 23px 0px;
+
+opacity:0.85;
+filter:alpha(opacity=85);
+-moz-opacity:0.85;
+-webkit-opacity:0.85;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+-khtml-opacity:0.85;
+
+}
+
+
+ul li
+{
+position:relative;	
+display:inline-block;
+}
+
+
+ul li a
+{
+position:relative;
+color:ghostwhite;	
+text-decoration: none;
+display:inline-block;
+padding:10%;
+
+}
+
+ul li a:hover
+{
+color:gold;	
+}
+
+
+/*In animations.js*/
+ul li a.active
+{
+animation:1s tabby infinite; 
+-moz-animation:1s tabby infinite; 
+-webkit-animation:1s tabby infinite;
+-o-animation:1s tabby infinite;  
+}
+
+a#droplinks 
+{
+color:lightblue;	
+}
+
+a#droplinks:hover 
+{
+color:gold;	
+}
+
+
+/*This is for the loading icon to not show on home page only when loading*/
+#loading{
+
+visibility: hidden;
+position:relative;
+border-radius:4px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+width:20%;
+top:10px;
+opacity:0.6;
+filter:alpha(opacity=60);
+-moz-opacity:0.60;
+-webkit-opacity:0.6;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+-khtml-opacity:0.6;
+
+}
+
+
+
+.pageStyle
+{
+width:100%;
+
+background-color:black;
+color:white;
+
+opacity:0.85;
+filter:alpha(opacity=85);
+-moz-opacity:0.85;
+-webkit-opacity:0.85;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+-khtml-opacity:0.85;		
+}
+
+
+#pageContent
+{
+padding:1%;
+color:white;	
+}
+
+
+#pageContent p
+{
+font-size:1.2em;
+
+}
+
+
+
+
+.facade
+{
+position:fixed;
+z-index:2000;
+background-color:black;
+color:white;
+
+width:100%;
+height:100%;
+bottom:0.01%;
+right:0.1%;
+cursor:pointer;
+
+opacity:0.9;
+filter:alpha(opacity=90);
+-moz-opacity:0.9;
+-webkit-opacity:0.9;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+-khtml-opacity:0.9;
+}
+
+
+#facadecontent{
+font:3em distpro1,distpro2,distpro3,arial;
+position:relative;
+top:10%;
+text-align:center
+}
+
+#facadecontent em{
+
+font-weight:200;
+
+}
+
+#facadeicon
+
+{
+cursor:pointer;
+position:relative;
+top:30%;
+text-align:center;
+color:ghostwhite;
+background-color:black;
+}
+
+
+
+
+.siteicons
+{
+
+width:10%;	
+}
+
+
+.headerpic{
+
+width:20%;
+
+
+}
+
+
+
+@media all and (max-width:900px) and (min-width:500px){
+
+#facadecontent{
+
+font-size:1.8em;
+
+}
+
+#facadeloading{
+
+width:75%;
+
+}
+
+#loading{
+
+width:55%;
+
+}
+
+
+.headerpic{
+
+width:55%;
+
+}
+
+}
+
+
+
+@media all and (max-width:500px){
+
+#facadecontent{
+
+font-size:1.4em;
+
+}
+
+#facadeloading{
+
+width:60%;
+
+}
+
+
+#loading{
+
+width:25%;
+
+}
+
+.headerpic{
+
+width:75%;
+
+
+}
+
+}
