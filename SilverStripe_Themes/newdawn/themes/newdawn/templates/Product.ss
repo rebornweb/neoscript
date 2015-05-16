@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-
+<html>
 
 <head>
 <% base_tag  %> <!-- Base tag makes the framework relative -->
