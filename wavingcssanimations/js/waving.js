@@ -7,54 +7,35 @@
   * Usage: it needs to be Wrapped in a  div or
        any element with class='wavingwrap'
        and with an anchor inside then content that waves.
+       Truly Thank God
+       Matthew 5:16
   *
   */
  
+ 
+ //Bug if first anchor isnt the longest will spas out 
    var wavingElements = $(".wavingwrap div");
   var strsplit = $('.wavingwrap a').html(); 
  
   var wavingAnchors = $(".wavingwrap a");
+  
+  wavingAnchors.find('div').parent().contents().filter(function() {
+      return this.nodeType === 3;
+    }).remove();
+    
+  
  var TotalLen = wavingAnchors.text().length;
    var a1len = wavingAnchors.eq(0).text().length;
     var a2len = wavingAnchors.eq(1).text().length;
    var a3len = wavingAnchors.eq(2).text().length;
 var a4len = wavingAnchors.eq(3).text().length;
 
-
 var ahref = $('.wavingwrap a').attr('href');
 
   //This is to wrap all Single Varchars with Divs
-appendingSplit();
-
-function appendingSplit() {
-
-       for (var i = 0; i < strsplit.length;  i ++) {
-
-       //This works for spliting strings
-var anchorSplit = $('.wavingwrap a').eq(i).text();  
-
-var spllength =  anchorSplit.length;
-  //console.log(spllength);
-  var wavingB = wavingAnchors.text();
+//appendingSplit();
 
 
- }//End For loop string split
-
-   for (var e = 0; e < wavingB.length;  e ++) {
-
-     $('<div style="display:inline-block;"> '+ wavingB[e] + '<div>').appendTo('.wavingwrap a');
-  
-     }
-//This works with one anchor yes
-//contents gets both anchor and divs in a line then select it with eq then .remove 
-
- $(".wavingwrap a").contents().eq(0).remove();
-
- //alert(TotalLen);
-
-
-}//End String Split function
- 
 
   function mrLoopy() {
   
@@ -82,20 +63,80 @@ for (var i=0; i<str.length; i++) {
   }(i));
 
 }//End of Infamous for loop
-  
-  }// End of Mr Loopy
-$(".wavingwrap div").hover( 
-    function (){ //On mouseover
 
+    
+  }// End of Mr Loopy
+  
+  
+  
+  //Start of Bunch of New Code
+ 
+
+   //Removes the Anchor Text
+    $(this).find('div').parent().contents().filter(function() {
+      return this.nodeType === 3;
+    }).remove();
+   
+    
+    
+ $(".wavingwrap li ").hover( 
+    function (){ //On mouseover
+//Removes the Anchor Text
+
+
+   $(this).find('div').parent().contents().filter(function() {
+      return this.nodeType === 3;
+    }).remove();
+ 
+ 
+       var anchorage = $(this).find('a');
+  
+      var  ant = anchorage.text();
+      var anchorlength = ant.length;
+      var seldiv = $('.wavingwrap a div');
+      var divl = seldiv.length;
+    
+    
+         anchorage.each(function(i){
+        
+          
+        
+/*
+ For testing purposes          
+   console.log('anchorlength: ' +anchorlength + ' div length: ' + divl);        
+           */
+        
+  for (var e = 0; e < ant.length;  e ++) {
+
+$(this).append('<div class="append" style="display:inline-block;"> '+ ant[e] + '</div>');
+        }
+     
+      
+     });
      
    mrLoopy();
 
+  //Wraps and hides the Anchor Text
+$(this).find('div').parent().contents().filter(function() {
+      return this.nodeType === 3;
+    }).wrap( "<span style='display:none;'></span>" );
+$(this).find('span').css('display','none');
+
+
  }, //End mouseover
-    function() {//On mouseleave  
+ 
+    function() {//On mouseleave
+      
+ //Wraps and hides the Anchor Text
+$(this).find('span').css('display','block');
+     $(this).find('div').slice(-50).remove();
+         
         }
+      
       ) //End of Hover Bracket  
 
       $(".wavingwrap a").click(function(){mrLoopy();});
 
       
+   
 });//END script
