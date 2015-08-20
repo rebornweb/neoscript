@@ -29,13 +29,9 @@
     var a2len = wavingAnchors.eq(1).text().length;
    var a3len = wavingAnchors.eq(2).text().length;
 var a4len = wavingAnchors.eq(3).text().length;
+var maxLen = -50; //Max Length Slice
 
 var ahref = $('.wavingwrap a').attr('href');
-
-  //This is to wrap all Single Varchars with Divs
-//appendingSplit();
-
-
 
   function mrLoopy() {
   
@@ -47,9 +43,9 @@ var ahref = $('.wavingwrap a').attr('href');
    var mechDowns = {'transform':'translate3d(0px,'+ incrementDown +',0px)','Moztransform':'translate3d(0px,'+ incrementDown +',0px)','WebkitTransform':'translate3d(0px,'+ incrementDown +',0px)','msTransform':'translate3d(0px,'+ incrementDown +',0px)'};
    var time = 100;
    var waveSpeed = 30;
+   
 for (var i=0; i<str.length; i++) {
-
-  (function(i){
+(function(i){
     setTimeout(function(){
      wavingElements.eq(i).css(mechUps);
  
@@ -64,15 +60,10 @@ for (var i=0; i<str.length; i++) {
 
 }//End of Infamous for loop
 
-    
   }// End of Mr Loopy
   
-  
-  
-  //Start of Bunch of New Code
- 
 
-   //Removes the Anchor Text
+    //Removes the Anchor Text
     $(this).find('div').parent().contents().filter(function() {
       return this.nodeType === 3;
     }).remove();
@@ -81,27 +72,22 @@ for (var i=0; i<str.length; i++) {
     
  $(".wavingwrap li ").hover( 
     function (){ //On mouseover
+
 //Removes the Anchor Text
-
-
    $(this).find('div').parent().contents().filter(function() {
       return this.nodeType === 3;
     }).remove();
  
- 
+
        var anchorage = $(this).find('a');
-  
       var  ant = anchorage.text();
       var anchorlength = ant.length;
       var seldiv = $('.wavingwrap a div');
       var divl = seldiv.length;
     
     
-         anchorage.each(function(i){
-        
-          
-        
-/*
+             anchorage.each(function(i){
+     /*
  For testing purposes          
    console.log('anchorlength: ' +anchorlength + ' div length: ' + divl);        
            */
@@ -111,8 +97,7 @@ for (var i=0; i<str.length; i++) {
 $(this).append('<div class="append" style="display:inline-block;"> '+ ant[e] + '</div>');
         }
      
-      
-     });
+      });
      
    mrLoopy();
 
@@ -129,7 +114,7 @@ $(this).find('span').css('display','none');
       
  //Wraps and hides the Anchor Text
 $(this).find('span').css('display','block');
-     $(this).find('div').slice(-50).remove();
+     $(this).find('div').slice(maxLen).remove();
          
         }
       
