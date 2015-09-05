@@ -8,7 +8,6 @@
   * Usage: it needs to be Wrapped in a  div or
        any element with class='wavingwrap'
        and with an anchor inside then content that waves.
-       Truly Thank God
        Matthew 5:16
   *
   */
