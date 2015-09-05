@@ -63,14 +63,15 @@ for (var i=0; i<str.length; i++) {
   }// End of Mr Loopy
   
 
-    //Removes the Anchor Text
+    /* if stuffs up put back in Removes the Anchor Text
     $(this).find('div').parent().contents().filter(function() {
       return this.nodeType === 3;
-    }).remove();
+    }).remove();*/
    
     
     
  $(".wavingwrap li ").hover( 
+    
     function (){ //On mouseover
 
 //Removes the Anchor Text
@@ -105,6 +106,7 @@ $(this).append('<div class="append" style="display:inline-block;"> '+ ant[e] + '
 $(this).find('div').parent().contents().filter(function() {
       return this.nodeType === 3;
     }).wrap( "<span style='display:none;'></span>" );
+
 $(this).find('span').css('display','none');
 
 
