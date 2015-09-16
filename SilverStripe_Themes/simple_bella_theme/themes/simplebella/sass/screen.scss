@@ -81,7 +81,7 @@ color:$primary-color;
 
 
 
-
+/*Start section#content*/
 section#content{
 background-color:transparent;
 color:$primary-color;
@@ -93,13 +93,25 @@ margin-bottom:10%;
 padding-bottom: 20%;
 padding:4px;
 
-}
 
-section#content a{
+
+ a{
 
 color:$primary-anchorcolor;
 
 }
+
+article{
+position:relative;
+width:100%;
+display:block;        
+}
+
+}
+/*End section#content*/
+
+
+/*Start nav*/
 nav{
 /*background-color: #232323;*/
 position:relative;
@@ -108,14 +120,14 @@ z-index:1000;
 left:10%;
 height:100%;
 width:60%;
-}
 
 
-nav ul{
+
+ ul{
 height:100%;
 }
 
-nav ul li {
+ ul li {
 cursor:pointer;
 display:inline-block;
 
@@ -131,6 +143,44 @@ margin-right: -5px;/*This is to get rid of gaps*/
 
 
 
+ ul li ul{position:absolute;}
+
+ ul li ul a {
+background-color:$primary-backgroundcolor;    
+    }
+
+ ul li ul a:hover {
+transition:background-color 1s ease-out;
+-moz-transition:background-color 1s ease-out;
+-webkit-transition:background-color 1s ease-out;
+-o-transition:background-color 1s ease-out;
+}
+
+ ul li ul.fallback {display:none;}/*For Dropdown*/
+ ul li:hover ul.fallback {display:block;}/*For Dropdown*/
+
+
+
+
+ .logo { /*If a space means next element down the tree*/
+
+position:relative;
+width:65px;
+visibility:visible;
+top:20px;
+ 
+}
+ .mobilelogo { 
+position:relative;
+
+width:25px!important;
+
+}
+
+
+
+}
+/*End nav*/
 
 nav.navmain ul a{
 position:relative;
@@ -158,40 +208,6 @@ transition:background-color 1s ease-out;
 background-color:$primary-hover;
 
 
-
-}
-
-nav ul li ul{position:absolute;}
-
-nav ul li ul a {
-background-color:$primary-backgroundcolor;    
-    }
-
-nav ul li ul a:hover {
-transition:background-color 1s ease-out;
--moz-transition:background-color 1s ease-out;
--webkit-transition:background-color 1s ease-out;
--o-transition:background-color 1s ease-out;
-}
-
-nav ul li ul.fallback {display:none;}/*For Dropdown*/
-nav ul li:hover ul.fallback {display:block;}/*For Dropdown*/
-
-
-
-
-nav .logo { /*If a space means next element down the tree*/
-
-position:relative;
-width:65px;
-visibility:visible;
-top:20px;
- 
-}
-nav .mobilelogo { 
-position:relative;
-
-width:25px!important;
 
 }
 
@@ -238,7 +254,7 @@ width:40%;
 footer{
 background-color: #232323;/*For Sticky Footer*/
 color:$alternative-color;
-position: absolute;
+position: relative;
 left: 0px;
 bottom: -100px;
     height: 100px;/*For Sticky Footer*/
@@ -437,10 +453,7 @@ text-decoration:none;
 .bt-menu.bt-menu-open ul:nth-of-type(2) li {
 	visibility: visible;
 	opacity: 1;
-    /*
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s 0.1s;
-	transition: transform 0.3s, opacity 0.3s;
-*/
+
 }
 
 /* First menu */
@@ -461,52 +474,21 @@ background-color:$primary-backgroundcolor;
 	width: 150px;
 	height: 50px;
 	line-height: 50px;
-    /*
-	-webkit-transform: translate3d(-100%,50%,0);
-	transform: translate3d(-100%,50%,0);
-*/
+
 }
 
 
 
-.bt-menu.bt-menu-open ul:first-of-type li {
-  /*
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-*/
-}
+
 
 /* Second menu */
 .bt-menu ul:nth-of-type(2) li {
 	width: 60px;
 	height: 50px;
 	line-height: 50px;
-    /*
-	-webkit-transform: scale(0);
-	transform: scale(0);
-*/
-}
-/*
-.bt-menu.bt-menu-open ul:nth-of-type(2) li:first-child { 
-	-webkit-transition-delay: 0.1s;
-	transition-delay: 0.1s;
+
 }
 
-.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(2) { 
-	-webkit-transition-delay: 0.2s;
-	transition-delay: 0.2s;
-}
-
-.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(3) { 
-	-webkit-transition-delay: 0.3s;
-	transition-delay: 0.3s;
-}
-
-.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(4) {
-	-webkit-transition-delay: 0.4s;
-	transition-delay: 0.4s;
-}
-*/
 .bt-menu.bt-menu-open ul:nth-of-type(2) li {
 
 }

@@ -111,6 +111,7 @@ body {
   color: #222;
 }
 
+/*Start section#content*/
 /* line 85, ../sass/screen.scss */
 section#content {
   background-color: transparent;
@@ -122,13 +123,20 @@ section#content {
   padding-bottom: 20%;
   padding: 4px;
 }
-
 /* line 98, ../sass/screen.scss */
 section#content a {
   color: #297be2;
 }
+/* line 104, ../sass/screen.scss */
+section#content article {
+  position: relative;
+  width: 100%;
+  display: block;
+}
 
-/* line 103, ../sass/screen.scss */
+/*End section#content*/
+/*Start nav*/
+/* line 115, ../sass/screen.scss */
 nav {
   /*background-color: #232323;*/
   position: relative;
@@ -136,14 +144,14 @@ nav {
   left: 10%;
   height: 100%;
   width: 60%;
+  /*For Dropdown*/
+  /*For Dropdown*/
 }
-
-/* line 114, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 nav ul {
   height: 100%;
 }
-
-/* line 118, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 nav ul li {
   cursor: pointer;
   display: inline-block;
@@ -159,8 +167,45 @@ nav ul li {
   -ms-user-select: none;
   user-select: none;
 }
+/* line 146, ../sass/screen.scss */
+nav ul li ul {
+  position: absolute;
+}
+/* line 148, ../sass/screen.scss */
+nav ul li ul a {
+  background-color: #222;
+}
+/* line 152, ../sass/screen.scss */
+nav ul li ul a:hover {
+  transition: background-color 1s ease-out;
+  -moz-transition: background-color 1s ease-out;
+  -webkit-transition: background-color 1s ease-out;
+  -o-transition: background-color 1s ease-out;
+}
+/* line 159, ../sass/screen.scss */
+nav ul li ul.fallback {
+  display: none;
+}
+/* line 160, ../sass/screen.scss */
+nav ul li:hover ul.fallback {
+  display: block;
+}
+/* line 165, ../sass/screen.scss */
+nav .logo {
+  /*If a space means next element down the tree*/
+  position: relative;
+  width: 65px;
+  visibility: visible;
+  top: 20px;
+}
+/* line 173, ../sass/screen.scss */
+nav .mobilelogo {
+  position: relative;
+  width: 25px !important;
+}
 
-/* line 135, ../sass/screen.scss */
+/*End nav*/
+/* line 185, ../sass/screen.scss */
 nav.navmain ul a {
   position: relative;
   display: inline-block;
@@ -178,7 +223,7 @@ nav.navmain ul a {
   user-select: none;
 }
 
-/* line 152, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 nav.navmain ul a:hover {
   height: 33%;
   transition: background-color 1s ease-out;
@@ -188,52 +233,7 @@ nav.navmain ul a:hover {
   background-color: #3cb200;
 }
 
-/* line 164, ../sass/screen.scss */
-nav ul li ul {
-  position: absolute;
-}
-
-/* line 166, ../sass/screen.scss */
-nav ul li ul a {
-  background-color: #222;
-}
-
-/* line 170, ../sass/screen.scss */
-nav ul li ul a:hover {
-  transition: background-color 1s ease-out;
-  -moz-transition: background-color 1s ease-out;
-  -webkit-transition: background-color 1s ease-out;
-  -o-transition: background-color 1s ease-out;
-}
-
-/* line 177, ../sass/screen.scss */
-nav ul li ul.fallback {
-  display: none;
-}
-
-/*For Dropdown*/
-/* line 178, ../sass/screen.scss */
-nav ul li:hover ul.fallback {
-  display: block;
-}
-
-/*For Dropdown*/
-/* line 183, ../sass/screen.scss */
-nav .logo {
-  /*If a space means next element down the tree*/
-  position: relative;
-  width: 65px;
-  visibility: visible;
-  top: 20px;
-}
-
-/* line 191, ../sass/screen.scss */
-nav .mobilelogo {
-  position: relative;
-  width: 25px !important;
-}
-
-/* line 198, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 nav.navmain ul li.logo a:hover {
   /*Cancels the Navigation animations*/
   background: transparent;
@@ -243,39 +243,39 @@ nav.navmain ul li.logo a:hover {
   transition: none;
 }
 
-/* line 207, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 nav .logo img {
   width: 100%;
 }
 
-/* line 210, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 nav .mobilelogo img {
   margin-top: 20%;
   width: 100%;
 }
 
-/* line 219, ../sass/screen.scss */
+/* line 235, ../sass/screen.scss */
 #Form_Form {
   position: relative;
   width: 40%;
 }
 
-/* line 225, ../sass/screen.scss */
+/* line 241, ../sass/screen.scss */
 #Form_Form input, #Form_Form textarea {
   width: 80%;
 }
 
-/* line 229, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 #Form_Form input#Form_Form_action_submit {
   width: 40%;
 }
 
-/* line 238, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 footer {
   background-color: #232323;
   /*For Sticky Footer*/
   color: #EFEFEF;
-  position: absolute;
+  position: relative;
   left: 0px;
   bottom: -100px;
   height: 100px;
@@ -284,13 +284,13 @@ footer {
   /*For Sticky Footer*/
 }
 
-/* line 248, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
 footer a {
   color: #297be2;
 }
 
 /*All for Dawnmenu Btmenu Mobile Menu*/
-/* line 265, ../sass/screen.scss */
+/* line 281, ../sass/screen.scss */
 .bt-menu {
   position: fixed;
   top: 0;
@@ -306,13 +306,13 @@ footer a {
   transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 }
 
-/* line 282, ../sass/screen.scss */
+/* line 298, ../sass/screen.scss */
 .bt-menu a {
   text-decoration: none;
   font-size: 1em;
 }
 
-/* line 287, ../sass/screen.scss */
+/* line 303, ../sass/screen.scss */
 .bt-menu.bt-menu-open {
   height: 100%;
   border-width: 0px 0px 50px 150px;
@@ -321,18 +321,18 @@ footer a {
   transition: border-width 0.3s, background-color 0.3s;
 }
 
-/* line 295, ../sass/screen.scss */
+/* line 311, ../sass/screen.scss */
 .bt-overlay {
   position: absolute;
   width: 100%;
 }
 
-/* line 300, ../sass/screen.scss */
+/* line 316, ../sass/screen.scss */
 .bt-menu-open .bt-overlay {
   height: 100%;
 }
 
-/* line 304, ../sass/screen.scss */
+/* line 320, ../sass/screen.scss */
 .bt-menu-trigger {
   position: fixed;
   top: 0px;
@@ -344,7 +344,7 @@ footer a {
   cursor: pointer;
 }
 
-/* line 315, ../sass/screen.scss */
+/* line 331, ../sass/screen.scss */
 .bt-menu-trigger span {
   position: absolute;
   top: 50%;
@@ -364,7 +364,7 @@ footer a {
   transition: background-color 0.3s;
 }
 
-/* line 332, ../sass/screen.scss */
+/* line 348, ../sass/screen.scss */
 .bt-menu-trigger span:before,
 .bt-menu-trigger span:after {
   position: absolute;
@@ -377,31 +377,31 @@ footer a {
   transition: transform 0.3s;
 }
 
-/* line 346, ../sass/screen.scss */
+/* line 362, ../sass/screen.scss */
 .bt-menu-trigger span:before {
   -webkit-transform: translateY(-250%);
   transform: translateY(-250%);
 }
 
-/* line 351, ../sass/screen.scss */
+/* line 367, ../sass/screen.scss */
 .bt-menu-trigger span:after {
   -webkit-transform: translateY(250%);
   transform: translateY(250%);
 }
 
-/* line 356, ../sass/screen.scss */
+/* line 372, ../sass/screen.scss */
 .bt-menu-open .bt-menu-trigger span:before {
   -webkit-transform: translateY(-300%);
   transform: translateY(-300%);
 }
 
-/* line 361, ../sass/screen.scss */
+/* line 377, ../sass/screen.scss */
 .bt-menu-open .bt-menu-trigger span:after {
   -webkit-transform: translateY(300%);
   transform: translateY(300%);
 }
 
-/* line 366, ../sass/screen.scss */
+/* line 382, ../sass/screen.scss */
 .bt-menu ul {
   position: fixed;
   margin: 0;
@@ -417,19 +417,19 @@ footer a {
   text-decoration: none;
 }
 
-/* line 381, ../sass/screen.scss */
+/* line 397, ../sass/screen.scss */
 .bt-menu ul:first-of-type {
   top: 75px;
   left: 0;
 }
 
-/* line 386, ../sass/screen.scss */
+/* line 402, ../sass/screen.scss */
 .bt-menu ul:nth-of-type(2) {
   right: 0;
   bottom: 0;
 }
 
-/* line 393, ../sass/screen.scss */
+/* line 409, ../sass/screen.scss */
 .bt-menu ul li {
   display: block;
   outline: none;
@@ -443,20 +443,20 @@ footer a {
   color: #EFEFEF;
 }
 
-/* line 404, ../sass/screen.scss */
+/* line 420, ../sass/screen.scss */
 .bt-menu ul:nth-of-type(2) li {
   float: left;
   font-size: 0px;
 }
 
-/* line 409, ../sass/screen.scss */
+/* line 425, ../sass/screen.scss */
 .bt-menu ul li {
   visibility: hidden;
   opacity: 0;
   /*This controls the scaling animations*/
 }
 
-/* line 417, ../sass/screen.scss */
+/* line 433, ../sass/screen.scss */
 .bt-menu ul li a {
   color: #EFEFEF;
   display: block;
@@ -470,25 +470,21 @@ footer a {
   text-decoration: none;
 }
 
-/* line 429, ../sass/screen.scss */
+/* line 445, ../sass/screen.scss */
 .bt-menu ul li a:hover {
   color: #3cb200;
   font-size: 1.2em;
 }
 
-/* line 436, ../sass/screen.scss */
+/* line 452, ../sass/screen.scss */
 .bt-menu.bt-menu-open ul:first-of-type li,
 .bt-menu.bt-menu-open ul:nth-of-type(2) li {
   visibility: visible;
   opacity: 1;
-    /*
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s 0.1s;
-	transition: transform 0.3s, opacity 0.3s;
-*/
 }
 
 /* First menu */
-/* line 448, ../sass/screen.scss */
+/* line 461, ../sass/screen.scss */
 .bt-menu ul li:hover {
   transition: background-color 1s ease-out;
   -moz-transition: background-color 1s ease-out;
@@ -497,64 +493,27 @@ footer a {
   background-color: #222;
 }
 
-/* line 460, ../sass/screen.scss */
+/* line 473, ../sass/screen.scss */
 .bt-menu ul:first-of-type li {
   width: 150px;
   height: 50px;
   line-height: 50px;
-    /*
-	-webkit-transform: translate3d(-100%,50%,0);
-	transform: translate3d(-100%,50%,0);
-*/
-}
-
-/* line 472, ../sass/screen.scss */
-.bt-menu.bt-menu-open ul:first-of-type li {
-  /*
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-*/
 }
 
 /* Second menu */
-/* line 480, ../sass/screen.scss */
+/* line 485, ../sass/screen.scss */
 .bt-menu ul:nth-of-type(2) li {
   width: 60px;
   height: 50px;
   line-height: 50px;
-    /*
-	-webkit-transform: scale(0);
-	transform: scale(0);
-*/
 }
 
-/*
-.bt-menu.bt-menu-open ul:nth-of-type(2) li:first-child { 
-	-webkit-transition-delay: 0.1s;
-	transition-delay: 0.1s;
-}
-
-.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(2) { 
-	-webkit-transition-delay: 0.2s;
-	transition-delay: 0.2s;
-}
-
-.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(3) { 
-	-webkit-transition-delay: 0.3s;
-	transition-delay: 0.3s;
-}
-
-.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(4) {
-	-webkit-transition-delay: 0.4s;
-	transition-delay: 0.4s;
-}
-*/
-/* line 515, ../sass/screen.scss */
+/* line 497, ../sass/screen.scss */
 .bt-menu ul:first-of-type li a {
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.2);
 }
 
-/* line 529, ../sass/screen.scss */
+/* line 511, ../sass/screen.scss */
 #camera_wrap .caption {
   position: absolute;
   background-color: #222;
@@ -565,25 +524,25 @@ footer a {
 
 /*Fix this later to display none*/
 @media (min-width: 1200px) {
-  /* line 548, ../sass/screen.scss */
+  /* line 530, ../sass/screen.scss */
   section#content {
     position: relative;
     left: 10%;
   }
 
-  /* line 554, ../sass/screen.scss */
+  /* line 536, ../sass/screen.scss */
   nav.bt-menu, nav.bt-menu li.link {
     display: none;
   }
 }
 /* Portrait tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1200px) {
-  /* line 563, ../sass/screen.scss */
+  /* line 545, ../sass/screen.scss */
   nav.bt-menu, nav.bt-menu li.link {
     visibility: visibile;
   }
 
-  /* line 567, ../sass/screen.scss */
+  /* line 549, ../sass/screen.scss */
   section#content {
     position: relative;
     z-index: 400;
@@ -591,58 +550,58 @@ footer a {
     left: 17%;
   }
 
-  /* line 574, ../sass/screen.scss */
+  /* line 556, ../sass/screen.scss */
   nav.navmain {
     visibility: hidden;
   }
 }
 @media (max-width: 992px) {
-  /* line 583, ../sass/screen.scss */
+  /* line 565, ../sass/screen.scss */
   nav.bt-menu, nav.bt-menu li.link {
     visibility: visible;
   }
 
-  /* line 587, ../sass/screen.scss */
+  /* line 569, ../sass/screen.scss */
   section#content {
     position: relative;
     left: 15%;
   }
 
-  /* line 595, ../sass/screen.scss */
+  /* line 577, ../sass/screen.scss */
   nav.navmain {
     visibility: hidden;
   }
 
-  /* line 601, ../sass/screen.scss */
+  /* line 583, ../sass/screen.scss */
   nav.logo a {
     visibility: visible;
   }
 }
 @media (max-width: 500px) {
-  /* line 608, ../sass/screen.scss */
+  /* line 590, ../sass/screen.scss */
   nav.bt-menu, nav.bt-menu li.link {
     visibility: visible;
   }
 
-  /* line 612, ../sass/screen.scss */
+  /* line 594, ../sass/screen.scss */
   section#content {
     left: 5%;
     width: 85%;
     margin-top: 1%;
   }
 
-  /* line 620, ../sass/screen.scss */
+  /* line 602, ../sass/screen.scss */
   nav.navmain {
     left: 30%;
     visibility: hidden;
   }
 
-  /* line 627, ../sass/screen.scss */
+  /* line 609, ../sass/screen.scss */
   nav.logo a {
     visibility: visible;
   }
 
-  /* line 632, ../sass/screen.scss */
+  /* line 614, ../sass/screen.scss */
   #Form_Form {
     position: relative;
     width: 100%;

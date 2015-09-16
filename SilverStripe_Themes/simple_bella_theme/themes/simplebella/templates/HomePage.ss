@@ -13,7 +13,7 @@
 
 <% include GlobalHead %>
 
-
+<% include Slick %>
 
 </head>
 
@@ -30,6 +30,7 @@ $Layout
 <% include Footer %>
 
 </body>
+
 
 
 

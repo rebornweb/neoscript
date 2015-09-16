@@ -6,34 +6,7 @@ Level.Title variable is different page names and  used for breadcrumbs/ if state
 
 --> 
 
-<!--
-<section>
 
-
-<% if Slideshows %>
-
-<ul class="pgwSlider">
- 
- 
- <% loop Slideshows %>
-<li>
-<img src="$Photo.Link" alt="$Name"
-data-description="$Description" data-large-src="$Photo.Link"/>
-</li>
-  
-
-<% end_loop %>
-
-</ul>
-
-<% end_if %>
-
-
-
-
-
-</section>
-</div> End of Parallax Div-->
 
 
 <section id="content">
@@ -64,6 +37,27 @@ $Form
 
 $ContactForm
 $PageComments
+
+</article>
+
+<article>
+<% if Slideshows %>
+
+<div class="fade">
+ 
+ 
+ <% loop Slideshows %>
+<div>
+<img src="$Photo.Link" alt="$Name"/>
+
+</div>
+  
+
+<% end_loop %>
+
+</div>
+
+<% end_if %>
 
 </article>
 
