@@ -21,7 +21,20 @@
 
 
 <% if $Menu(1) %>
-	<div href="#" class="bt-menu-trigger"><span>Menu</span></div>
+	<div href="#" class="bt-menu-trigger">
+	
+	
+
+
+<!--[if IE]>
+<span class='top'></span>
+<![endif]-->
+	<span>Menu</span>
+<!--[if IE]>
+    	<span class='bottom'></span>
+  <![endif]-->
+	
+	</div>
 <ul>
 <li class="mobilelogo"><a title="$SiteConfig.Title" href="/"><img src="$ThemeDir/img/logo.png"/></a></li>
 
