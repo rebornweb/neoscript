@@ -1,13 +1,13 @@
  $(function(){
 
  /**
-  *05/09/15
   *Made by Andrei Nicolas
   *Rebornweb.co.nz still at Beta test
   *Fork if you wish
   * Usage: it needs to be Wrapped in a  div or
        any element with class='wavingwrap'
        and with an anchor inside then content that waves.
+       Truly Thank God
        Matthew 5:16
   *
   */
@@ -63,15 +63,14 @@ for (var i=0; i<str.length; i++) {
   }// End of Mr Loopy
   
 
-    /* if stuffs up put back in Removes the Anchor Text
+    //Removes the Anchor Text
     $(this).find('div').parent().contents().filter(function() {
       return this.nodeType === 3;
-    }).remove();*/
+    }).remove();
    
     
     
  $(".wavingwrap li ").hover( 
-    
     function (){ //On mouseover
 
 //Removes the Anchor Text
@@ -80,7 +79,7 @@ for (var i=0; i<str.length; i++) {
     }).remove();
  
 
-       var anchorage = $(this).find('a');
+      var anchorage = $(this).find('a');
       var  ant = anchorage.text();
       var anchorlength = ant.length;
       var seldiv = $('.wavingwrap a div');
@@ -96,6 +95,7 @@ for (var i=0; i<str.length; i++) {
   for (var e = 0; e < ant.length;  e ++) {
 
 $(this).append('<div class="append" style="display:inline-block;"> '+ ant[e] + '</div>');
+        
         }
      
       });
@@ -103,10 +103,9 @@ $(this).append('<div class="append" style="display:inline-block;"> '+ ant[e] + '
    mrLoopy();
 
   //Wraps and hides the Anchor Text
-$(this).find('div').parent().contents().filter(function() {
+$(this).find('div').parent().contents().filter(function(){
       return this.nodeType === 3;
     }).wrap( "<span style='display:none;'></span>" );
-
 $(this).find('span').css('display','none');
 
 
