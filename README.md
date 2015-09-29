@@ -7,8 +7,8 @@ Who Manages
 #http://Rebornweb.co.nz "Swiftly Building Websites"
 #The Bella Theme is a General SASS/HTML5 Theme to start with 
 
-Working Demo of the simple Bella put in action for a E-commerce website at
-http://bella.rebornweb.co.nz but i changed the header and the navigation on this site.
+Working Demo of the simple Bella put in action for a Fitness website at
+http://fit.rebornweb.co.nz but i changed the header and the navigation on this site.
 
 #What's here is just the 'simple version of the Bella Theme'
 
@@ -17,8 +17,6 @@ I recommend you switch to using a SASS compiler which generates CSS if you haven
 already :)
 
 'I said a 10 Second car, not a 10 Minute Car'
-
-
 
 This Repo Offers Free SilverStripe Themes/Mysite Code For the World to Enjoy There is a Stop Watch 
 and Metronome working for the world to tinker with.
