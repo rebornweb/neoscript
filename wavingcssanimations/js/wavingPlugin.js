@@ -36,6 +36,7 @@ jQuery.fn.waveElement = function(){
 		// console.log(strLength);
 		for (var i = 0; i < string.length; i++) {
 			// console.log(string[i]);
+			//If string does not equal space append div
 			if(string[i] != ' '){
 				newString += '<div style="display:inline-block;"> '+ string[i] + '</div>';
 			}else{
