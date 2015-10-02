@@ -14,6 +14,9 @@
  
  
  //Bug if first anchor isnt the longest will spas out 
+
+jQuery.fn.wavingPlugin = function(){
+    
    var wavingElements = $(".wavingwrap div");
   var strsplit = $('.wavingwrap a').html(); 
  
@@ -23,12 +26,7 @@
       return this.nodeType === 3;
     }).remove();
     
-  
- var TotalLen = wavingAnchors.text().length;
-   var a1len = wavingAnchors.eq(0).text().length;
-    var a2len = wavingAnchors.eq(1).text().length;
-   var a3len = wavingAnchors.eq(2).text().length;
-var a4len = wavingAnchors.eq(3).text().length;
+
 var maxLen = -50; //Max Length Slice
 
 var ahref = $('.wavingwrap a').attr('href');
@@ -64,20 +62,16 @@ for (var i=0; i<str.length; i++) {
   
 
     //Removes the Anchor Text
-    $(this).find('div').parent().contents().filter(function() {
+    function removeText(){ $(this).find('div').parent().contents().filter(function() {
       return this.nodeType === 3;
-    }).remove();
+    }).remove();};
    
-    
+    removeText();
     
  $(".wavingwrap li ").hover( 
     function (){ //On mouseover
 
-//Removes the Anchor Text
-   $(this).find('div').parent().contents().filter(function() {
-      return this.nodeType === 3;
-    }).remove();
- 
+removeText();
 
       var anchorage = $(this).find('a');
       var  ant = anchorage.text();
@@ -123,6 +117,9 @@ $(this).find('span').css('display','block');
 
       $(".wavingwrap a").click(function(){mrLoopy();});
 
-      
+};
+
+//Makes .wavingwrap a have div animation 
+$('.wavingwrap').wavingPlugin();
    
 });//END script
