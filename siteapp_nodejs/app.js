@@ -11,8 +11,9 @@ var users = require('./routes/users');
 var app = express();
 
 
-var express = require('express');
-var app = express();
+//Main router
+var indexRouter = require('./routes/index');
+app.use('/index', indexRouter);
 
 
 
