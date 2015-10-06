@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+<script src="js/jquery-1.11.2.min.js"></script>
+
+<style>
+   
+   div.dreSlider{
+   
+      vertical-align: middle;
+      text-align: center;
+   }
+   
+div.dreSlider img{
+   display:none; 
+width:30%;
+left:40%;
+position:absolute;
+    }    
+  
+    
+</style>
+</head>
+
+<body>
+<div class='dreSlider'>
+    
+    
+    <img src='img/tiger.jpg'/>
+    <img src='img/girls.jpg'/>
+    <img src='img/hotair.jpg'/>
+</div>
+</body>
+
+<script type='text/javascript'>
+$(function(){
+/*
+*jQuery Cycle Plugin for images
+*
+*Andrei Nicolas
+*
+*Visit Fork,Visit if good star at http://github.com/rebornweb/neoscript
+*
+*Visit us at Rebornweb.co.nz
+*/
+
+jQuery.fn.dSlider = function (){
+var dSlider = $('div.dreSlider img');
+var setterInit = {};
+var fadeInspeed = 1500,
+  fadeOutspeed = 1500,
+  shiftingspeed = 1500,
+  initFadeout = 1500,
+  dlen = dSlider.length,
+restartTime = (dlen * shiftingspeed);
+
+for(var i=0 ; i < dlen; i++){
+   
+   //console.log($(this).eq(i).attr('src'));
+
+  (function(i){ 
+     setTimeout(function(){
+     dSlider.eq(i).fadeIn(fadeInspeed);
+ 
+    setTimeout(function(){
+      dSlider.eq(i).fadeOut(fadeOutspeed);
+           },initFadeout);
+      
+    }, i * shiftingspeed);
+
+    }(i));//Funny Loop
+
+  
+}//End for loop
+
+
+  setterInit.restart = function() {
+    return restartTime;
+  }
+
+return setterInit;
+
+};
+
+//This Gets the return restartTime closure Instantiation
+ var restartTime = $('div.dreSlider img').dSlider().restart();
+
+setInterval(function(){
+$('div.dreSlider img').dSlider();
+},restartTime);
+
+});
+</script>
+</html>
