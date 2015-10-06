@@ -1,42 +1,3 @@
-
-<!DOCTYPE html>
-
-<html>
-<head>
-
-
-<script src="js/jquery-1.11.2.min.js"></script>
-
-<style>
-   
-   div.dreCycler{
-   
-      vertical-align: middle;
-      text-align: center;
-   }
-   
-div.dreCycler img{
-   display:none; 
-width:30%;
-left:40%;
-position:absolute;
-    }    
-  
-    
-</style>
-</head>
-
-<body>
-<div class='dreCycler'>
-    
-    
-    <img src='img/tiger.jpg'/>
-    <img src='img/girls.jpg'/>
-    <img src='img/hotair.jpg'/>
-</div>
-</body>
-
-<script type='text/javascript'>
 $(function(){
 /*
 *jQuery Cycle Plugin for images
@@ -101,7 +62,3 @@ $('div.dreSlider img').dSlider();
 },restartTime);
 
 });
-</script>
-<!--script src='js/dreCycler.js'></script-->
-   
-</html>
