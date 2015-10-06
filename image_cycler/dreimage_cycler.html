@@ -93,11 +93,11 @@ return setterInit;
 
 };
 
-//This Gets the return restartTime closure Instantiation
- var restartTime = $('div.dreSlider img').dSlider().restart();
+//This Gets the return restartTime closure Instantiation this was the main selector $(div.dreCycler img)
+ var restartTime = $(this).dSlider().restart();
 
 setInterval(function(){
-$('div.dreSlider img').dSlider();
+$(this).dSlider();
 },restartTime);
 
 });
