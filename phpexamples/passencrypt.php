@@ -1,24 +1,17 @@
 <?php
-$username = 'Admin';
-$password = 'gf45_gdf#4hg';
 
-// A higher "cost" is more secure but consumes more processing power
-$cost = 10;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+/**
+ * Note that the salt here is randomly generated.
+ */
+$options = [
+    'cost' => 11,
+    'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+];
 
-// Create a random salt
-$salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
-
-// Prefix information about the hash so PHP knows how to verify it later.
-// "$2a$" Means we're using the Blowfish algorithm. The following two digits are the cost parameter.
-$salt = sprintf("$2a$%02d$", $cost) . $salt;
-
-// Value:
-// $2a$10$eImiTXuWVxfM37uY4JANjQ==
-
-// Hash the password with the salt
-$hash = crypt($password, $salt);
-
-// Value:
-// $2a$10$eImiTXuWVxfM37uY4JANjOL.oTxqp7WylW7FCzx2Lc7VLmdJIddZq
+$pass = "rasmuslerdorf";
+//Generate Random password hash from password
+echo password_hash($pass, PASSWORD_BCRYPT, $options)."\n";
 
 ?>
