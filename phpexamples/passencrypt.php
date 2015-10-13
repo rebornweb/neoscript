@@ -16,7 +16,7 @@ $pass = 'andrei';
 //Generate Random password hash from password
 $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 
-echo $hash.'this is the hash'.'\n';
+echo $hash.'this is the hash<br>';
 
 if (password_verify('andrei', $hash)) {
     echo 'Password is valid!';
