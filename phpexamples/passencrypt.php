@@ -5,13 +5,26 @@ ini_set('display_errors', 1);
 /**
  * Note that the salt here is randomly generated.
  */
+
+ //The higher the cost the more processing power and higher the hashing
 $options = [
-    'cost' => 11,
+    'cost' => 10,
     'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
 ];
 
-$pass = "rasmuslerdorf";
+$pass = 'andrei';
 //Generate Random password hash from password
-echo password_hash($pass, PASSWORD_BCRYPT, $options)."\n";
+$hash = password_hash($pass, PASSWORD_BCRYPT, $options);
+
+echo $hash.'this is the hash'.'\n';
+
+if (password_verify('andrei', $hash)) {
+    echo 'Password is valid!';
+
+
+} else {
+    echo 'Invalid password.';
+}
+
 
 ?>
