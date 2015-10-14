@@ -1,7 +1,7 @@
 # neoscript
 
 This is A Repo of Andrei Nicolas
-//Check PHP and JavaScript Examples
+//Check Social Media Login BETA, PHP and JavaScript Examples
 
 Who Manages
 #http://Rebornweb.co.nz "Swiftly Building Websites"
