@@ -183,7 +183,11 @@ width:100%;
 
 }
 
-nav.navmain ul a{
+
+/*Start nav.navmain*/
+nav.navmain{
+
+ ul a{
 position:relative;
 display:inline-block;
 text-decoration:none;
@@ -200,7 +204,7 @@ top:-24px;
 
 
 
-nav.navmain ul a:hover{
+ ul a:hover{
 height:33%;
 transition:background-color 1s ease-out;
 -moz-transition:background-color 1s ease-out;
@@ -212,7 +216,7 @@ background-color:$primary-hover;
 
 }
 
-nav.navmain ul li.logo a:hover{
+ ul li.logo a:hover{
 /*Cancels the Navigation animations*/
 background:transparent;
 -moz-transition: none;
@@ -220,6 +224,9 @@ background:transparent;
     -o-transition: color 0 ease-out;
     transition: none;
 } 
+
+}
+/*End nav.navmain*/
 
 nav .logo img {
   width:100%;
@@ -250,12 +257,7 @@ width:40%;
 
 
 
-/*All for Dawnmenu Btmenu Mobile Menu*/
-
-
-
-
-
+/* Btmenu Mobile Menu Start .bt-menu*/
 .bt-menu {
 	position: fixed;
 	top: 0;
@@ -270,15 +272,133 @@ width:40%;
 	
     -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 	transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
-}
 
 
-.bt-menu a{
+
+ a{
 text-decoration:none;
 font-size:1em;
 }
 
-.bt-menu.bt-menu-open {
+ ul {
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+        
+        outline: none;
+	 -webkit-touch-callout: none;
+
+     @include user-select(none); 
+     
+
+text-decoration:none;
+}
+
+ ul:first-of-type {
+	top: 75px;
+	left: 0;
+}
+
+ ul:nth-of-type(2) {
+	right: 0;
+	bottom: 0;
+}
+
+
+
+ ul li {
+	display: block;
+        outline: none;
+	 -webkit-touch-callout: none;
+
+     @include user-select(none); 
+     
+text-decoration:none;
+	color:$alternative-color;
+	}
+
+ ul:nth-of-type(2) li {
+	float: left;
+	font-size: 0px;
+}
+
+ ul li {
+	visibility: hidden;
+	opacity: 0;
+	/*This controls the scaling animations*/
+ 
+}
+
+
+ ul li a {
+	
+   color:$alternative-color;
+    display: block;
+	outline: none;
+    -webkit-touch-callout: none;
+
+        @include user-select(none); 
+            
+	text-decoration: none;
+}
+
+ ul li a:hover {
+	color: $primary-hover;
+	font-size:1.2em;
+}
+
+
+
+/* First menu */
+
+ ul li:hover{
+	transition:background-color 1s ease-out;
+-moz-transition:background-color 1s ease-out;
+-webkit-transition:background-color 1s ease-out;
+-o-transition:background-color 1s ease-out;
+background-color:$primary-backgroundcolor;
+
+
+
+}
+
+
+ ul:first-of-type li {
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+
+}
+
+
+
+
+
+/* Second menu */
+ ul:nth-of-type(2) li {
+	width: 60px;
+	height: 50px;
+	line-height: 50px;
+
+}
+
+.bt-menu-open ul:nth-of-type(2) li {
+
+}
+
+
+ ul:first-of-type li a {
+
+	box-shadow: inset 0 1px rgba(0,0,0,0.2);
+
+}
+
+
+}
+/*End .bt-menu*/
+
+.bt-menu-open {
 	height: 100%;
 	border-width: 0px 0px 50px 150px;
 	background-color: rgba(0,0,0,0.3);
@@ -295,6 +415,7 @@ font-size:1em;
 	height: 100%;
 }
 
+/*Start .bt-menu-trigger*/
 .bt-menu-trigger {
 	position: fixed;
 	top: 0px;
@@ -304,9 +425,9 @@ font-size:1em;
 	width: 50px;
 	height: 50px;
 	cursor: pointer;
-}
 
-.bt-menu-trigger span {
+
+ span {
 	position: absolute;
 	top: 50%;
 	left: 0;
@@ -322,9 +443,8 @@ font-size:1em;
 	-webkit-transition: background-color 0.3s;
 	transition: background-color 0.3s;
 }
-
-.bt-menu-trigger span:before,
-.bt-menu-trigger span:after {
+ span:before,
+ span:after {
 	position: absolute;
 	left: 0;
 	width: 100%;
@@ -337,15 +457,21 @@ font-size:1em;
 
 }
 
-.bt-menu-trigger span:before {
+
+
+ span:before {
 	-webkit-transform: translateY(-250%);
 	transform: translateY(-250%);
 }
 
-.bt-menu-trigger span:after {
+ span:after {
 	-webkit-transform: translateY(250%);
 	transform: translateY(250%);
 }
+
+}
+
+/*END.bt-menu-trigger*/
 
 .bt-menu-open .bt-menu-trigger span:before {
 	-webkit-transform: translateY(-300%);
@@ -357,74 +483,6 @@ font-size:1em;
 	transform: translateY(300%);
 }
 
-.bt-menu ul {
-	position: fixed;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-        
-        outline: none;
-	 -webkit-touch-callout: none;
-
-     @include user-select(none); 
-     
-
-text-decoration:none;
-}
-
-.bt-menu ul:first-of-type {
-	top: 75px;
-	left: 0;
-}
-
-.bt-menu ul:nth-of-type(2) {
-	right: 0;
-	bottom: 0;
-}
-
-
-
-.bt-menu ul li {
-	display: block;
-        outline: none;
-	 -webkit-touch-callout: none;
-
-     @include user-select(none); 
-     
-text-decoration:none;
-	color:$alternative-color;
-	}
-
-.bt-menu ul:nth-of-type(2) li {
-	float: left;
-	font-size: 0px;
-}
-
-.bt-menu ul li {
-	visibility: hidden;
-	opacity: 0;
-	/*This controls the scaling animations*/
- 
-}
-
-
-.bt-menu ul li a {
-	
-   color:$alternative-color;
-    display: block;
-	outline: none;
-    -webkit-touch-callout: none;
-
-        @include user-select(none); 
-            
-	text-decoration: none;
-}
-
-.bt-menu ul li a:hover {
-	color: $primary-hover;
-	font-size:1.2em;
-}
-
 
 
 .bt-menu.bt-menu-open ul:first-of-type li,
@@ -433,55 +491,6 @@ text-decoration:none;
 	opacity: 1;
 
 }
-
-/* First menu */
-
-.bt-menu ul li:hover{
-	transition:background-color 1s ease-out;
--moz-transition:background-color 1s ease-out;
--webkit-transition:background-color 1s ease-out;
--o-transition:background-color 1s ease-out;
-background-color:$primary-backgroundcolor;
-
-
-
-}
-
-
-.bt-menu ul:first-of-type li {
-	width: 150px;
-	height: 50px;
-	line-height: 50px;
-
-}
-
-
-
-
-
-/* Second menu */
-.bt-menu ul:nth-of-type(2) li {
-	width: 60px;
-	height: 50px;
-	line-height: 50px;
-
-}
-
-.bt-menu.bt-menu-open ul:nth-of-type(2) li {
-
-}
-
-
-.bt-menu ul:first-of-type li a {
-
-	box-shadow: inset 0 1px rgba(0,0,0,0.2);
-
-}
-
-
-
-
-
 
 
 
