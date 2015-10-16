@@ -40,23 +40,30 @@ html, body {
 	overflow-x:hidden;
 	font-family:museosans100,arial,sans-serif;
 }
+
+/*Start div.page-wrap*/
 div.page-wrap {
   min-height: 100%;
   /* equal to footer height has to be minus -footerheight*/
     margin-bottom: -$footerHeight; 
-}
-div.page-wrap:after {
+
+:after {
   content: "";
   display: block;
 }
-footer.site-footer, div.page-wrap:after {
+
+}
+/*End div.page-wrap*/
+
+div.page-wrap:after {
   /* .push must be the same height as footer */
     height: $footerHeight; 
 }
 footer.site-footer {
+	@extend div.page-wrap:after;	
   background-color:$primary-backgroundcolor;
   color:$alternative-color;
-  
+  margin-top:10%;
 }
 
 /*Start section#content*/
@@ -69,7 +76,7 @@ width:85%;
 margin-top:7%;
 margin-bottom:10%;
 padding-bottom: 20%;
-padding:4px;
+padding:10% 5%;
 
 
 
@@ -83,7 +90,9 @@ article{
 position:relative;
 width:100%;
 display:block;        
-margin:5% 0%;
+margin:7% 5%;
+padding:10% 5%;
+
 }
 
 }
@@ -567,7 +576,7 @@ visibility:visible;
   
   section#content{
 
-left:5%;
+left:0%;
 width:85%;
 
 }
@@ -591,8 +600,9 @@ width:100%;
 
 }
 
-
-  
+footer.site-footer{
+  margin-top:20%;
+}
 }
 
 
