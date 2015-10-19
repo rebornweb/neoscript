@@ -58,23 +58,21 @@ if($_POST['submit']=='Login')
 	
 	if(!count($err))
 	{
-		//Encrypt two way password here sort this out yummit 
-$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
-$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
-$key = "JehovahJireh";		
-	
+
+	// Escaping all input $_POST data from SQL attacks
 	$username = mysqli_real_escape_string($connection,$_POST['username']);
 	$password = mysqli_real_escape_string($connection,$_POST['loginPassword']);
 	  
+	  //Encrypts the $password
 $encryptPass = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key,$password, MCRYPT_MODE_ECB, $iv);
 			
-							// Escaping all input data
+							
 			$_POST['rememberMe'] = (int)$_POST['rememberMe'];
 	
 	
-			//Decrypted Password
+			
 	
-// Query database to check if there are any matching $_POST users & passwords
+// Query database to check if there are any matching $_POST users & now encrypted password with the db stored pass/users
 $sql= "SELECT id,usr,pass,hash FROM tz_members WHERE usr='".$username."' AND pass='".$encryptPass."'";
 		$result=mysqli_query($connection,$sql);
 
@@ -84,12 +82,9 @@ $sql= "SELECT id,usr,pass,hash FROM tz_members WHERE usr='".$username."' AND pas
 		$row=mysqli_fetch_assoc($result);
 		$num_rows = mysql_num_rows($result);
 		
-
-		//$hashedPasswordFromDB = $row['hash'];
-		
-	//or use if($row['usr'])
-		//if username and password matches as in result succeeds
-	if($row['usr'])
+			
+//if username and password matches as in result succeeds
+	if($row['usr'] && $row['pass'])
 		{
 			// If everything is OK login
 			
@@ -165,24 +160,34 @@ $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 		
 		
 
-	//Encrypt two way password here sort this out yummit 
-$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
-$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
-$key = "JehovahJireh";
+	$encryptPass = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $pass, MCRYPT_MODE_ECB, $iv);
 		
 		
-		
+		/*
 		mysqli_query($connection,"	INSERT INTO tz_members(usr,pass,hash,email,regIP,dt)
 						VALUES(
 						
 							'".$user."',
-							'".mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $pass, MCRYPT_MODE_ECB, $iv)."',
+							'".$encryptPass."',
 							'".$hash."',
 							'".$email."',
 							'".$_SERVER['REMOTE_ADDR']."',
 							NOW()
 							
-						)");
+						)");*/
+		
+		
+		$sql = "	INSERT INTO tz_members(usr,pass,hash,email,regIP,dt)
+						VALUES(
+						
+							'".$user."',
+							'".$encryptPass."',
+							'".$hash."',
+							'".$email."',
+							'".$_SERVER['REMOTE_ADDR']."',
+							NOW()
+							
+						)";
 		
 		if(mysqli_affected_rows($connection))
 		{
@@ -267,11 +272,14 @@ if($_SESSION['msg'])
 	<div class="tab">
 		<ul class="login">
 	        <li>
-				Hello
+				Hello 
 	<?php
 	/*This will echo out the users login name and will echo out guest if
 	   $_SESSION usr isnt set ternary smooth operator*/
-	echo ($_SESSION['usr']) ?  $_SESSION['usr'] : 'Guest' ; ?>!</li>
+	
+	echo ($_SESSION['usr']) ?  '<span id="user">'.$_SESSION['usr'].'</span>' : '<span id="user">Guest</span>' ; ?>!
+			
+			</li>
 
 		
 	
