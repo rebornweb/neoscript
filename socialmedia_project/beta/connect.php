@@ -5,10 +5,16 @@ if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file dire
 // Database config 
 
 $db_host		= 'localhost';
-$db_user		= '###';
-$db_pass		= '###';
-$db_database	= '###'; 
+$db_user		= 'mysqluser';
+$db_pass		= '#####';
+$db_database	= '#####'; 
 
+
+		//Encrypt two way password here sort this out yummit 
+$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
+$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+$key = "ASECRETKEY";		
+	
 
 
 $connection = mysqli_connect($db_host,$db_user,$db_pass,$db_database);
@@ -23,10 +29,8 @@ if (mysqli_connect_errno())
 
 
 
- //mysqli_query($connection,'CREATE TEMPORARY TABLE `table`') or die('Unable to establish a DB connection');
+;
 
 mysqli_select_db($connection,$db_database);
-//mysql_query("SET names UTF8");
-//mysqli_close($connection);
 
 ?>
