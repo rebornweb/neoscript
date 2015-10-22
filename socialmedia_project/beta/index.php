@@ -188,6 +188,17 @@ $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 							NOW()
 							
 						)";
+
+
+
+if ($connection->query($sql) === TRUE) {
+    echo "sql worked";
+} else {
+ 
+    echo "Error: " . $sql . "<br>" . $connection->error;
+
+
+}
 		
 		if(mysqli_affected_rows($connection))
 		{
@@ -359,7 +370,7 @@ if($_SESSION['msg'])
             <h1>Members panel</h1>
             
             <p>You can put member-only data here</p>
-            <a href="registered.php">View a special member page</a>
+            <a href="registered.php">Home<a>
             <p>- or -</p>
             <a href="?logoff">Log off</a>
             
@@ -376,6 +387,100 @@ if($_SESSION['msg'])
 	</article>
 	 <!-- /login -->	
 
+<article>
+	<?php
+	//Member comments
+	
+			//Leave a Comment
+	if($_POST['submit']=='Comment')
+     {
+	  //Comment form is submitted
+	  
+	
+	  
+	  
+	  $err = array();
+	
+		
+	  if(!count($err))
+	{
+		//Error testing Started
+		
+
+
+	$precomment = mysqli_real_escape_string($connection,$_POST['comment']);
+   
+    mysqli_real_escape_string($connection,$_POST['comment']);
+    $likes = mysqli_real_escape_string($connection,$_POST['likes']);
+	$dislikes =  mysqli_real_escape_string($connection,$_POST['dislikes']);
+		
+	$comment = strip_tags($precomment);
+   
+   $userCom = $_SESSION['usr'];
+	$timestamp = mysqli_real_escape_string($connection,$_POST['timestamp']);           // March 10, 5:16 pm
+
+    $sqlcom = "	INSERT INTO comments(usr,comment,time,likes,dislikes)
+						VALUES(
+							'".$userCom."',
+							'".$comment."',
+							'".$timestamp."',
+							'".$likes."',
+							'".$dislikes."'
+						
+							
+							
+						)";
+ 
+ 
+
+if ($connection->query($sqlcom) === TRUE) {
+    echo "Comment Updated";
+} else {
+ 
+    echo "Error: " . $sqlcom . "<br>" . $connection->error;
+
+
+}
+
+
+  
+	
+$sqlquery= "SELECT usr,comment FROM comments WHERE usr='".$userCom."'";
+	
+	
+		if ($result2 = mysqli_query($connection, $sqlquery)) {
+
+    // fetch associative array 
+    while ($row2 = mysqli_fetch_assoc($result2)) {
+        echo ('User:'.$row2['usr'].'<br><div class="comment">Said:'.$row2["comment"].'</div><br>');
+    
+	}
+	
+	}
+	
+}//Error testing finished
+
+
+	
+}//Comment Form finished	
+	?>
+	
+	
+	
+</article>
+
+
+
+    <form action="" method="post">
+			
+			<label class="grey" for="comment">Comment:</label>
+	        <textarea name="comment" id="comment" cols='20' rows='5'  value="Leave a Line" ></textarea>
+        	<div class="clear"></div>
+			<input name="timestamp" id="timestamp" type="text" value="<?php echo  date("F j,g:i a"); ?>" style='display:none'/>
+			
+			<input type="submit" name="submit" value="Comment" class="bt_login" />
+		</form>
+	
 
 	
 </section> <!--panel -->

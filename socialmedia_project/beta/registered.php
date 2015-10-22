@@ -27,8 +27,10 @@ error_reporting(E_ALL);
 </head>
 
 <body>
+<!-- Panel -->
 
-<?php 'includes/navigation.php'; ?>
+
+<?php include 'includes/navigation.php'; ?>
 
 <section class='content'>
 
@@ -57,7 +59,7 @@ error_reporting(E_ALL);
 		
 	  if(!count($err))
 	{
-		// If there are no errors
+		//Error testing Started
 		
 
 	$precomment = mysqli_real_escape_string($connection,$_POST['comment']);
@@ -68,11 +70,12 @@ error_reporting(E_ALL);
 		
 	$comment = strip_tags($precomment);
    
+   $user = $_SESSION['usr'];
 	$timestamp = mysqli_real_escape_string($connection,$_POST['timestamp']);           // March 10, 5:16 pm
 
-$sql = "	INSERT INTO comments(comment,time,likes,dislikes)
+    $sql = "	INSERT INTO comments(usr,comment,time,likes,dislikes)
 						VALUES(
-						
+							'".$user."',
 							'".$comment."',
 							'".$timestamp."',
 							'".$likes."',
@@ -81,31 +84,68 @@ $sql = "	INSERT INTO comments(comment,time,likes,dislikes)
 							
 							
 						)";
-  
+ 
+
 if ($connection->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "Comment Updated";
 } else {
+ 
     echo "Error: " . $sql . "<br>" . $connection->error;
+
+
 }
+ 
   
   
+	  //Error testing Finished
 	 }else{ $err[]='There is comment form error';}
 	
 	
-	 }
+	 
+	 
+	 
+	 
+	 
+	 //End Comment Form Submitted
+	 }else {echo "Logged in";} 
 	
 	
 	
+	
+	
+	
+	
+	//End Login Form Submitted otherwise Register and Login
 	}else{ echo '<h1>Please, <a href="index.php">login</a> and come back later!</h1>';}
     
+
+
+	
 
 	
 	
 	?>
+	
+	<?php
+//$query = "SELECT comment,time,likes,dislikes FROM comments ORDER by ID DESC LIMIT 50,5";
+	
+  
+  $query ="SELECT usr,comment,time,likes,dislikes FROM comments";
+	if ($result = mysqli_query($connection, $query)) {
+
+    /* fetch associative array */
+    while ($row = mysqli_fetch_assoc($result)) {
+       echo ('User:'.$row['usr'].'<br><div class="comment">Said:'.$row["comment"].'</div><br>');
+    
+	}
+	
+	}
+?>
+	
     <form action="" method="post">
 			
 			<label class="grey" for="comment">Comment:</label>
-	        <label><input name="comment" id="comment" type="textarea" value="Leave a Line" />
+	        <textarea name="comment" id="comment" cols='20' rows='5'  value="Leave a Line" ></textarea>
         	<div class="clear"></div>
 			<input name="timestamp" id="timestamp" type="text" value="<?php echo  date("F j,g:i a"); ?>" style='display:none'/>
 			
