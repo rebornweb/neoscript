@@ -29,7 +29,7 @@ if (mysqli_connect_errno())
 
 
 
-;
+
 
 mysqli_select_db($connection,$db_database);
 
