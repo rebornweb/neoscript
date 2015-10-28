@@ -445,19 +445,7 @@ if ($connection->query($sqlcom) === TRUE) {
 
   
 	
-$sqlquery= "SELECT usr,comment FROM comments WHERE usr='".$userCom."'";
-	
-	
-		if ($result2 = mysqli_query($connection, $sqlquery)) {
 
-    // fetch associative array 
-    while ($row2 = mysqli_fetch_assoc($result2)) {
-        echo ('User:'.$row2['usr'].'<br><div class="comment">Said:'.$row2["comment"].'</div><br>');
-    
-	}
-	
-	}
-	
 }//Error testing finished
 
 
@@ -469,7 +457,23 @@ $sqlquery= "SELECT usr,comment FROM comments WHERE usr='".$userCom."'";
 	
 </article>
 
+<?php
 
+$sqlquery= "SELECT usr,comment FROM comments WHERE usr='".$userCom."'";
+	
+	
+		if ($result2 = mysqli_query($connection, $sqlquery)) {
+
+    // fetch associative array 
+    while ($row2 = mysqli_fetch_assoc($result2)) {
+        echo ('User:'.$row2['usr'].'<br><div class="comment">Said:'.$row2["comment"].'</div><br>');
+    
+	}
+	
+}
+	
+
+?>
 
     <form action="" method="post">
 			
