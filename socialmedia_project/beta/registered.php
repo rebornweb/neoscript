@@ -140,10 +140,10 @@ if ($connection->query($sql) === TRUE) {
 	}
 ?>
 	
-    <form action="" method="post">
+    <form name="commentForm"  action="" method="post" onsubmit="return checkForm(this);">
 			
 			<label class="grey" for="comment">Comment:</label>
-	        <textarea name="comment" id="comment" cols='20' rows='5'  value="Leave a Line" ></textarea>
+	        <textarea name="comment" class="comment" cols='20' rows='5'  value="Leave a Line" ></textarea>
         	<div class="clear"></div>
 			<input name="timestamp" id="timestamp" type="text" value="<?php echo  date("F j,g:i a"); ?>" style='display:none'/>
 			
