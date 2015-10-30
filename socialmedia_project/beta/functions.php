@@ -2,6 +2,8 @@
 
 if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
 
+class socialMedia{
+
 function checkEmail($str)
 {
 	return preg_match("/^[\.A-z0-9_\-\+]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{1,4}$/", $str);
@@ -20,4 +22,22 @@ function send_mail($from,$to,$subject,$body)
 
 	mail($to,$subject,$body,$headers);
 }
+
+}//End Class
+
+$func = new socialMedia();
+
+    /*Public class
+        if (is_a($me, 'Person')) {
+          echo "I'm a person, ";
+        }
+        //Constructor
+        if (property_exists($me, 'name')) {
+          echo "I have a name, ";
+        }
+        //Public Function
+        if (method_exists($me, 'dance')) {
+          echo "and I know how to dance!";
+                echo $me->dance();
+        }*/
 ?>

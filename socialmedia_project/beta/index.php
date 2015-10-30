@@ -125,7 +125,10 @@ else if($_POST['submit']=='Register')
 		$err[]='Your username contains invalid characters!';
 	}
 	
-	if(!checkEmail($_POST['email']))
+	  
+	//Check functions.php for Class Instance
+	if(method_exists($func, 'checkEmail') && !($func->checkEmail()))
+	   //if(!checkEmail($_POST['email']))
 	{
 		$err[]='Your email is not valid!';
 	}
@@ -163,28 +166,17 @@ $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 	$encryptPass = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $pass, MCRYPT_MODE_ECB, $iv);
 		
 		
-		/*
-		mysqli_query($connection,"	INSERT INTO tz_members(usr,pass,hash,email,regIP,dt)
-						VALUES(
-						
-							'".$user."',
-							'".$encryptPass."',
-							'".$hash."',
-							'".$email."',
-							'".$_SERVER['REMOTE_ADDR']."',
-							NOW()
-							
-						)");*/
+	$regIp =  $_SERVER['REMOTE_ADDR'];
 		
 		
 		$sql = "	INSERT INTO tz_members(usr,pass,hash,email,regIP,dt)
 						VALUES(
 						
-							'".$user."',
-							'".$encryptPass."',
-							'".$hash."',
-							'".$email."',
-							'".$_SERVER['REMOTE_ADDR']."',
+							'{$user}',
+							'{$encryptPass}',
+							'{$hash}',
+							'{$email}',
+							'{$regIp}',
 							NOW()
 							
 						)";
@@ -200,8 +192,9 @@ if ($connection->query($sql) === TRUE) {
 
 }
 		
-		if(mysqli_affected_rows($connection))
+		if(mysqli_affected_rows($connection) && method_exists($func, 'send_mail'))
 		{
+				
 			send_mail(	'demo-test@tutorialzine.com',
 						$_POST['email'],
 						'Registration System Demo - Your New Password',
@@ -387,106 +380,8 @@ if($_SESSION['msg'])
 	</article>
 	 <!-- /login -->	
 
-<article>
-	<?php
-	//Member comments
-	
-			//Leave a Comment
-	if($_POST['submit']=='Comment')
-     {
-	  //Comment form is submitted
-	  
-	
-	  
-	  
-	  $err = array();
-	
-		
-	  if(!count($err))
-	{
-		//Error testing Started
-		
+<?php include 'includes/profile.php'; ?>
 
-
-	$precomment = mysqli_real_escape_string($connection,$_POST['comment']);
-   
-    mysqli_real_escape_string($connection,$_POST['comment']);
-    $likes = mysqli_real_escape_string($connection,$_POST['likes']);
-	$dislikes =  mysqli_real_escape_string($connection,$_POST['dislikes']);
-		
-	$comment = strip_tags($precomment);
-   
-   $userCom = $_SESSION['usr'];
-	$timestamp = mysqli_real_escape_string($connection,$_POST['timestamp']);           // March 10, 5:16 pm
-
-    $sqlcom = "	INSERT INTO comments(usr,comment,time,likes,dislikes)
-						VALUES(
-							'".$userCom."',
-							'".$comment."',
-							'".$timestamp."',
-							'".$likes."',
-							'".$dislikes."'
-						
-							
-							
-						)";
- 
- 
-
-if ($connection->query($sqlcom) === TRUE) {
-    echo "Comment Updated";
-} else {
- 
-    echo "Error: " . $sqlcom . "<br>" . $connection->error;
-
-
-}
-
-
-  
-	
-
-}//Error testing finished
-
-
-	
-}//Comment Form finished	
-	?>
-	
-	
-	
-</article>
-
-<?php
-
-$sqlquery= "SELECT usr,comment FROM comments WHERE usr='".$userCom."'";
-	
-	
-		if ($result2 = mysqli_query($connection, $sqlquery)) {
-
-    // fetch associative array 
-    while ($row2 = mysqli_fetch_assoc($result2)) {
-        echo ('User:'.$row2['usr'].'<br><div class="comment">Said:'.$row2["comment"].'</div><br>');
-    
-	}
-	
-}
-	
-
-?>
-
-    <form action="" method="post">
-			
-			<label class="grey" for="comment">Comment:</label>
-	        <textarea name="comment" id="comment" cols='20' rows='5'  value="Leave a Line" ></textarea>
-        	<div class="clear"></div>
-			<input name="timestamp" id="timestamp" type="text" value="<?php echo  date("F j,g:i a"); ?>" style='display:none'/>
-			
-			<input type="submit" name="submit" value="Comment" class="bt_login" />
-		</form>
-	
-
-	
 </section> <!--panel -->
 
 <?php include 'includes/footer.php'; ?>
