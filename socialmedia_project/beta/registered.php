@@ -127,10 +127,8 @@ if ($connection->query($sql) === TRUE) {
 	?>
 	
 	<?php
-//$query = "SELECT comment,time,likes,dislikes FROM comments ORDER by ID DESC LIMIT 50,5";
-	
-  
-  $query ="SELECT usr,comment,time,likes,dislikes FROM comments";
+// Show all Comments Order By Time
+  $query ="SELECT usr,comment,time,likes,dislikes FROM comments ORDER BY  ABS(DATEDIFF(NOW(), `time`))";
 	if ($result = mysqli_query($connection, $query)) {
 
     /* fetch associative array */
