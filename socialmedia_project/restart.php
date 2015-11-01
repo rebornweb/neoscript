@@ -59,29 +59,15 @@ error_reporting(E_ALL);
 	{
 		//Error testing Started
 		
+		
+		if(method_exists($func,'restartPassword')){
+			
+		echo $func->restartPassword();	
+			
+	  }
 
       
-$email = mysqli_real_escape_string($mysqli,$_POST['email']);
-	
-	
-	
-$query = "SELECT * FROM tz_members WHERE email='".$email."'";
-   
-   
 
- 
-
-	if ($result = mysqli_query($mysqli, $query)) {
-
-    /* Decrypt Password*/
-    while ($row = mysqli_fetch_assoc($result)) {
-	  $pass_decrypt = mcrypt_decrypt(MCRYPT_RIJNDAEL_256,$key,$row["pass"], MCRYPT_MODE_ECB, $iv);
-       echo ('Email:'.$row['email'].'<br><div>Password:'.$pass_decrypt.'</div><div>Password Encrypted:'.$row["pass"].'</div><br>');
-    
-	}
-	
-	}
- 
   
   
 	  //Error testing Finished
