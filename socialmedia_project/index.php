@@ -195,9 +195,9 @@ if ($mysqli->query($sql) === TRUE) {
 		if(mysqli_affected_rows($mysqli) && method_exists($func, 'send_mail'))
 		{
 				
-			send_mail(	'demo-test@tutorialzine.com',
+			send_mail(	'andrei@rebornweb.co.nz',
 						$_POST['email'],
-						'Registration System Demo - Your New Password',
+						'Your New Password',
 						'Your password is: '.$pass);
 
 			$_SESSION['msg']['reg-success']='We sent you an email with your new password!';
@@ -218,26 +218,7 @@ if ($mysqli->query($sql) === TRUE) {
 	exit;
 }
 
-$script = '';
 
-if($_SESSION['msg'])
-{
-
-
-	// The script below shows the sliding panel on page load
-	
-	$script = '
-	<script type="text/javascript">
-	
-		$(function(){
-		
-			$("div#panel").show();
-			$("#toggle a").toggle();
-		});
-	
-	</script>';
-	
-}
 ?>
 
 
