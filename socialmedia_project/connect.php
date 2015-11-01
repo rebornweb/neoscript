@@ -5,19 +5,20 @@ if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file dire
 // Database config 
 
 $db_host		= 'localhost';
-$db_user		= 'mysqluser';
-$db_pass		= '#####';
-$db_database	= '#####'; 
+$db_user		= 'rootoruser';
+$db_pass		= 'password';
+$db_database	= 'DatabaseName'; 
 
 
-		//Encrypt two way password here sort this out yummit 
+		//Encrypt two way password 
 $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
 $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
-$key = "ASECRETKEY";		
+$key = "ThisisSecret007";		
 	
 
+$mysqli = new mysqli($db_host,$db_user,$db_pass,$db_database);
 
-$connection = mysqli_connect($db_host,$db_user,$db_pass,$db_database);
+
 
 /* End config */
 
@@ -29,8 +30,10 @@ if (mysqli_connect_errno())
 
 
 
-
+ 
 
 mysqli_select_db($connection,$db_database);
+
+//mysqli_close($connection);
 
 ?>

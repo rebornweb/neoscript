@@ -60,8 +60,8 @@ if($_POST['submit']=='Login')
 	{
 
 	// Escaping all input $_POST data from SQL attacks
-	$username = mysqli_real_escape_string($connection,$_POST['username']);
-	$password = mysqli_real_escape_string($connection,$_POST['loginPassword']);
+	$username = mysqli_real_escape_string($mysqli,$_POST['username']);
+	$password = mysqli_real_escape_string($mysqli,$_POST['loginPassword']);
 	  
 	  //Encrypts the $password
 $encryptPass = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key,$password, MCRYPT_MODE_ECB, $iv);
@@ -74,7 +74,7 @@ $encryptPass = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key,$password, MCRYPT_MODE_E
 	
 // Query database to check if there are any matching $_POST users & now encrypted password with the db stored pass/users
 $sql= "SELECT id,usr,pass,hash FROM tz_members WHERE usr='".$username."' AND pass='".$encryptPass."'";
-		$result=mysqli_query($connection,$sql);
+		$result=mysqli_query($mysqli,$sql);
 
 		//If stuffs up put back before sql
 	
@@ -157,8 +157,8 @@ $options = [
 $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 
 		
-		$email = mysqli_real_escape_string($connection,$_POST['email']);
-		$user = mysqli_real_escape_string($connection,$_POST['username']);
+		$email = mysqli_real_escape_string($mysqli,$_POST['email']);
+		$user = mysqli_real_escape_string($mysqli,$_POST['username']);
 		// Escape the input data
 		
 		
@@ -183,16 +183,16 @@ $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 
 
 
-if ($connection->query($sql) === TRUE) {
+if ($mysqli->query($sql) === TRUE) {
     echo "sql worked";
 } else {
  
-    echo "Error: " . $sql . "<br>" . $connection->error;
+    echo "Error: " . $sql . "<br>" . $mysqli->error;
 
 
 }
 		
-		if(mysqli_affected_rows($connection) && method_exists($func, 'send_mail'))
+		if(mysqli_affected_rows($mysqli) && method_exists($func, 'send_mail'))
 		{
 				
 			send_mail(	'demo-test@tutorialzine.com',
