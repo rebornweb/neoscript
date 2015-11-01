@@ -42,15 +42,12 @@ error_reporting(E_ALL);
     <h2> Password Restart Page</h2>
 	<p>Enter in email to restart password</p>
     <?php
-	//if($_SESSION['id']){
-	//If Logged In 
 	
-	//echo '<h1>Hello, '.'<span id="user">'.$_SESSION['usr'].'</span>'.'! You are registered and logged in!</h1>';
 	
 		//Leave a Comment
 	if($_POST['submit']=='Restart')
      {
-	  //Comment form is submitted
+	  //Restart form is submitted
 	  
 	
 	  
