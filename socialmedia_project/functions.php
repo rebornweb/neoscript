@@ -90,6 +90,35 @@ while ($row = mysqli_fetch_assoc($result)) {
 
  }//End commentsHome
  
+ 
+ public function restartPassword(){
+	require 'connect.php';
+	
+	$email = mysqli_real_escape_string($mysqli,$_POST['email']);
+	
+	
+	
+$query = "SELECT * FROM tz_members WHERE email='".$email."'";
+   
+   
+
+ 
+
+	if ($result = mysqli_query($mysqli, $query)) {
+
+    /* Decrypt Password*/
+    while ($row = mysqli_fetch_assoc($result)) {
+	  $pass_decrypt = mcrypt_decrypt(MCRYPT_RIJNDAEL_256,$key,$row["pass"], MCRYPT_MODE_ECB, $iv);
+       echo ('Email:'.$row['email'].'<br><div>Password:'.$pass_decrypt.'</div><div>Password Encrypted:'.$row["pass"].'</div><br>');
+    
+	}
+	
+	}
+ 
+	
+	} //End restartPassword
+ 
+ 
 }//End Class
 
 $func = new socialMedia();
