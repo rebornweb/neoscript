@@ -40,11 +40,12 @@ error_reporting(E_ALL);
     <div class="container">
       <h1>Registered Users Only!</h1>
     <h2> Password Restart Page</h2>
+	<p>Enter in email to restart password</p>
     <?php
-	if($_SESSION['id']){
+	//if($_SESSION['id']){
 	//If Logged In 
 	
-	echo '<h1>Hello, '.'<span id="user">'.$_SESSION['usr'].'</span>'.'! You are registered and logged in!</h1>';
+	//echo '<h1>Hello, '.'<span id="user">'.$_SESSION['usr'].'</span>'.'! You are registered and logged in!</h1>';
 	
 		//Leave a Comment
 	if($_POST['submit']=='Restart')
@@ -78,7 +79,7 @@ $query = "SELECT * FROM tz_members WHERE email='".$email."'";
     /* Decrypt Password*/
     while ($row = mysqli_fetch_assoc($result)) {
 	  $pass_decrypt = mcrypt_decrypt(MCRYPT_RIJNDAEL_256,$key,$row["pass"], MCRYPT_MODE_ECB, $iv);
-       echo ('Email:'.$row['email'].'<br><div>Password:'.$pass_decrypt.'</div><br>');
+       echo ('Email:'.$row['email'].'<br><div>Password:'.$pass_decrypt.'</div><div>Password Encrypted:'.$row["pass"].'</div><br>');
     
 	}
 	
@@ -96,7 +97,7 @@ $query = "SELECT * FROM tz_members WHERE email='".$email."'";
 	 
 	 
 	 //End Comment Form Submitted
-	 }else {echo "Logged in";} 
+	 }
 	
 	
 	
@@ -105,7 +106,7 @@ $query = "SELECT * FROM tz_members WHERE email='".$email."'";
 	
 	
 	//End Login Form Submitted otherwise Register and Login
-	}else{ echo '<h1>Please, <a href="index.php">login</a> and come back later!</h1>';}
+	//}else{ echo '<h1>Please, <a href="index.php">login</a> and come back later!</h1>';}
     
 
 
@@ -115,25 +116,10 @@ $query = "SELECT * FROM tz_members WHERE email='".$email."'";
 	
 	?>
 	
-	<?php
-//$query = "SELECT comment,time,likes,dislikes FROM comments ORDER by ID DESC LIMIT 50,5";
-	
-  
-  $query ="SELECT usr,comment,time,likes,dislikes FROM comments";
-	if ($result = mysqli_query($connection, $query)) {
 
-    /* fetch associative array */
-    while ($row = mysqli_fetch_assoc($result)) {
-       echo ('User:'.$row['usr'].'<br><div class="comment">Said:'.$row["comment"].'</div><br>');
-    
-	}
-	
-	}
-?>
-	
     <form action="" method="post">
 			
-			<label class="grey" for="Email">Email:</label>
+			<label class="grey" for="Email"> Email:</label>
 	       
 			
 			<input type="text" name="email" value="email" />

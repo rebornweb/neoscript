@@ -62,16 +62,16 @@ error_reporting(E_ALL);
 		//Error testing Started
 		
 
-	$precomment = mysqli_real_escape_string($connection,$_POST['comment']);
+	$precomment = mysqli_real_escape_string($mysqli,$_POST['comment']);
    
-    mysqli_real_escape_string($connection,$_POST['comment']);
-    $likes = mysqli_real_escape_string($connection,$_POST['likes']);
-	$dislikes =  mysqli_real_escape_string($connection,$_POST['dislikes']);
+    mysqli_real_escape_string($mysqli,$_POST['comment']);
+    $likes = mysqli_real_escape_string($mysqli,$_POST['likes']);
+	$dislikes =  mysqli_real_escape_string($mysqli,$_POST['dislikes']);
 		
 	$comment = strip_tags($precomment);
    
    $user = $_SESSION['usr'];
-	$timestamp = mysqli_real_escape_string($connection,$_POST['timestamp']);           // March 10, 5:16 pm
+	$timestamp = mysqli_real_escape_string($mysqli,$_POST['timestamp']);           // March 10, 5:16 pm
 
     $sql = "	INSERT INTO comments(usr,comment,time,likes,dislikes)
 						VALUES(
@@ -86,11 +86,11 @@ error_reporting(E_ALL);
 						)";
  
 
-if ($connection->query($sql) === TRUE) {
+if ($mysqli->query($sql) === TRUE) {
     echo "Comment Updated";
 } else {
  
-    echo "Error: " . $sql . "<br>" . $connection->error;
+    echo "Error: " . $sql . "<br>" . $mysqli->error;
 
 
 }
@@ -128,16 +128,15 @@ if ($connection->query($sql) === TRUE) {
 	
 	<?php
 // Show all Comments Order By Time
-  $query ="SELECT usr,comment,time,likes,dislikes FROM comments ORDER BY  ABS(DATEDIFF(NOW(), `time`))";
-	if ($result = mysqli_query($connection, $query)) {
 
-    /* fetch associative array */
-    while ($row = mysqli_fetch_assoc($result)) {
-       echo ('User:'.$row['usr'].'<br><div class="comment">Said:'.$row["comment"].'</div><br>');
-    
-	}
+	if(method_exists($func, 'commentsHome')){
+
 	
-	}
+//This Echos out the commentsin Profile OOP
+ echo $func->commentsHome();
+
+
+		}	
 ?>
 	
     <form name="commentForm"  action="" method="post" onsubmit="return checkForm(this);">
