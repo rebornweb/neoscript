@@ -64,7 +64,7 @@ error_reporting(E_ALL);
 		
 
       
-$email = mysqli_real_escape_string($connection,$_POST['email']);
+$email = mysqli_real_escape_string($mysqli,$_POST['email']);
 	
 	
 	
@@ -74,7 +74,7 @@ $query = "SELECT * FROM tz_members WHERE email='".$email."'";
 
  
 
-	if ($result = mysqli_query($connection, $query)) {
+	if ($result = mysqli_query($mysqli, $query)) {
 
     /* Decrypt Password*/
     while ($row = mysqli_fetch_assoc($result)) {
@@ -105,9 +105,6 @@ $query = "SELECT * FROM tz_members WHERE email='".$email."'";
 	
 	
 	
-	//End Login Form Submitted otherwise Register and Login
-	//}else{ echo '<h1>Please, <a href="index.php">login</a> and come back later!</h1>';}
-    
 
 
 	
