@@ -6,8 +6,13 @@ if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file dire
 class socialMedia{
 
 
+	
+
+
+
 public function checkEmail($str)
 {
+	
 	return preg_match("/^[\.A-z0-9_\-\+]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{1,4}$/", $str);
 }
 
@@ -25,6 +30,27 @@ public function send_mail($from,$to,$subject,$body)
 	mail($to,$subject,$body,$headers);
 }
 
+
+public function profilePic(){
+require 'connect.php';
+ $userCom = $_SESSION['usr'];
+$image = addslashes(file_get_contents($_FILES['image']['tmp_name'])); 
+	
+$sqlProfile = "SELECT * FROM profile WHERE usr='{$userCom}' ORDER BY  ABS(DATEDIFF(NOW(), `dt`)) LIMIT 1 ";
+	
+$resultProfile = mysqli_query($mysqli, $sqlProfile);
+
+while( $row = mysqli_fetch_assoc( $resultProfile ))
+{
+$imageBase = "uploads/";
+$image = $row['file'];
+
+ 
+echo   '<div class="profilePic"><img src="'.$imageBase.$image.'" width="200"/></div>';
+      
+ }
+	
+}
 
  
  public function commentsProfile(){
@@ -46,7 +72,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 	
 	}else if ($mysqli->query($sqlquery) === TRUE) {
     echo "sql worked";
-} else {
+	} else {
  
     echo "Error: " . $sqlquery . "<br>" . $mysqli->error;
 
@@ -63,17 +89,53 @@ require 'connect.php';
 		
 	$userCom = $_SESSION['usr'];
 
-	  $query ="SELECT usr,comment,time,likes,dislikes FROM comments ORDER BY  ABS(DATEDIFF(NOW(), `time`))";
-
-	// $mysqli = new mysqli();
-
+	  $query ="SELECT usr,comment,time,likes,dislikes,file,type,size FROM comments ORDER BY  ABS(DATEDIFF(NOW(), `time`))";
 
 
 if ($result = mysqli_query($mysqli, $query)) {
 	
 while ($row = mysqli_fetch_assoc($result)) {
 		$timestamp = $row["time"];
+    $imageBase = "uploads/";
+$image = $row['file'];
+
+ 
+echo   '<div class="profilePic"><img src="'.$imageBase.$image.'" width="200"/></div><br>';
+	    echo ('User:'.$row['usr'].'<br><div class="comment">Said:'.$row["comment"].'</div><div class="timestamp">'.$timestamp.'</div><br>');
+    
+	}
+	
+	}else if ($mysqli->query($query) === TRUE) {
+    echo "sql worked";
+} else {
+ 
+    echo "Error: " . $query . "<br>" . $mysqli->error;
+
+
+}
+	
+
+
+ }//End commentsHome
+ 
+ 
+   public function commentsPic(){
+require 'connect.php';
+		
+	$userCom = $_SESSION['usr'];
+
+	  $query ="SELECT * FROM comments ORDER BY  ABS(DATEDIFF(NOW(), `time`))";
+
+
+if ($result = mysqli_query($mysqli, $query)) {
+	
+while ($row = mysqli_fetch_assoc($result)) {
+		$timestamp = $row["time"];
+
+      
         echo ('User:'.$row['usr'].'<br><div class="comment">Said:'.$row["comment"].'</div><div class="timestamp">'.$timestamp.'</div><br>');
+
+
     
 	}
 	
@@ -98,7 +160,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 	
 	
 	
-$query = "SELECT * FROM tz_members WHERE email='".$email."'";
+$query = "SELECT * FROM tz_members WHERE email='{$email}'";
    
    
 

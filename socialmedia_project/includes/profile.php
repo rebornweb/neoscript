@@ -20,9 +20,11 @@ $file = rand(1000,100000)."-".$_FILES['file']['name'];
 
 
 $sqlprofile = "INSERT INTO profile (file,type,size,usr,dt)
-VALUES ('{$file}', '{$file_type}','$file_size','{$user}',NOW())";
+VALUES ('{$file}', '{$file_type}','{$file_size}','{$user}',NOW())";
 
-	
+
+//Comments Picture	Query
+$sqlprofileCom= "UPDATE comments SET file='{$file}',type='{$file_type}',size='{$file_size}' WHERE usr='{$user}'";
 	
 	if ($mysqli->query($sqlprofile) === TRUE) {
     echo 'Profile Picture Updated';
@@ -30,12 +32,23 @@ VALUES ('{$file}', '{$file_type}','$file_size','{$user}',NOW())";
 
 
 	
-} else {
- 
-    echo 'Error: ' . $sqlprofile . '<br>' . $mysqli->error;
-
-
+}else{
+	
+	 echo 'Error: ' . $sqlprofile2 . '<br>' . $mysqli->error;
+	
 }
+
+//Comment Picture Error Testing
+if ($mysqli->query($sqlprofileCom) === TRUE) {
+    echo 'Comment Picture Updated';
+
+
+}else{
+	
+	 echo 'Error: ' . $sqlprofile2 . '<br>' . $mysqli->error;
+	
+}
+
 
 	
 	
@@ -138,25 +151,33 @@ if ($mysqli->query($sqlcom) === TRUE) {
 
 		}	
 	
-$image = addslashes(file_get_contents($_FILES['image']['tmp_name'])); 
-	
-$sqlProfile = "SELECT * FROM profile WHERE usr='{$userCom}' ORDER BY  ABS(DATEDIFF(NOW(), `dt`)) LIMIT 1 ";
-	
-$resultProfile = mysqli_query($mysqli, $sqlProfile);
 
-$rowP = mysqli_fetch_assoc($resultProfile);
+
 		
 
 ?>
 
 
+
+
     <!-- This is for Profile Picture-->
+<?php
+if(method_exists($func, 'profilePic')){
+
+	
+//This Echos out the commentsin Profile OOP
+ echo $func->profilePic();
+
+
+		}	
+	
+?>
+
+
 <form action="" method="post" name="Profile" enctype="multipart/form-data">
 <input type="file" name="file" />
 <button type="submit" Value="Profile" name="submit" >upload</button>
 </form >
-
-
 
 	<form name="commentForm" action="" method="post" onsubmit="return checkForm(this);">
 			

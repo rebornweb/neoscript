@@ -73,7 +73,7 @@ $encryptPass = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key,$password, MCRYPT_MODE_E
 			
 	
 // Query database to check if there are any matching $_POST users & now encrypted password with the db stored pass/users
-$sql= "SELECT id,usr,pass,hash FROM tz_members WHERE usr='".$username."' AND pass='".$encryptPass."'";
+$sql= "SELECT id,usr,pass,hash FROM tz_members WHERE usr='{$username}' AND pass='{$encryptPass}'";
 		$result=mysqli_query($mysqli,$sql);
 
 		//If stuffs up put back before sql
@@ -127,7 +127,7 @@ else if($_POST['submit']=='Register')
 	
 	  
 	//Check functions.php for Class Instance
-	if(method_exists($func, 'checkEmail') && !($func->checkEmail()))
+	if(method_exists($func, 'checkEmail') && ($func->checkEmail()))
 	   //if(!checkEmail($_POST['email']))
 	{
 		$err[]='Your email is not valid!';
@@ -169,7 +169,7 @@ $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 	$regIp =  $_SERVER['REMOTE_ADDR'];
 		
 		
-		$sql = "	INSERT INTO tz_members(usr,pass,hash,email,regIP,dt)
+		$sqlr = "	INSERT INTO tz_members(usr,pass,hash,email,regIP,dt)
 						VALUES(
 						
 							'{$user}',
@@ -181,16 +181,18 @@ $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 							
 						)";
 
-
-
-if ($mysqli->query($sql) === TRUE) {
-    echo "sql worked";
+  if ($mysqli->query($sqlr) === TRUE) {
+   
+	
+	header("Location: index.php");
+	$_SESSION['msg']['reg-success']='We sent you an email with your new password!';
 } else {
- 
-    echo "Error: " . $sql . "<br>" . $mysqli->error;
+$err[]='This username is already taken!!!';
+//    echo "Error: " . $sqlr . "<br>" . $mysqli->error;
 
 
 }
+
 		
 		if(mysqli_affected_rows($mysqli) && method_exists($func, 'send_mail'))
 		{
@@ -205,9 +207,15 @@ if ($mysqli->query($sql) === TRUE) {
 		
 		
 		
-		}
-		else $err[]='This username is already taken!';
-	}
+		}else
+		
+ 	$err[]='This username is already taken!!!';
+   
+		
+				
+	
+	} 
+
 
 	if(count($err))
 	{
