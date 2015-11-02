@@ -11,6 +11,17 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 error_reporting(E_ALL);
 
 
+if(isset($_GET['logoff']))
+{
+	$_SESSION = array();
+	session_destroy();
+	
+	header("Location: index.php");
+	exit;
+}
+
+
+
 ?>
 
 <!DOCTYPE html >
