@@ -65,6 +65,9 @@ if(isset($_GET['logoff']))
 	
 	  
 	  
+	  
+	  
+	  
 	  $err = array();
 	
 		
@@ -142,12 +145,14 @@ if ($mysqli->query($sql) === TRUE) {
 
 	if(method_exists($func, 'commentsHome')){
 
-	
+
 //This Echos out the commentsin Profile OOP
  echo $func->commentsHome();
 
 
 		}	
+
+
 ?>
 	
     <form name="commentForm"  action="" method="post" onsubmit="return checkForm(this);">

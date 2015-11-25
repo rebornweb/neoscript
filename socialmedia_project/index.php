@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
 error_reporting(-1);
 
 define('INCLUDE_CHECK',true);
@@ -159,6 +160,9 @@ $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 		
 		$email = mysqli_real_escape_string($mysqli,$_POST['email']);
 		$user = mysqli_real_escape_string($mysqli,$_POST['username']);
+		$first = mysqli_real_escape_string($mysqli,$_POST['firstname']);
+		$middle = mysqli_real_escape_string($mysqli,$_POST['middlename']);
+		$last = mysqli_real_escape_string($mysqli,$_POST['lastname']);
 		// Escape the input data
 		
 		
@@ -169,10 +173,12 @@ $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
 	$regIp =  $_SERVER['REMOTE_ADDR'];
 		
 		
-		$sqlr = "	INSERT INTO tz_members(usr,pass,hash,email,regIP,dt)
+		$sqlr = "	INSERT INTO tz_members(usr,first,last,pass,hash,email,regIP,dt)
 						VALUES(
 						
 							'{$user}',
+							'{$first}',
+							'{$last}',
 							'{$encryptPass}',
 							'{$hash}',
 							'{$email}',
@@ -332,7 +338,11 @@ $err[]='This username is already taken!!!';
 					?>
                     		
 					<dt class="grey" for="username">Username:</label></dt>
-					<dd><input class="field" type="text" name="username" id="username" value="" size="23" /></dd>
+					<dd><input class="field" type="text" name="username" id="username" value="" size="40" /></dd>
+					<dt class="grey" for="firstname">Firstname:</label></dt>
+					<dd><input class="field" type="text" name="firstname" id="firstname" value="" size="40" /></dd>
+					<dt class="grey" for="lastname">Lastname:</label></dt>
+					<dd><input class="field" type="text" name="lastname" id="lastname" value="" size="40" /></dd>
 					<dt class="grey" for="email">Email:</label></dt>
 					<dd><input class="field" type="text" name="email" id="email" size="23" /></dd>
 					<dt>Enter Your New Password:</dt>

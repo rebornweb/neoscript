@@ -18,11 +18,18 @@ $file = rand(1000,100000)."-".$_FILES['file']['name'];
  $folder="uploads/";
   move_uploaded_file($file_loc,$folder.$file);
 
+  $_SESSION['file'] = rand(1000,100000)."-".$_FILES['file']['name'];
+  $_SESSION['filetype'] = $_FILES['file']['type'];
+  $_SESSION['filesize']= $file_size = $_FILES['file']['size'];
 
 $sqlprofile = "INSERT INTO profile (file,type,size,usr,dt)
 VALUES ('{$file}', '{$file_type}','{$file_size}','{$user}',NOW())";
+/*
+UPDATE shopping_cart SET price = 
+    (SELECT price FROM products WHERE id = shopping_cart.product_id)*/
 
-
+	
+	
 //Comments Picture	Query
 $sqlprofileCom= "UPDATE comments SET file='{$file}',type='{$file_type}',size='{$file_size}' WHERE usr='{$user}'";
 	
@@ -34,18 +41,16 @@ $sqlprofileCom= "UPDATE comments SET file='{$file}',type='{$file_type}',size='{$
 	
 }else{
 	
-	 echo 'Error: ' . $sqlprofile2 . '<br>' . $mysqli->error;
+	 echo 'Error: ' . $sqlprofile . '<br>' . $mysqli->error;
 	
 }
 
 //Comment Picture Error Testing
-if ($mysqli->query($sqlprofileCom) === TRUE) {
+if ($mysqli->query($sqlprofileCom) === TRUE ) {
     echo 'Comment Picture Updated';
-
-
 }else{
 	
-	 echo 'Error: ' . $sqlprofile2 . '<br>' . $mysqli->error;
+	 echo 'Error: ' . $sqlprofileCom . '<br>' . $mysqli->error;
 	
 }
 
@@ -68,8 +73,7 @@ if ($mysqli->query($sqlprofileCom) === TRUE) {
 	  //Comment form is submitted
 	  
 	
-	  
-	  
+	 
 	  $err = array();
 	//Error Testing Started
 	/*
@@ -85,6 +89,8 @@ if ($mysqli->query($sqlprofileCom) === TRUE) {
 	{
 		// If there are no errors
 		
+		// require 'imageupload.php';
+		
 
 
 	$precomment = mysqli_real_escape_string($mysqli,$_POST['comment']);
@@ -99,7 +105,8 @@ if ($mysqli->query($sqlprofileCom) === TRUE) {
 	$timestamp = mysqli_real_escape_string($mysqli,$_POST['timestamp']);           // March 10, 5:16 pm
 
 	 $regIp =  $_SERVER['REMOTE_ADDR'];
-	 
+
+	// $sqlprofileCom= "UPDATE comments SET file='{$files}',type='{$filetype}',size='{$filesize}' WHERE usr='{$user}'";
     $sqlcom = "	INSERT INTO comments(usr,comment,time,likes,dislikes,regIp)
 						VALUES(
 							'{$userCom}',
@@ -117,6 +124,8 @@ if ($mysqli->query($sqlprofileCom) === TRUE) {
 
 if ($mysqli->query($sqlcom) === TRUE) {
     echo "Comment Updated";
+	//require 'imageupload';
+	
 } else {
  
     echo "Error: " . $sqlcom . "<br>" . $mysqli->error;
@@ -124,7 +133,10 @@ if ($mysqli->query($sqlcom) === TRUE) {
 
 }
 
-
+/*
+ *Do you remember like forever ago,
+ *when you fell over at the tree trunk at winter camp and i caught you?
+ */
   
 	
 
