@@ -84,39 +84,61 @@ while ($row = mysqli_fetch_assoc($result)) {
  }//End commentProfile        
 
  
-  public function commentsHome(){
-require 'connect.php';
-		
-	$userCom = $_SESSION['usr'];
-
-	  $query ="SELECT usr,comment,time,likes,dislikes,file,type,size FROM comments ORDER BY  ABS(DATEDIFF(NOW(), `time`))";
-
-
-if ($result = mysqli_query($mysqli, $query)) {
+ public function commentsHome(){
+	require'connect.php';
 	
-while ($row = mysqli_fetch_assoc($result)) {
-		$timestamp = $row["time"];
-    $imageBase = "uploads/";
-$image = $row['file'];
+	//$sql="SELECT usr FROM comments   ";
+	//
+//$sql="SELECT usr FROM comments LIMIT 1  ";
+$sql = "SELECT usr,comment,time,likes,dislikes FROM comments ORDER BY  ABS(DATEDIFF(NOW(), `time`))";
+// Execute multi query
+if ($mysqli->multi_query($sql)) {
+    do {
+        /* store first result set */
+        if ($result = $mysqli->store_result()) {
+            while ($row = $result->fetch_assoc()) {
+                $timestamp = $row["time"];
+				$userComments =	$row['usr'];
+				 $imageBase = "uploads/";
+			
+				
+     // printf("%s\n",$row['usr']);
+         $sqlProfile = "SELECT * FROM profile WHERE usr='{$userComments}' ORDER BY  ABS(DATEDIFF(NOW(), `dt`)) LIMIT 1 ";
+		    $resultPic = $mysqli->query($sqlProfile);
+			$rowP = $resultPic->fetch_assoc();
+				$image = $rowP['file'];
+		echo   '<div class="profilePic"><img src="'.$imageBase.$image.'" width="200"/></div><br>';
+	    echo ('User:'.$userComments.'<br><div class="comment">Said:'.$row["comment"].'</div><div class="timestamp">'.$timestamp.'</div><br>');
+         
 
- 
-echo   '<div class="profilePic"><img src="'.$imageBase.$image.'" width="200"/></div><br>';
-	    echo ('User:'.$row['usr'].'<br><div class="comment">Said:'.$row["comment"].'</div><div class="timestamp">'.$timestamp.'</div><br>');
+			
+			}
+            $result->free();
+        
+		}
+        /* print divider */
+        if ($mysqli->more_results()) {
+            echo '<br>';
+        }
     
 	}
-	
-	}else if ($mysqli->query($query) === TRUE) {
+	while ($mysqli->next_result());
+
+	}else if ($mysqli->query($sql) === TRUE) {
     echo "sql worked";
-} else {
- 
-    echo "Error: " . $query . "<br>" . $mysqli->error;
 
-
-}
 	
+	} else {
+ 
+    echo "Error: " . $sql . "<br>" . $mysqli->error;
 
 
- }//End commentsHome
+	}
+
+
+}//End commentsHome
+ 
+ 
  
  
    public function commentsPic(){
