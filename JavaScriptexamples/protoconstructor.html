@@ -15,9 +15,9 @@
 
 <script type='text/javascript'>
 //B Shall Inherit from A
-function A(a){
+function A(a,vrTrue){
   this.varA = a;
-   var vrTrue = true;
+    this.vrTrue = true;
  
 }
 
@@ -32,10 +32,10 @@ A.prototype = {
   }
 }
 
-function B(a, b){
-  A.call(this, a);
+function B(a, b,vrTrue){
+  A.call(this, a,vrTrue);
   this.varB = b;
-   //this.name = name;
+
 }
 B.prototype = Object.create(A.prototype, {
   varB : {
@@ -60,19 +60,46 @@ B.prototype = Object.create(A.prototype, {
 });
 B.prototype.constructor = B;
 
-B.prototype.Talk = function(){
+
+//Chained to B prototype so Inherited B properties
+//and A but adding/Changing its Own Properties
+
+//Dancer Shall Inherit From B 
+var Dancer = function(vrTrue,b,canDance){
+B.call(this,vrTrue);
+//Own Properties 
+this.vrTrue = false;
+ this.varB = b;
+this.canDance = true;
+
+
+}
+
+//Inheriting from the Object Prototype B
+Dancer.prototype = Object.create(B.prototype);
+
+B.prototype.Talk = function(vrTrue){
 
 
     //console.log('Hi, I am ' + this.name);
+    
+   //If the person can talk
+   if (this.vrTrue) {
    
     console.log('Hi, I am ' + this.varB + ' Yes i can talk, but i need to control my voice.');
-  
+   }else{
+    console.log('Just waving my hand, You smile I smile, When You say Nothing At All, So corny, but I can dance, just look at my name tag it says ' + this.varB );
+   }
 }
+
 
 var b = new B(true);
 var person = new B(true,'the Middle Born');
 
+var dancer = new Dancer(true,'Black Sheep dancer');
+
 person.Talk();
+dancer.Talk();
 
 b.doSomething();
 
