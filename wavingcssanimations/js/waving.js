@@ -100,7 +100,7 @@ $(this).find('span').css('display','none');
       
  //Wraps and hides the Anchor Text
 $(this).find('span').css('display','block');
-$(this).find('div').slice(maxLen).remove();
+     $(this).find('div').slice(maxLen).remove();
          
         }
       
@@ -114,12 +114,13 @@ $(this).find('div').slice(maxLen).remove();
 $('.wavingwrap').wavingPlugin();
   
 
-//Performance Testing
+/*Only use to performance test console.log not when in usage
+ * Performance Testing
  var iterations = 1000;
 console.time("$('.wavingwrap').wavingPlugin();");
 for(var i = 0; i < iterations; i++ ){
     $('.wavingwrap').wavingPlugin();
 };
 console.timeEnd("$('.wavingwrap').wavingPlugin();");
-  
+  */
 })(); 
