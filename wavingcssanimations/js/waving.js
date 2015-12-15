@@ -1,3 +1,7 @@
+//For compatiblity 
+//$(function(){
+
+//For speed
 (function(){	
  /**
   *Made by Andrei Nicolas
@@ -66,9 +70,9 @@ for (var i=0; i<str.length; i++) {
  $(".wavingwrap li ").hover( 
     function (){ //On mouseover
 
-
+alert('hello');
 //Variable Block
-      var anchorage = $(this).find('a')
+      var anchorage = $(this).find('a'),
       ant = anchorage.text(),
       anchorlength = ant.length,
       seldiv = $('.wavingwrap a div'),
@@ -100,7 +104,7 @@ $(this).find('span').css('display','none');
       
  //Wraps and hides the Anchor Text
 $(this).find('span').css('display','block');
-     $(this).find('div').slice(maxLen).remove();
+$(this).find('div').slice(maxLen).remove();
          
         }
       
@@ -114,8 +118,7 @@ $(this).find('span').css('display','block');
 $('.wavingwrap').wavingPlugin();
   
 
-/*Only use to performance test console.log not when in usage
- * Performance Testing
+/*Performance Testing
  var iterations = 1000;
 console.time("$('.wavingwrap').wavingPlugin();");
 for(var i = 0; i < iterations; i++ ){
@@ -123,4 +126,9 @@ for(var i = 0; i < iterations; i++ ){
 };
 console.timeEnd("$('.wavingwrap').wavingPlugin();");
   */
+
+//For speed/performance  
 })(); 
+
+//For compatiblity
+//});
