@@ -1,5 +1,4 @@
- $(function(){
-
+(function(){	
  /**
   *Made by Andrei Nicolas
   *Rebornweb.co.nz still at Beta test
@@ -15,18 +14,17 @@
   */
  
  
- //Bug if first anchor isnt the longest will spas out 
+
 
 jQuery.fn.wavingPlugin = function(){
-    
-   var wavingElements = $(".wavingwrap div");
-  var strsplit = $('.wavingwrap a').html(); 
- 
-  var wavingAnchors = $(".wavingwrap a");
+  //Global Variable Block
+  var wavingElements = $(".wavingwrap div"),
+  strsplit = $('.wavingwrap a').html(),
+  wavingAnchors = $(".wavingwrap a");
   
   wavingAnchors.find('div').parent().contents().filter(function() {
       return this.nodeType === 3;
-    }).remove();
+    });
     
 
 var maxLen = -50; //Max Length Slice
@@ -34,15 +32,15 @@ var maxLen = -50; //Max Length Slice
 var ahref = $('.wavingwrap a').attr('href');
 
   function mrLoopy() {
-  
-   var wavingElements = $(".wavingwrap div");
-   var str = $('.wavingwrap a').text();
-   var incrementUp = '-10px';
-   var incrementDown = '-2px';
-   var mechUps = {'transform':'translate3d(0px,'+ incrementUp +',0px)','Moztransform':'translate3d(0px,'+ incrementUp +',0px)','WebkitTransform':'translate3d(0px,'+ incrementUp +',0px)','msTransform':'translate3d(0px,'+ incrementUp +',0px)'};
-   var mechDowns = {'transform':'translate3d(0px,'+ incrementDown +',0px)','Moztransform':'translate3d(0px,'+ incrementDown +',0px)','WebkitTransform':'translate3d(0px,'+ incrementDown +',0px)','msTransform':'translate3d(0px,'+ incrementDown +',0px)'};
-   var time = 100;
-   var waveSpeed = 30;
+  //Variable Block
+   var wavingElements = $(".wavingwrap div"),
+    str = $('.wavingwrap a').text(),
+    incrementUp = '-10px',
+    incrementDown = '-2px',
+    mechUps = {'transform':'translate3d(0px,'+ incrementUp +',0px)','Moztransform':'translate3d(0px,'+ incrementUp +',0px)','WebkitTransform':'translate3d(0px,'+ incrementUp +',0px)','msTransform':'translate3d(0px,'+ incrementUp +',0px)'},
+    mechDowns = {'transform':'translate3d(0px,'+ incrementDown +',0px)','Moztransform':'translate3d(0px,'+ incrementDown +',0px)','WebkitTransform':'translate3d(0px,'+ incrementDown +',0px)','msTransform':'translate3d(0px,'+ incrementDown +',0px)'},
+    time = 100,
+    waveSpeed = 30;
    
 for (var i=0; i<str.length; i++) {
 (function(i){
@@ -63,31 +61,22 @@ for (var i=0; i<str.length; i++) {
   }// End of Mr Loopy
   
 
-    //Removes the Anchor Text
-    function removeText(){ $(this).find('div').parent().contents().filter(function() {
-      return this.nodeType === 3;
-    }).remove();};
-   
-    removeText();
+
     
  $(".wavingwrap li ").hover( 
     function (){ //On mouseover
 
-removeText();
 
-      var anchorage = $(this).find('a');
-      var  ant = anchorage.text();
-      var anchorlength = ant.length;
-      var seldiv = $('.wavingwrap a div');
-      var divl = seldiv.length;
+//Variable Block
+      var anchorage = $(this).find('a')
+      ant = anchorage.text(),
+      anchorlength = ant.length,
+      seldiv = $('.wavingwrap a div'),
+      divl = seldiv.length;
     
     
              anchorage.each(function(i){
-     /*
- For testing purposes          
-   console.log('anchorlength: ' +anchorlength + ' div length: ' + divl);        
-           */
-        
+               
   for (var e = 0; e < ant.length;  e ++) {
 
 $(this).append('<div class="append" style="display:inline-block;"> '+ ant[e] + '</div>');
@@ -111,7 +100,7 @@ $(this).find('span').css('display','none');
       
  //Wraps and hides the Anchor Text
 $(this).find('span').css('display','block');
-     $(this).find('div').slice(maxLen).remove();
+$(this).find('div').slice(maxLen).remove();
          
         }
       
@@ -123,5 +112,14 @@ $(this).find('span').css('display','block');
 
 //Makes .wavingwrap a have div animation 
 $('.wavingwrap').wavingPlugin();
-   
-});//END script
+  
+
+//Performance Testing
+ var iterations = 1000;
+console.time("$('.wavingwrap').wavingPlugin();");
+for(var i = 0; i < iterations; i++ ){
+    $('.wavingwrap').wavingPlugin();
+};
+console.timeEnd("$('.wavingwrap').wavingPlugin();");
+  
+})(); 
