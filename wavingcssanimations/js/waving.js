@@ -70,7 +70,7 @@ for (var i=0; i<str.length; i++) {
  $(".wavingwrap li ").hover( 
     function (){ //On mouseover
 
-alert('hello');
+
 //Variable Block
       var anchorage = $(this).find('a'),
       ant = anchorage.text(),
