@@ -16,7 +16,7 @@
 <script type='text/javascript'>
 //B Shall Inherit from A
 function A(a,vrTrue){
-  this.varA = a;
+  this.wavingEl = a;
     this.vrTrue = true;
  
 }
@@ -35,14 +35,20 @@ A.prototype = {
 function B(a, b,vrTrue){
   A.call(this, a,vrTrue);
   this.varB = b;
+ 
 
 }
+
+
+//Two Prototype Inheritance 
 B.prototype = Object.create(A.prototype, {
   varB : {
     value: null, 
     enumerable: true, 
     configurable: true, 
-    writable: true
+    writable: true,
+     
+
     
   },
   doSomething : { 
@@ -50,13 +56,23 @@ B.prototype = Object.create(A.prototype, {
       A.prototype.doSomething.apply(this, arguments); // call super
       // ...
 
-
+ 
    
     },
+    
+
     enumerable: true,
     configurable: true, 
     writable: true
-  }
+  },
+  
+      yum : {
+      
+     value: function(){
+      console.log('i am yum');
+      } 
+    },
+  
 });
 B.prototype.constructor = B;
 
@@ -73,15 +89,16 @@ this.vrTrue = false;
 this.canDance = true;
 
 
+
 }
 
-//Inheriting from the Object Prototype B
+//Creating own Custom Prototype from Object Prototype B
 Dancer.prototype = Object.create(B.prototype);
 
 B.prototype.Talk = function(vrTrue){
 
 
-    //console.log('Hi, I am ' + this.name);
+   
     
    //If the person can talk
    if (this.vrTrue) {
@@ -93,15 +110,23 @@ B.prototype.Talk = function(vrTrue){
 }
 
 
-var b = new B(true);
-var person = new B(true,'the Middle Born');
 
-var dancer = new Dancer(true,'Black Sheep dancer');
+
+var person = new B('the Middle Born');
+
+var dancer = new Dancer('Black Sheep dancer');
 
 person.Talk();
 dancer.Talk();
 
+
+//Change B to b
+var b = new B(true);
+
+//Callbacks
 b.doSomething();
+b.yum();
+
 
     </script>
 </html>
