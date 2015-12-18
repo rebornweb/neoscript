@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<script type='text/javascript' src='js/jquery-1.11.2.min.js'></script>
+</head>
+
+<body>
+    <ul id='wavingwrap'>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Designs</a></li>
+          </ul>
+
+</body>
+
+<script type='text/javascript'>
+  (function(){
+
+  //Module and Event handler on the Parent approach
+  
+ var listHandler = function () {
+var list = document.getElementById('wavingwrap');
+var maxLen = -50;
+   list.onmouseover = function(e) {
+    
+  
+   var target = e.target || e.srcElement;
+   if(target.tagName = 'a') {
+       var text = target.innerHTML;
+       //console.log(text);
+       
+       var len = text.length;
+       var wavingElements = $(".wavingwrap div");
+   for (var i = 0; i < len; i++) {
+    
+    $(this).append('<div class="append" style="display:inline-block;"> '+ text[i] + '</div>');
+    console.log(text[i]);
+    
+    
+   }
+   
+   }
+   
+     //Wraps and hides the Anchor Text
+ //Wraps and hides the Anchor Text
+$(this).find('span').css('display','block');
+//$(this).find('div').slice(maxLen).remove();
+
+
+
+}//End onmouseover
+ 
+  list.onmouseleave = function(e) {
+    
+console.log('mouse left');  
+
+ //Wraps and hides the Anchor Text
+$(this).find('span').css('display','block');
+$(this).find('div').slice(maxLen).remove();
+
+}//End onmouseleave
+ 
+    
+  
+ }
+ 
+ 
+
+ 
+ var wavingAni = function () {
+  listHandler.call(this);
+  console.log('am I wavingani');
+    
+    
+ }
+  
+  wavingAni.prototype = Object.create(listHandler.prototype);
+  
+  wavingAni.prototype.start = function(test) {
+    
+   console.log('have to start'); 
+    
+  }
+  
+  
+  
+  var obj = new wavingAni(true);
+  
+  obj.start();
+  
+  
+  
+
+
+  })();
+    </script>
+</html>
