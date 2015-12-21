@@ -21,11 +21,13 @@
 <script type='text/javascript'>
   (function(){
 
-  //Module and Event handler on the Parent approach
+  //Module and Event handler on the Parent Prototype approach
   
- var listHandler = function () {
+ var listHandler = function (test) {
 var list = document.getElementById('wavingwrap');
 var maxLen = -50;
+  
+  this.test = test;
    list.onmouseover = function(e) {
     
   
@@ -49,9 +51,10 @@ var maxLen = -50;
      //Wraps and hides the Anchor Text
  //Wraps and hides the Anchor Text
 $(this).find('span').css('display','block');
-//$(this).find('div').slice(maxLen).remove();
+$(this).find('div').slice(maxLen).remove();
 
 
+  obj.start();
 
 }//End onmouseover
  
@@ -72,9 +75,9 @@ $(this).find('div').slice(maxLen).remove();
  
 
  
- var wavingAni = function () {
-  listHandler.call(this);
-  console.log('am I wavingani');
+ var wavingAni = function (test) {
+  listHandler.call(this,test);
+
     
     
  }
@@ -83,15 +86,16 @@ $(this).find('div').slice(maxLen).remove();
   
   wavingAni.prototype.start = function(test) {
     
-   console.log('have to start'); 
+   console.log('have to start Hi Im wavingAni' + this.test);
+   
     
   }
   
   
   
-  var obj = new wavingAni(true);
+  var obj = new wavingAni('it works');
   
-  obj.start();
+
   
   
   
