@@ -33,25 +33,35 @@ var maxLen = -50;
   
    var target = e.target || e.srcElement;
    if(target.tagName = 'a') {
-       var text = target.innerHTML;
-       //console.log(text);
+       //var text = target.innerHTML;
+      var text = (target.innerText || target.textContent);
+      //Whole Word
+       console.log('whole word' + text);
        
        var len = text.length;
        var wavingElements = $(".wavingwrap div");
+       
+       var divs = [];
+      
    for (var i = 0; i < len; i++) {
-    
-    $(this).append('<div class="append" style="display:inline-block;"> '+ text[i] + '</div>');
+   
+   var div = '<div class="c' + i + '">' + text[i] + '</div>';
     console.log(text[i]);
+    
+    divs.push(div);
     
     
    }
+   
+  target.innerHTML += divs.join('');
+  // 1 DOM tree update instead of many operations in the DOM
    
    }
    
      //Wraps and hides the Anchor Text
  //Wraps and hides the Anchor Text
-$(this).find('span').css('display','block');
-$(this).find('div').slice(maxLen).remove();
+//$(this).find('span').css('display','block');
+//$(this).find('div').slice(maxLen).remove();
 
 
   obj.start();
@@ -63,8 +73,8 @@ $(this).find('div').slice(maxLen).remove();
 console.log('mouse left');  
 
  //Wraps and hides the Anchor Text
-$(this).find('span').css('display','block');
-$(this).find('div').slice(maxLen).remove();
+//$(this).find('span').css('display','block');
+//$(this).find('div').slice(maxLen).remove();
 
 }//End onmouseleave
  
