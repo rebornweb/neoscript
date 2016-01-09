@@ -26,13 +26,24 @@
  var listHandler = function (test) {
 var list = document.getElementById('wavingwrap');
 var maxLen = -50;
+var divin = $('.divin');
+var listId = $(list).attr('id');
+
+
+
+
+  //alert($(list).attr('id'));
+  
   
   this.test = test;
    list.onmouseover = function(e) {
     
+    var target = e.target || e.srcElement;
+  var targettag = target.tagName;
+
+
   
-   var target = e.target || e.srcElement;
-   if(target.tagName = 'a') {
+   if(targettag = 'a') {
        //var text = target.innerHTML;
       var text = (target.innerText || target.textContent);
       //Whole Word
@@ -45,7 +56,7 @@ var maxLen = -50;
       
    for (var i = 0; i < len; i++) {
    
-   var div = '<div class="c' + i + '">' + text[i] + '</div>';
+   var div = '<div class="divin">' + text[i] + '</div>';
     console.log(text[i]);
     
     divs.push(div);
@@ -54,14 +65,26 @@ var maxLen = -50;
    }
    
   target.innerHTML += divs.join('');
+  
   // 1 DOM tree update instead of many operations in the DOM
    
+   //This takes out divs that dont exist in anchor when hovered
+if ($('.divin').attr('class') != 'divin') {
+    
+    
+    
+     }else{
+    $(target).find('a').parent().find('div').remove();
    }
+
+
+   
+
+
+   }//End targettag
    
      //Wraps and hides the Anchor Text
  //Wraps and hides the Anchor Text
-//$(this).find('span').css('display','block');
-//$(this).find('div').slice(maxLen).remove();
 
 
   obj.start();
@@ -69,12 +92,16 @@ var maxLen = -50;
 }//End onmouseover
  
   list.onmouseleave = function(e) {
-    
+   // var target = e.target || e.srcElement;    
 console.log('mouse left');  
 
- //Wraps and hides the Anchor Text
-//$(this).find('span').css('display','block');
-//$(this).find('div').slice(maxLen).remove();
+   //This takes out divs that dont exist in anchor when hovered
+if ($('.divin').attr('class') = 'divin') {
+    
+    $(target).find('a').parent().find('div').remove();
+   }
+
+
 
 }//End onmouseleave
  
