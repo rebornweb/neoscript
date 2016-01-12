@@ -104,7 +104,7 @@ $(this).find('span').css('display','none');
       
  //Wraps and hides the Anchor Text
 $(this).find('span').css('display','block');
-$(this).find('div').slice(maxLen).remove();
+//$(this).find('div').slice(maxLen).remove();
          
         }
       
