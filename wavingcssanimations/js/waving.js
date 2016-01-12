@@ -162,7 +162,7 @@ for (var i=0; i<str.length; i++) {
 
     }
   
-  var obj = new wavingAni('hello');
+  var obj = new wavingAni('waving animation');
 
 /*Performance Testing
  var iterations = 1000;
