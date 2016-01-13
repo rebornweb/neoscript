@@ -37,37 +37,6 @@ var wavingList = function (test) {
 var maxLen = -50; //Max Length Slice
 
 
-  function mrLoopy() {
-  //Variable Block
-   var wavingElements = $(".wavingwrap div"),
-    str = $('.wavingwrap a').text(),
-    incrementUp = '-10px',
-    incrementDown = '-2px',
-    mechUps = {'transform':'translate3d(0px,'+ incrementUp +',0px)','Moztransform':'translate3d(0px,'+ incrementUp +',0px)','WebkitTransform':'translate3d(0px,'+ incrementUp +',0px)','msTransform':'translate3d(0px,'+ incrementUp +',0px)'},
-    mechDowns = {'transform':'translate3d(0px,'+ incrementDown +',0px)','Moztransform':'translate3d(0px,'+ incrementDown +',0px)','WebkitTransform':'translate3d(0px,'+ incrementDown +',0px)','msTransform':'translate3d(0px,'+ incrementDown +',0px)'},
-    time = 100,
-    waveSpeed = 30;
-   
-for (var i=0; i<str.length; i++) {
-(function(i){
-    setTimeout(function(){
-     wavingElements.eq(i).css(mechUps);
- 
-    setTimeout(function(){
-      wavingElements.eq(i).css(mechDowns);
-           },time);
-      
-
-    }, i * waveSpeed);
-
-  }(i));
-
-}//End of Infamous for loop
-
-  }// End of Mr Loopy
-  
-
-
     
 var list = $(".wavingwrap li ");
  
@@ -87,7 +56,7 @@ var list = $(".wavingwrap li ");
                
   for (var e = 0; e < ant.length;  e ++) {
 
-$(this).append('<div class="append" style="display:inline-block;"> '+ ant[e] + '</div>');
+$(this).append('<div class="append" style="display:inline-block;padding:0.3px"> '+ ant[e] + '</div>');
         
         }
      
