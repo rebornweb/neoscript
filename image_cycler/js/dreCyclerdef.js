@@ -16,40 +16,17 @@ $(function(){
 
 */
 
-var dSliders = function (test){
-this.test = test;
+jQuery.fn.dSlider = function (){
 var dSlider = $('div.dreCycler img');
-dSlider.css({
-  'display':'none',
-  'position':'absolute'
-            });
-
-
-
-
-
-}//End dSliders
-
-var setterInit = function (test) {
-  dSliders.call(this,test);
-          //console.log(dlen);
-}
-
-
-setterInit.prototype = Object.create(dSliders.prototype);
-
-  setterInit.prototype.start = function() {
- var dSlider = $('div.dreCycler img'),   
- fadeInspeed = 1500,
+var setterInit = {};
+var fadeInspeed = 1500,
   fadeOutspeed = 1500,
   shiftingspeed = 1500,
   initFadeout = 1500,
   dlen = dSlider.length,
 restartTime = (dlen * shiftingspeed);
 
-
-         
- for(var i=0 ; i < dlen; i++){
+for(var i=0 ; i < dlen; i++){
    
    //console.log($(this).eq(i).attr('src'));
 
@@ -68,21 +45,20 @@ restartTime = (dlen * shiftingspeed);
   
 }//End for loop
 
-//to call this use object.function.object obj.start().restartTime
-return {restartTime}
+
+  setterInit.restart = function() {
+    return restartTime;
   }
-  
 
- 
- var obj = new setterInit('Dre Image Cycler');
+return setterInit;
 
- 
-//First Init
-obj.start();
- 
- 
+};
+
+//This Gets the return restartTime closure Instantiation this was the main selector $(div.dreCycler img)
+ var restartTime = $(this).dSlider().restart();
+
 setInterval(function(){
-obj.start();
-},obj.start().restartTime);
+$(this).dSlider();
+},restartTime);
 
 });
