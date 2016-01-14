@@ -8,19 +8,7 @@
 <script src="js/jquery-1.11.2.min.js"></script>
 
 <style>
-   
-   div.dreCycler{
-   
-      vertical-align: middle;
-      text-align: center;
-   }
-   
-div.dreCycler img{
-   display:none; 
-width:30%;
-left:40%;
-position:absolute;
-    }    
+
   
     
 </style>
@@ -37,7 +25,6 @@ position:absolute;
 </body>
 
 <script type='text/javascript'>
-$(function(){
 /*
 *jQuery Cycle Plugin for images
 *
@@ -55,17 +42,58 @@ $(function(){
 
 */
 
-jQuery.fn.dSlider = function (){
+(function(){
+/*
+*jQuery Cycle Plugin for images
+*
+*Andrei Nicolas
+*
+*Visit Fork,Visit if good star at http://github.com/rebornweb/neoscript
+*
+*Visit us at Rebornweb.co.nz
+*
+*Usage: add class='dreCycler' to div wrap
+*<div class='dreCycler'>
+*<img src='img/tiger.jpg'/>
+    <img src='img/girls.jpg'/>
+*</div>
+
+*/
+
+var dSliders = function (test){
+this.test = test;
 var dSlider = $('div.dreCycler img');
-var setterInit = {};
-var fadeInspeed = 1500,
+dSlider.css({
+  'display':'none',
+  'position':'absolute'
+            });
+
+
+
+
+
+}//End dSliders
+
+var setterInit = function (test) {
+  dSliders.call(this,test);
+          //console.log(dlen);
+}
+
+
+setterInit.prototype = Object.create(dSliders.prototype);
+
+  setterInit.prototype.start = function() {
+ var dSlider = $('div.dreCycler img'),   
+ fadeInspeed = 1500,
   fadeOutspeed = 1500,
   shiftingspeed = 1500,
   initFadeout = 1500,
   dlen = dSlider.length,
 restartTime = (dlen * shiftingspeed);
 
-for(var i=0 ; i < dlen; i++){
+
+         
+ for(var i=0 ; i < dlen; i++){
    
    //console.log($(this).eq(i).attr('src'));
 
@@ -84,23 +112,24 @@ for(var i=0 ; i < dlen; i++){
   
 }//End for loop
 
-
-  setterInit.restart = function() {
-    return restartTime;
+//to call this use object.function.object obj.start().restartTime
+return {restartTime}
   }
+  
 
-return setterInit;
+ 
+ var obj = new setterInit('Dre Image Cycler');
 
-};
-
-//This Gets the return restartTime closure Instantiation this was the main selector $(div.dreCycler img)
- var restartTime = $(this).dSlider().restart();
-
+ 
+//First Init
+obj.start();
+ 
+ 
 setInterval(function(){
-$(this).dSlider();
-},restartTime);
+obj.start();
+},obj.start().restartTime);
 
-});
+})();
 </script>
 <!--script src='js/dreCycler.js'></script-->
    
