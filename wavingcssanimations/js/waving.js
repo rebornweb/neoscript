@@ -54,9 +54,9 @@ var list = $(".wavingwrap li ");
     
              anchorage.each(function(i){
                
-  for (var e = 0; e < ant.length;  e ++) {
+  for (var e = 0; e < anchorlength;  e ++) {
 
-$(this).append('<div class="append" style="display:inline-block;padding:0.3px"> '+ ant[e] + '</div>');
+$(this).append('<div class="append" style="display:inline-block; padding:0.3px;"> '+ ant[e] + '</div>');
         
         }
      
@@ -101,6 +101,7 @@ $(this).find('div').slice(maxLen).remove();
     wavingAni.prototype = Object.create(wavingList.prototype);
   
     wavingAni.prototype.animation= function(test) {
+      
     //Variable Block
    var wavingElements = $(".wavingwrap div"),
     str = $('.wavingwrap a').text(),
