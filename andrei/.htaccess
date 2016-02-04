@@ -1,6 +1,0 @@
-
-RewriteEngine on
-
-RewriteCond %{HTTP_HOST} ^andrei\.rebornweb\.co\.nz$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.andrei\.rebornweb\.co\.nz$
-

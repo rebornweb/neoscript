@@ -1,4 +1,4 @@
-$(function(){
+(function(){
 /*
 *jQuery Cycle Plugin for images
 *
@@ -40,10 +40,7 @@ setterInit.prototype = Object.create(dSliders.prototype);
 
   setterInit.prototype.start = function() {
  var dSlider = $('div.dreCycler img'),   
- fadeInspeed = 1500,
-  fadeOutspeed = 1500,
   shiftingspeed = 1500,
-  initFadeout = 1500,
   dlen = dSlider.length,
 restartTime = (dlen * shiftingspeed);
 
@@ -55,11 +52,11 @@ restartTime = (dlen * shiftingspeed);
 
   (function(i){ 
      setTimeout(function(){
-     dSlider.eq(i).fadeIn(fadeInspeed);
+     dSlider.eq(i).fadeIn(shiftingspeed);
  
     setTimeout(function(){
-      dSlider.eq(i).fadeOut(fadeOutspeed);
-           },initFadeout);
+      dSlider.eq(i).fadeOut(shiftingspeed);
+           },shiftingspeed);
       
     }, i * shiftingspeed);
 
@@ -85,4 +82,4 @@ setInterval(function(){
 obj.start();
 },obj.start().restartTime);
 
-});
+})();
