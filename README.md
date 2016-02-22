@@ -5,16 +5,12 @@ This is A Repo of Andrei Nicolas
 
 Who Manages
 #http://Rebornweb.co.nz "Swiftly Building Websites"
-#The Bella Theme is a General SASS/HTML5 Theme to start with 
+#The Silverstripe Simple w/ SASS theme is the Simple theme with the SASS objects added whoever likes SASS/CSS. 
 
 Working Demo of the simple Bella put in action for a Fitness website at
 http://fit.rebornweb.co.nz but i changed the header and the navigation on this site.
 
 #What's here is just the 'simple version of the Bella Theme'
-
-Which is Responsive and Has a "Hamburger" and Dropdown menu Nav Using SASS/css,
-I recommend you switch to using a SASS compiler which generates CSS if you haven't
-already :)
 
 'I said a 10 Second car, not a 10 Minute Car'
 
@@ -38,7 +34,6 @@ if you want the Waving.js go to wavingcssanimations folder :)
 if you want the image cycler its in the image_cycler folder
 
 Download the Whole Zip or Git clone
-
 
 
 The CSS3 compiliation on there is from Callmenick.com so Thanks to that Guy :)  
