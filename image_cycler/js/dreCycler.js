@@ -16,6 +16,7 @@
 
 */
 
+
 var dSliders = function (test){
 this.test = test;
 var dSlider = $('div.dreCycler img');
@@ -40,8 +41,12 @@ setterInit.prototype = Object.create(dSliders.prototype);
 
   setterInit.prototype.start = function() {
  var dSlider = $('div.dreCycler img'),   
+ fadeInspeed = 1500,
+  fadeOutspeed = 1500,
   shiftingspeed = 1500,
+  initFadeout = 1500,
   dlen = dSlider.length,
+  startTime = 2000, /*If it doesnt work adjust startTime*/
 restartTime = (dlen * shiftingspeed);
 
 
@@ -52,11 +57,11 @@ restartTime = (dlen * shiftingspeed);
 
   (function(i){ 
      setTimeout(function(){
-     dSlider.eq(i).fadeIn(shiftingspeed);
+     dSlider.eq(i).fadeIn(fadeInspeed);
  
     setTimeout(function(){
-      dSlider.eq(i).fadeOut(shiftingspeed);
-           },shiftingspeed);
+      dSlider.eq(i).fadeOut(fadeOutspeed);
+           },initFadeout);
       
     }, i * shiftingspeed);
 
@@ -65,8 +70,8 @@ restartTime = (dlen * shiftingspeed);
   
 }//End for loop
 
-//to call this use object.function.object obj.start().restartTime
-return {restartTime}
+//to call this use object.function.object obj.start().restartTime & obj.start().startTime
+return {restartTime,startTime}
   }
   
 
@@ -75,8 +80,9 @@ return {restartTime}
 
  
 //First Init
+setTimeout(function(){
 obj.start();
- 
+},obj.start().startTime);
  
 setInterval(function(){
 obj.start();
