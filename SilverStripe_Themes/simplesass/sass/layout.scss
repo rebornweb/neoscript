@@ -46,6 +46,8 @@ $primary-anchorcolor:#988454;
 $primary-nav-color:grey;
 
 
+$mobile-nav:white;
+
 $primary-links-hover:darkred;
 /*Active links*/
 $primary-links-color:red;
@@ -691,7 +693,7 @@ ul#SearchResults {
 		    cursor: pointer;
 		    font-family: 'WebSymbolsRegular';
 		    font-size: 20px;
-		    color: $background-color;
+		    color: $mobile-nav;
 		}
 		  ul {
 		    z-index: 10;
