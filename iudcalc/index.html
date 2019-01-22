@@ -192,17 +192,45 @@ Max:<span>{{max}}</span-->
      <md-datepicker ng-model="ctrl.myDate" ng-change="ctrl.onDateChanged();"
                     md-placeholder="Pick date"></md-datepicker><br>
 
+                    <!--div class="categoryWrapper">
+                      <h1>Bathrooms</h1>
+                      <button>
+                        <span>
+                          <span>
+                            <span data-attr-span="See the Range">
+                              See the Range
+                            </span>
+                          </span>
+                        </span>
+                      </button>
+                    </div-->
+
+
 <span ng-if ='ctrl.periodDateTrue' >
   <br>
-<div class='results'>
-<h3>Results!</h3>
+  <h3>Results!</h3>
+<div class='results categoryWrapper'>
+
+<br>
   1st Day Ovulation: {{ctrl.firstOv | date:shortDate}} <br>
   Your last day for IUD: {{ctrl.iudLast | date:shortDate}} <br>
   Your next Period Date : {{ctrl.Date | date:shortDate}} <br>
-
+<br>
+<br>
 <!--Fix this!-->
-<div id='iudValid' ng-if='ctrl.IUDright == null '>Still Time for an IUD </div><span id='iudValid' ng-if='ctrl.IUDright == true'> LAST Day for an IUD</span>
-<div id='iudInvalid' ng-if='ctrl.IUDright == false'>Its too late for an IUD</div>
+<button>
+  <span>
+    <span>
+
+<span id='iudValid' ng-if='ctrl.IUDright == null 'data-attr-span='Still Time for an IUD'> Still Time for an IUD </span>
+<span id='iudValid' ng-if='ctrl.IUDright == true' data-attr-span='LAST Day for an IUD'> LAST Day for an IUD </span>
+<span id='iudInvalid' ng-if='ctrl.IUDright == false' data-attr-span='Its too late for an IUD'>Its too late for an IUD</span>
+
+</span>
+</span>
+</button>
+
+
 
 </div>
 </span>
@@ -241,6 +269,8 @@ Max:<span>{{max}}</span-->
 
 
 </div>
+
+
 
 </section><!--End secondApp-->
 </div><!--End Container-->
