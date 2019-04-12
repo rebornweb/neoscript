@@ -57,32 +57,36 @@ $(function() {
  $('h5.DateChosen').html('Todays Date: ' + a2);
 
 
-function upDate() {
+ function upDate() {
 
- var dateStr = $('input.form-control').val();//Input
- var a = moment(new Date());//now
- var b = moment(dateStr,"dddd, MMMM Do YYYY, h:mm:ss a");//Date chosen
+  var dateStr = $('input.form-control').val();//Input
+  var a = moment(new Date());//now
+  var b = moment(dateStr,"dddd, MMMM Do YYYY, h:mm:ss a");//Date chosen
+  var c = moment(dateStr,"dddd, MMMM Do YYYY, h:mm:ss a");//Date chosen for plus 120
 
+ //Check difference
+  var mins ='Minutes ago: ' + a.diff(b, 'minutes');
+  var hours ='Hours ago: '+ a.diff(b, 'hours');
+  var days ='Days ago: '+ a.diff(b, 'days');
+  var weeks = a.diff(b, 'weeks');
+  var hrs = a.diff(b, 'hours');
 
-//Check difference
- var mins ='Minutes ago: ' + a.diff(b, 'minutes');
- var hours ='Hours ago: '+ a.diff(b, 'hours');
- var days ='Days ago: '+ a.diff(b, 'days');
- var weeks = a.diff(b, 'weeks');
- var hrs = a.diff(b, 'hours');
+//Used the c variable
+  var hours120 ='120 Hours ahead: '+ c.add(120,'hours').format("dddd, MMMM Do YYYY, h:mm:ss a");
 
- console.log(a.diff(b, 'minutes')); // 44700
- console.log(a.diff(b, 'hours')); // 745
- console.log(a.diff(b, 'days')); // 31
- console.log(a.diff(b, 'weeks')); // 4
-
- $scope.hour = {value:130};
+  console.log(a.diff(b, 'minutes')); // 44700
+  console.log(a.diff(b, 'hours')); // 745
+  console.log(a.diff(b, 'days')); // 31
+  console.log(a.diff(b, 'weeks')); // 4
+  $scope.hour = {value:130};
 
 
  $('#daysAgo').html(days);//Input
  $('#hoursAgo').html(hours);//Input
-  //$('#minutesAgo').html(mins);
- var hourLimit = $('#hourz').val(hrs);
+   $('#hoursplus120').html(hours120);
+   //$('#minutesAgo').html(mins);
+  var hourLimit = $('#hourz').val(hrs);
+
 
 
 if(hrs < 120) {
@@ -110,8 +114,9 @@ console.log('This is over 120');
     });
 
  $("#datetimepicker1").on("dp.change", function (e) {
+    console.log('WTF' + e.date);
        $('#dateInput').data("DateTimePicker").minDate(e.date);
-       console.log('WTF' + e.date);
+
     });
 
 $('#dateInput').on('input', upDate());//End change
