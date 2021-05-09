@@ -11,9 +11,6 @@ Developing, managing Systems Windows or Linux which I like more
 
 #There is Also a Waving Animation Waving.js & a Image Cycler dreCycler.js
 
-Wishing you guys would fork it play with it as you wish,
-it is fun, also a nightmare :) it waves a whole line in a anchor wrapped with
-any element with the class of class='wavingwrap'
 
 
 Enjoy
