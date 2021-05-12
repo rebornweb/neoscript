@@ -8,7 +8,17 @@
     <body>
 
         <div id="app">
-            {{ output }}
+          <input type="radio" id="16" value="16" v-model="singleFast" >
+          <label for="16">16 Hour fast</label>
+          <br>
+          <input type="radio" id="20" value="20" v-model="singleFast" >
+          <label for="20">20 Hour fast</label>
+          <span> Chosen Fast: {{ singleFast }} </span>
+          <br>
+          <span>Time now: {{ output }}</span>
+
+            <br>
+            <span>End Fast: {{ endFast }} </span>
         </div>
 
       <script src="index.js"></script>
