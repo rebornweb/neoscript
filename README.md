@@ -17,7 +17,7 @@ Developing, managing Systems Windows or Linux which I like more
 
 
 My mum said:
-"Honey, please go to the market and buy 1 Bottle of milke. If they have eggs,
+"Honey, please go to the market and buy 1 Bottle of Milk. If they have eggs,
 bring 6
 "
 I came back with 6 bottles of milk.
