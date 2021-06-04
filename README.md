@@ -13,4 +13,30 @@ Developing, managing Systems Windows or Linux which I like more
 
 
 
-Enjoy
+/*The Problem about being a Programmer
+
+
+My mum said:
+"Honey, please go to the market and buy 1 Bottle of milke. If they have eggs,
+bring 6
+"
+I came back with 6 bottles of milk.
+
+She said: "Why did you buy 6 bottles of milk?"
+
+I said: "Cause they had EGGS!!"
+
+*/
+var milk = 6;
+var eggs = true;
+
+function mumAsks() {
+
+if(eggs){
+console.log("You bought " + milk + " Bottles of Milk");
+
+}
+
+};
+
+mumAsks();
