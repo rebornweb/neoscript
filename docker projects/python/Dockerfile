@@ -10,7 +10,7 @@ RUN apt update -y && apt install -y git && apt install -y apt-get install python
 
 #Install App
 RUN mkdir /home/app && cd /home/app && \
-    git clone https://github.com/danjac/realworld/ && cd realworld && python -m venv venv && \
+    git clone https://github.com/danjac/realworld/ && cd realworld && python3 -m venv venv && \
     source venv/bin/activate && pip install -r requirements.txt && \
     ./manage.py migrate && ./manage.py runserver
 
