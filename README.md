@@ -12,11 +12,12 @@ Developing, managing Systems Windows or Linux which I like more
 #There is Also a Waving Animation Waving.js & a Image Cycler dreCycler.js
 
 
-
+```
 /*The Problem about being a Programmer
 
 
 My mum said:
+
 "Honey, please go to the market and buy 1 Bottle of Milk. If they have eggs,
 bring 6
 "
@@ -27,6 +28,7 @@ She said: "Why did you buy 6 bottles of milk?"
 I said: "Cause they had EGGS!!"
 
 */
+
 var milk = 6;
 var eggs = true;
 
@@ -40,3 +42,4 @@ console.log("You bought " + milk + " Bottles of Milk");
 };
 
 mumAsks();
+```
