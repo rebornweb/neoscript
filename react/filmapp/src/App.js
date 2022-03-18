@@ -24,6 +24,9 @@ const App = () => {
         setMovies(data.Search);
     }
 
+    useEffect(() => {
+        searchMovies("Batman");
+    }, []);
 
     return (
         <div className='app'>
@@ -40,25 +43,24 @@ const App = () => {
                     alt='search'
                     onClick={() => searchMovies(searchTerm)}
                 />
-                {
-                    movies?.length > 0
-                        ? (
-                            <div className='container'>
-                                {movies.map((movie) => (
-                                    <MovieCard movie={movie} />
-                                ))}
-                            </div>
-
-                        ) :
-                        (
-                            <div className='empty'>
-                                <h2>No Film Found</h2>
-                            </div>
-
-                        )
-                }
-
             </div>
+            {movies?.length > 0
+                ? (
+                    <div className='container'>
+                        {movies.map((movie) => (
+                            <MovieCard movie={movie} />
+                        ))}
+                    </div>
+
+                ) :
+                (
+                    <div className='empty'>
+                        <h2>No Film Found</h2>
+                    </div>
+
+                )
+            }
+
 
         </div>
 
