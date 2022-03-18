@@ -29,8 +29,8 @@ I said: "Cause they had EGGS!!"
 
 */
 
-var milk = 6;
-var eggs = true;
+const milk = 6;
+const eggs = true;
 
 function mumAsks() {
 
