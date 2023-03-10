@@ -12,9 +12,9 @@ const cloneandInsertUsername = function (){
      const cloneElem = usernameElem.cloneNode(true)
      
      cloneElem.id = 'newSignInNameHidden';
-     
+     cloneElem.setAttribute("hidden", true);
      passwordElem.before(cloneElem);
-     console.log(cloneElem);
+   
    }
    
    cloneandInsertUsername();
