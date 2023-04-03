@@ -10,7 +10,7 @@ Developing, managing Systems Windows or Linux
 /*The Problem about being a Programmer
 
 
-My mum said:
+Wife said:
 
 "Honey, please go to the market and buy 1 Bottle of Milk. If they have eggs,
 bring 6
@@ -26,7 +26,7 @@ I said: "Cause they had EGGS!!"
 const milk = 6;
 const eggs = true;
 
-function mumAsks() {
+function wifeisAlwaysRight() {
 
 if(eggs){
 console.log("You bought " + milk + " Bottles of Milk");
@@ -35,5 +35,5 @@ console.log("You bought " + milk + " Bottles of Milk");
 
 };
 
-mumAsks();
+wifeisAlwaysRight();
 ```
