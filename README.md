@@ -23,10 +23,9 @@ I said: "Cause they had EGGS!!"
 
 */
 
+function wifeisAlwaysRight() {
 const milk = 6;
 const eggs = true;
-
-function wifeisAlwaysRight() {
 
 if(eggs){
 console.log("You bought " + milk + " Bottles of Milk");
