@@ -1,24 +1,14 @@
-'use strict';
+const http = require('http');
 
-const express = require('express');
+const hostname = '127.0.0.1';
+const port = 3000;
 
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
-
-// App
-const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello World');
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World');
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
-
-// Express install
-// npm install express --save
-// npm install nodemon --save-dev
-// From package json run script start
-// npm run start 
-
-//touch .gitignore && echo "node_modules/" >> .gitignore && git rm -r --cached node_modules ; git status
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});

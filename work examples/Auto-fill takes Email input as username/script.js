@@ -12,7 +12,6 @@ var cloneandInsertUsername = function (){
    let cloneElem = usernameElem.cloneNode(true);
    
    cloneElem.id = 'newSignInNameHidden';
-   cloneElem.setAttribute("hidden", true); 
    emailElem.before(cloneElem);
  
  }
