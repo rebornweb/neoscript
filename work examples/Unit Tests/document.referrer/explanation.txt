@@ -1,0 +1,11 @@
+Explanation:
+
+This Jest test checks the two branches of the if-else statement in the original code.
+
+We first set the document.referrer property to a default value using Object.defineProperty. Then, we create spies for window.location.assign and window.location.reload, and mock their implementations to do nothing using jest.spyOn.
+
+Next, we run the if-else statement in the original code, and check whether window.location.assign and window.location.reload were called correctly based on the value of document.referrer.
+
+Finally, we restore the original implementations of window.location.assign and window.location.reload using spy.mockRestore() to ensure that subsequent tests are not affected.
+
+Note that we use jest.spyOn to create spies for the window.location.assign and window.location.reload methods, and use expect().toHaveBeenCalledWith() and expect().toHaveBeenCalled() to check if they were called with the expected arguments. Also, we use Object.defineProperty to set the document.referrer property.
