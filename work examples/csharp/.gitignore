@@ -1,0 +1,47 @@
+# Ignore Visual Studio files
+.vs/
+bin/
+obj/
+*.suo
+*.user
+*.vspscc
+*.vssscc
+*.psess
+*.pssm
+*.log
+*.tlog
+*.tmp
+*.dbmdl
+*.jfm
+*.bak
+*.cache
+
+# Ignore ReSharper files
+_ReSharper*/
+*.ReSharper.*
+*.DotSettings
+
+# Ignore NuGet packages
+packages/
+*.nupkg
+*.snupkg
+*.dotnet.archive
+
+# Ignore build artifacts
+*.dll
+*.exe
+*.pdb
+*.xml
+*.json
+*.log
+*.zip
+*.gz
+
+# Ignore test results
+TestResults/
+
+# Ignore .NET Core runtime files
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+*.deps.json
+*.dll.config
