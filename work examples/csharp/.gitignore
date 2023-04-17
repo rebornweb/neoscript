@@ -1,47 +1,77 @@
-# Ignore Visual Studio files
+# Visual Studio temporary files
 .vs/
-bin/
-obj/
-*.suo
-*.user
 *.vspscc
 *.vssscc
-*.psess
-*.pssm
-*.log
-*.tlog
-*.tmp
-*.dbmdl
-*.jfm
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
 *.bak
 *.cache
-
-# Ignore ReSharper files
-_ReSharper*/
-*.ReSharper.*
-*.DotSettings
-
-# Ignore NuGet packages
-packages/
-*.nupkg
-*.snupkg
-*.dotnet.archive
-
-# Ignore build artifacts
-*.dll
-*.exe
-*.pdb
-*.xml
-*.json
+*.ilk
 *.log
-*.zip
-*.gz
+*.manifest
+*.obj
+*.pch
+*.pdb
+*.ipch/
+*.bak
+*.sdf
+*.sln.docstates
 
-# Ignore test results
+# Visual Studio project files
+*.csproj
+*.csproj.user
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.suo.user
+
+# Visual Studio code browsing files
+*.suo
+*.ncb
+*.opendb
+*.sdf
+*.dbmdl
+
+# ReSharper files
+_ReSharper*/
+*.sln.DotSettings.user
+
+# Test Results
 TestResults/
 
-# Ignore .NET Core runtime files
-*.runtimeconfig.json
-*.runtimeconfig.dev.json
-*.deps.json
-*.dll.config
+# NuGet
+packages/
+*.nupkg
+*.pdb
+*.dll
+*.exe
+*.log
+*.zip
+*.7z
+
+# Resharper
+*.ReSharper
+*.ReSharper.user
+
+# User-specific files
+*.user
+*.suo
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/

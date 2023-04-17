@@ -1,4 +1,4 @@
-const { JSDOM } = require('jsdom');
+
 
 test('window location redirects or reloads correctly', () => {
     const referrer = 'http://example.com/page1.html';
