@@ -6,7 +6,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "jsdom": "^21.1.1"
+    "jsdom": "^21.1.1",
+    "text-encoding": "^0.7.0"
   },
   "devDependencies": {
     "jest": "^26.6.3"
@@ -17,5 +18,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.ts$": "ts-jest",
+    "./pintotext.js": "babel-jest"
+  }
 }
