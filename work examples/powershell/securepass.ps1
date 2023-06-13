@@ -4,13 +4,22 @@ Function GetServiceData(
     [string]$rootURI = "https://google.com",
     [string]$sFilterColumn = "",
     [string]$sFilterValue = "",
-    [string]$username = "Andrei",
+    [string]$username = "",
     [SecureString]$password
-)
-{
-    $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $username, $password
+) {
+    # Function body goes here
 
-    # Rest of your code here...
+    # Example code to demonstrate function usage
+    Write-Host "Operation Name: $opName"
+    Write-Host "Start Time: $sTime"
+    Write-Host "Root URI: $rootURI"
+    Write-Host "Filter Column: $sFilterColumn"
+    Write-Host "Filter Value: $sFilterValue"
+    Write-Host "Username: $username"
+    Write-Host "Password: $password"
 }
-$credential = Get-Credential -UserName "username"
-GetServiceData -username $credential.UserName -password $credential.Password
+
+# Call the GetServiceData function with default arguments, a secure password, and a username
+$securePassword = Read-Host -AsSecureString "Enter your password"
+$username = Read-Host "Enter your username"
+GetServiceData -password $securePassword -username $username
