@@ -23,3 +23,8 @@ Function GetServiceData(
 $securePassword = Read-Host -AsSecureString "Enter your password"
 $username = Read-Host "Enter your username"
 GetServiceData -password $securePassword -username $username
+
+$usePassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePassword))
+
+# Now you can use the $plainPassword variable as a regular string password
+Write-Host "Plain Password: $usePassword"
