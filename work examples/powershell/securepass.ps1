@@ -5,7 +5,7 @@ Function GetServiceData(
     [string]$sFilterColumn = "",
     [string]$sFilterValue = "",
     [string]$username = "",
-    [SecureString]$password
+    [string]$password
 ) {
     # Function body goes here
 
@@ -20,11 +20,11 @@ Function GetServiceData(
 }
 
 # Call the GetServiceData function with default arguments, a secure password, and a username
-$securePassword = Read-Host -AsSecureString "Enter your password"
 $username = Read-Host "Enter your username"
-GetServiceData -password $securePassword -username $username
-
+$securePassword = Read-Host -AsSecureString "Enter your password"
 $usePassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePassword))
+GetServiceData -password $usePassword -username $username
+
 
 # Now you can use the $plainPassword variable as a regular string password
-Write-Host "Plain Password: $usePassword"
+#Write-Host "Plain Password: $usePassword"
