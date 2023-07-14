@@ -2,6 +2,8 @@
 
 This is A Repo of Andrei Nicolas
 
+Codewars
+https://www.codewars.com/users/slipspace
 
 #Who Likes all Aspects of IT
 Developing, managing Systems Windows or Linux
