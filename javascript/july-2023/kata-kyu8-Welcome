@@ -1,0 +1,58 @@
+const greet = (language) => {
+    const data = {
+        "english":"Welcome",
+      "czech": "Vitejte",
+      "danish": "Velkomst",
+      "dutch": "Welkom",
+      "estonian": "Tere tulemast",
+      "finnish": "Tervetuloa",
+      "flemish": "Welgekomen",
+      "french": "Bienvenue",
+      "german": "Willkommen",
+      "irish": "Failte",
+      "italian": "Benvenuto",
+      "latvian": "Gaidits",
+      "lithuanian": "Laukiamas",
+      "polish": "Witamy",
+      "spanish": "Bienvenido",
+      "swedish": "Valkommen",
+      "welsh": "Croeso"
+    };
+    
+    switch (language) {
+      case 'english':
+      case 'czech':
+      case 'danish':
+      case 'dutch':
+      case 'estonian':
+      case 'finnish':
+      case 'flemish':
+      case 'french':
+      case 'german':
+      case 'irish':
+      case 'italian':
+      case 'latvian':
+      case 'lithuanian':
+      case 'polish':
+      case 'spanish':
+      case 'swedish':
+      case 'welsh':
+       
+        return data[language];
+  
+      default:
+        return 'Welcome';
+    }
+  };
+  greet('english');
+
+
+//   const Test = require('@codewars/test-compat');
+
+// describe("Tests", () => {
+//   it("test", () => {
+// Test.assertEquals(greet('english'), 'Welcome', "Your function should have returned 'Welcome'. Try again.");
+// Test.assertEquals(greet('dutch'), 'Welkom', "Your function should have returned 'Welkom'. Try again.");
+// Test.assertEquals(greet('IP_ADDRESS_INVALID'), 'Welcome', "Your function should have returned 'Welcome'. Try again.");
+//   });
+// });
