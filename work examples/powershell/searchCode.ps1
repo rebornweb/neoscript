@@ -1,6 +1,6 @@
 $filesSearched = 0
 $currentPath = Get-Location
-$searchC = 'Search files for code'
+$searchC = 'search anything'
 
 # Start the timer
 $timer = [System.Diagnostics.Stopwatch]::StartNew()
