@@ -1,0 +1,33 @@
+function encode(str) {
+    const input = str.split('');
+    let output = '';
+  
+    while (input.length) {
+      output += input.shift();
+      output += input.pop() || '';
+    }
+  
+    return output;
+  }
+  
+  function decode(str) {
+    const input = str.split('');
+    let output = '';
+  
+    for (let i = 0; i < input.length; i++) {
+      output += input[i];
+      input.splice(i, 1);
+    }
+  
+    output += input.reverse().join('');
+    return output;
+  }
+  
+
+  const wordToEncode = "codewars";
+  const encodedResult = encode(wordToEncode);
+  console.log("Encoded Cipher:", encodedResult);
+  
+  const decodedResult = decode(encodedResult);
+  console.log("Decoded Word:", decodedResult);
+  
