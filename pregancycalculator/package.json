@@ -1,0 +1,19 @@
+{
+    "name": "pregnancycalculator",
+    "version": "1.0.0",
+    "description": "AngularJS Pregnancy Calculator App",
+    "main": "app.js",
+    "scripts": {
+        "start": "http-server"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "angular": "^1.6.10",
+        "angular-animate": "1.7.9",
+        "angular-material": "^1.1.24",
+        "angular-sanitize": "1.7.9",
+        "angular-ui-bootstrap": "2.5.6",
+        "moment": "^2.29.4"
+    }
+}
