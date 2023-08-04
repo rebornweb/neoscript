@@ -1,1 +1,45 @@
-python/myenv/
+# Ignore dependencies
+/node_modules
+
+# Ignore build output
+/dist
+/.nuxt
+/.idea
+
+# Ignore environment variables
+/.env
+
+# Ignore log files and build artifacts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+*.log.*
+*.un~
+*.swp
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore Vue CLI configuration
+vue.config.js
+
+# Ignore IDE specific files
+/.vscode
+
+# Ignore Vue development server
+/.vite
+
+# Ignore project specific .env files
+.env.local
+.env.*.local
+
+# Ignore editor configuration files
+.editorconfig
+.eslintignore
+.eslintrc.js
+.prettierrc
+.prettierignore
+.stylelintignore
+.stylelintrc
