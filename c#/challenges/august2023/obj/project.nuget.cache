@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "2VW6dLDysOIXqi+D5dP19AjVpCQwsdtPndBY30KBPdzC51s4w8V5rg8SYa0Ou2k0kKs7l2/XAgOnFsV14eOeUA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\andre\\Documents\\git\\neoscript\\c#\\challenges\\august2023\\9-8-2023.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andre\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\andre\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\andre\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\andre\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.21\\microsoft.netcore.app.host.win-x64.6.0.21.nupkg.sha512"
+  ],
+  "logs": []
+}
