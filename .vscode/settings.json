@@ -1,0 +1,3 @@
+{
+    "dotnet.defaultSolution": "work examples/csharp/UnrealTest/UnrealTest.sln"
+}
