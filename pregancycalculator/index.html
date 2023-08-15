@@ -2,32 +2,11 @@
 <!DOCTYPE html>
 
 <!--
-
-http://iudcalc/
-http://nodesimplified.com/how-to-display-charts-in-the-modal-popup-using-angularjs-and-chart-js/
-
-Try merge the UPSI bar to the datetimepicker
-https://eonasdan.github.io/bootstrap-datetimepicker/
-https://stackoverflow.com/questions/16573624/get-the-value-of-bootstrap-datetimepicker-in-javascript
-
-Cleaner code:
-https://www.makeuseof.com/tag/10-tips-writing-cleaner-better-code/
-https://google.github.io/styleguide/javascriptguide.xml
-
-Multiple Apps in one Angularjs project
-https://www.codeproject.com/Articles/862602/Define-Multiple-Angular-Apps-In-One-Page
-
-angularjs App Structure Good Luck!
-
 Start rootApp (Injects both apps to allow you have multiple apps)
 **
 firstApp
 End firstApp
 **
-secondApp
-End secondApp
-**
-
 End rootApp
 
 -->
@@ -38,18 +17,12 @@ End rootApp
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="stylesheet" href="angular-material.min.css">
-
-
-<!--link rel="stylesheet" href="style.css"-->
-<!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-
-<link rel="stylesheet" href='style.css' />
-
-
+<link rel="stylesheet" href='style/output-style.css' />
 
 </head>
+
 <body ng-app="rootApp" ng-controller='rootCon' >
 
 
@@ -61,10 +34,6 @@ End rootApp
 
 
 <section ng-app="firstApp" >
-
-
-
-
  <!--p >Todays Date = {{ today | date }}</p-->
 
 <div class='row'>
