@@ -11,7 +11,7 @@ var firstApp = angular.module('firstApp', ['ngAnimate', 'ngSanitize', 'ui.bootst
 // Define the secondApp module and inject ngMaterial as a dependency
 var secondApp = angular.module('secondApp', ['ngMaterial']);
 Controllers:
-a. hourController: This controller is associated with the firstApp module and handles date manipulation and calculations.
+a. timeController: This controller is associated with the firstApp module and handles date manipulation and calculations.
 
 b. prangeController: This controller is associated with the secondApp module and appears to handle some date range calculations.
 
