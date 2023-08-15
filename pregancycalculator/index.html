@@ -47,6 +47,8 @@ End rootApp
 
 <link rel="stylesheet" href='style.css' />
 
+
+
 </head>
 <body ng-app="rootApp" ng-controller='rootCon' >
 
@@ -78,7 +80,7 @@ Choose Date of the LMP or UPSI
 
 </div><!--End row-->
 
-<form name="myForm" ng-controller="hourController" >
+<form name="myForm" ng-controller="timeController" >
 
   <br>
 
@@ -117,10 +119,9 @@ Choose Date of the LMP or UPSI
   </div>
   
   <div>
-    <div ng-controller="resultController">
-      <h3>You are expecting a baby! </h3>
-      <span id="babyExpected">{{ displayDate }}</span>
+    <div ng-include="'views/resultController.html'">
     </div>
+
   </div>
   </section><!--End firstApp-->
   </div><!--End Container-->
@@ -147,8 +148,12 @@ crossorigin="anonymous"></script>
 
 <script src="angular-material.min.js"></script>
 <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
-<!--script src="components.js"></script-->
+<!-- <script src="components.js"></script> -->
+
 <script defer src="app.js" ></script>
+
+<!--Controllers-->
+<script defer src="controllers/resultController.js"></script>
 
 
 

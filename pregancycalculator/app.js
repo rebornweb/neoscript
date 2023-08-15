@@ -37,7 +37,7 @@ firstApp.factory('Data', function () {
 
 
 //UPSI controller
-firstApp.controller('hourController', ['$scope', function($scope) {
+firstApp.controller('timeController', ['$scope', function($scope) {
 
   $scope.today = new Date();
   $scope.hour = {value:null};
@@ -153,20 +153,7 @@ $scope.shouldBeOpen = true;
   input.val(formatDate(nowDate));
   DateChosen.html('Todays Date: ' + formatDate(nowDate));
   
-  console.log('Upsi date?' + updateDate());
-  // $scope.dateExpected = 'You are ' + updateDate();
 
-  // $scope.$watch('dateExpected', function (newValue, oldValue) {
-  //     if (newValue !== oldValue) Data.setdateExpected(newValue);
-  // });
+}]); //End firstApp timeController
 
 
-}]); //End firstApp hourController
-
-
-firstApp.controller('resultController', function ($scope, Data) {
-
-  // $scope.$watch(function () { return Data.getDateExpected(); }, function (newValue, oldValue) {
-  //     if (newValue !== oldValue) $scope.dateExpected = newValue;
-  // });
-});
