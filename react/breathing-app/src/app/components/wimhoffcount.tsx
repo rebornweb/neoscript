@@ -49,8 +49,12 @@ function Wimhoffcount({ initialTimeInSeconds }: { initialTimeInSeconds: number }
   return (
     <div>
       <h2>Wim Hoff Breathing Timer</h2>
+      <p>After your 30 Power Breaths</p>
+      <br/>
       <p> Hold for 1 minute - Breathe In All the Way and Hold for 15 sec - then breathe all the way out and start Power Breathing again </p>
+      <br/>
       <p>Time Remaining: {formatTime(timeRemaining)}</p>
+      <br/>
       <button onClick={startStop}>{running ? 'Pause' : 'Start'}</button>
       <button onClick={reset}>Reset</button>
     </div>
