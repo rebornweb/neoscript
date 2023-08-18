@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from './styles/page.module.css';
 import Stopwatch from './components/stopwatch';
+import Wimhoffcount from './components/wimhoffcount';
 
 
 
@@ -16,11 +17,20 @@ export default function Home() {
       <div className={styles.description}>
         <Container fluid>
           <Row>
-            <Col><h2>Breathing App</h2>
-            </Col><span>Wim Hof Breathing</span>
+            <Col><h2>Breathing App</h2></Col>
           </Row>
-        
+        <Row>
+          <Col>
         <Stopwatch />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+        <Wimhoffcount initialTimeInSeconds={60}/>
+          </Col>
+        </Row>
+        
+        
         </Container>
        
       </div>
