@@ -35,6 +35,7 @@ function Stopwatch() {
     <div>
       <h1>Stopwatch</h1>
       <p>Time: {splitSeconds} seconds</p>
+      <br/>
       <Button variant="success" onClick={startStop}>{running ? 'Stop' : 'Start'}</Button>
       <Button onClick={reset}>Reset</Button>
     </div>
