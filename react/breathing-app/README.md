@@ -1,3 +1,5 @@
+This app is designed to guide you through various styles of breathing exercises inspired by the Wim Hof Method. With these breathing techniques, you can experience deep relaxation and revitalization. Whether you're looking to calm your mind, boost your energy, or simply take a moment for yourself, our app provides a range of breathing exercises to suit your needs. Explore the power of intentional breathing and unlock a sense of relaxation and a boost from the Iceman.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
