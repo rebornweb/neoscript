@@ -7,8 +7,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from './styles/page.module.css';
 import Stopwatch from './components/stopwatch';
+import Wimhoffbreath from './components/wimhoffbreath';
 import Wimhoffcount from './components/wimhoffcount';
-
 
 
 export default function Home() {
@@ -24,9 +24,10 @@ export default function Home() {
         <Stopwatch />
           </Col>
         </Row>
+        
         <Row>
           <Col>
-        <Wimhoffcount initialTimeInSeconds={60}/>
+        <Wimhoffbreath />
           </Col>
         </Row>
         

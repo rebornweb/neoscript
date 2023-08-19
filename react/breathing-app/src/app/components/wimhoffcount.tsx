@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-function Wimhoffcount({ initialTimeInSeconds }: { initialTimeInSeconds: number }) {
+function Wimhoffcount({ initialTimeInSeconds, isBreathFinished }: { initialTimeInSeconds: number, isBreathFinished: boolean }) {
   const [timeRemaining, setTimeRemaining] = useState<number>(initialTimeInSeconds);
-  const [running, setRunningWim] = useState<boolean>(false);
+  const [running, setRunningWim] = useState<boolean>(true); // Start the timer automatically
   const [countdownIndex, setCountdownIndex] = useState<number>(0);
-
-  const countdownTimes = [initialTimeInSeconds, 15,2]; // Add more countdown times if needed
+  const [countdownTimes, setCountdownTimes] = useState<number[]>([initialTimeInSeconds, 15, 2]);
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -28,11 +27,7 @@ function Wimhoffcount({ initialTimeInSeconds }: { initialTimeInSeconds: number }
     return () => {
       clearInterval(intervalId);
     };
-  }, [running, timeRemaining, countdownIndex]);
-
-  const startStop = () => {
-    setRunningWim(prevRunning => !prevRunning);
-  };
+  }, [running, timeRemaining, countdownIndex, countdownTimes]);
 
   const reset = () => {
     setCountdownIndex(0);
@@ -40,25 +35,37 @@ function Wimhoffcount({ initialTimeInSeconds }: { initialTimeInSeconds: number }
     setRunningWim(false);
   };
 
-  const formatTime = (timeInSeconds) => {
+  const updateInitialTime = () => {
+    setCountdownTimes([90, 15, 2]);
+    setCountdownIndex(0);
+    setTimeRemaining(90);
+    setRunningWim(false);
+  };
+
+  const formatTime = (timeInSeconds: number) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
-  return (
-    <div>
-      <h2>Wim Hoff Breathing Timer</h2>
-      <p>After your 30 Power Breaths</p>
-      <br/>
-      <p> Hold for 1 minute - Breathe In All the Way and Hold for 15 sec - then breathe all the way out and start Power Breathing again </p>
-      <br/>
-      <p>Time Remaining: {formatTime(timeRemaining)}</p>
-      <br/>
-      <button onClick={startStop}>{running ? 'Pause' : 'Start'}</button>
-      <button onClick={reset}>Reset</button>
-    </div>
-  );
+  if (isBreathFinished) {
+    return (
+      <div>
+        <h2>Wim Hoff Breathing Timer</h2>
+        <p>Hold breath Time Remaining: {formatTime(timeRemaining)}</p>
+        <br/>
+        <button onClick={reset}>Reset Timer</button>
+        <button onClick={updateInitialTime}>Round 2+</button>
+        <br/>
+        <p>After your 30 Power Breaths</p>
+        <br/>
+        <p> Hold for 1 minute - Breathe In All the Way and Hold for 15 sec - then breathe all the way out and start Power Breathing again </p>
+        <br/>
+      </div>
+    );
+  } else {
+    return null; // Don't render anything until the breath is finished
+  }
 }
 
 export default Wimhoffcount;
