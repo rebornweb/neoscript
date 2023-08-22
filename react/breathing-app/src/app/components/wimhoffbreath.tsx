@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Wimhoffcount from './wimhoffcount';
 
 const messages = [
   ["Breath In *"],
