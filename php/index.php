@@ -17,10 +17,14 @@ if(curl_errno($ch)){
     throw new Exception(curl_error($ch));
 }
 
+//Get HTTP status code.
+$status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
 curl_close($ch);
 // Process the response
 if ($response) {
     $responseData = json_decode($response, true); // Convert JSON response to an array or object
+    echo $status_code, "\n"; 
     print_r($responseData['results'][0]['name']); // Display the response data
 } else {
     echo 'No response from the API';
