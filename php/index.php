@@ -2,11 +2,13 @@
 
 
 $ch = curl_init();
-$url = 'http://randomuser.me/api'; 
+$url = 'https://randomuser.me/api'; 
 
 
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt_array($ch, array(
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true
+));
 
 
 $response = curl_exec($ch);
@@ -16,10 +18,16 @@ if(curl_errno($ch)){
 }
 
 curl_close($ch);
-echo $response;
-
-
+// Process the response
+if ($response) {
+    $responseData = json_decode($response, true); // Convert JSON response to an array or object
+    print_r($responseData['results'][0]['name']); // Display the response data
+} else {
+    echo 'No response from the API';
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
