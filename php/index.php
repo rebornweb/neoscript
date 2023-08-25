@@ -3,11 +3,17 @@
 
 $ch = curl_init();
 $url = 'https://randomuser.me/api'; 
+$headers = [
+    'Content-Type: application/x-www-form-urlencoded' // or 'application/json'
+
+];
 
 
 curl_setopt_array($ch, array(
     CURLOPT_URL => $url,
     CURLOPT_RETURNTRANSFER => true
+    // CURLOPT_HTTPHEADER => $headers,
+    // CURLOPT_HEADER => true
 ));
 
 
@@ -19,13 +25,17 @@ if(curl_errno($ch)){
 
 //Get HTTP status code.
 $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+$content_length = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
 
 curl_close($ch);
 // Process the response
 if ($response) {
     $responseData = json_decode($response, true); // Convert JSON response to an array or object
     echo $status_code, "\n"; 
-    print_r($responseData['results'][0]['name']); // Display the response data
+    // echo $content_type, "\n";
+    // echo $content_length, "\n";
+    print_r($responseData); // Display the response data
 } else {
     echo 'No response from the API';
 }
