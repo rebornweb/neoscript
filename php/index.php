@@ -2,18 +2,30 @@
 
 
 $ch = curl_init();
-$url = 'https://randomuser.me/api'; 
+$url = 'https://api.unsplash.com/photos/random'; 
 $headers = [
-    'Content-Type: application/x-www-form-urlencoded' // or 'application/json'
+    'Authorization: Client-ID EA2pUhYKvWZTFAUzCf9AKWFwn_Rq4J3AHA12hoqqCoA',
 
 ];
 
 
+$response_headers = [];
+
+$header_callback = function($ch, $header) use (&$response_headers) {
+
+    $len = strlen($header);
+
+    $response_headers[] = $header;
+
+    return $len;
+
+};
+
 curl_setopt_array($ch, array(
     CURLOPT_URL => $url,
-    CURLOPT_RETURNTRANSFER => true
-    // CURLOPT_HTTPHEADER => $headers,
-    // CURLOPT_HEADER => true
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => $headers,
+    CURLOPT_HEADERFUNCTION => $header_callback
 ));
 
 
@@ -25,10 +37,11 @@ if(curl_errno($ch)){
 
 //Get HTTP status code.
 $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-$content_length = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
 
 curl_close($ch);
+
+print_r($response_headers);
+
 // Process the response
 if ($response) {
     $responseData = json_decode($response, true); // Convert JSON response to an array or object
