@@ -72,10 +72,10 @@ packages/
 *.userosscache
 
 # Ignore TypeScript transpiled files
-*.js
-*.js.map
-*.ts
-*.ts.map
+# *.js
+# *.js.map
+# *.ts
+# *.ts.map
 
 # Ignore ReSharper files
 _ReSharper*/
