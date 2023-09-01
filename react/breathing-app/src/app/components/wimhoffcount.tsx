@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 function Wimhoffcount({ initialTimeInSeconds, isBreathFinished }: { initialTimeInSeconds: number, isBreathFinished: boolean }) {
   const [timeRemaining, setTimeRemaining] = useState<number>(initialTimeInSeconds);
-  const [running, setRunningWim] = useState<boolean>(true); // Start the timer automatically
+  const [running, setRunningWim] = useState<boolean>(false); // Start the timer manually
   const [countdownIndex, setCountdownIndex] = useState<number>(0);
   const [countdownTimes, setCountdownTimes] = useState<number[]>([initialTimeInSeconds, 15, 2]);
+
+  const toggleTimer = () => {
+    setRunningWim(prevRunning => !prevRunning);
+  };
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -54,6 +58,7 @@ function Wimhoffcount({ initialTimeInSeconds, isBreathFinished }: { initialTimeI
         <h2>Wim Hoff Breathing Timer</h2>
         <p>Hold breath Time Remaining: {formatTime(timeRemaining)}</p>
         <br/>
+        <button onClick={toggleTimer}>{running ? 'Pause' : 'Continue'}</button>
         <button onClick={reset}>Reset Timer</button>
         <button onClick={updateInitialTime}>Round 2+</button>
         <br/>
