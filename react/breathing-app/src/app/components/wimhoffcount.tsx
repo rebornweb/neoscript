@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Wimhoffcount({ initialTimeInSeconds, isBreathFinished }: { initialTimeInSeconds: number, isBreathFinished: boolean }) {
   const [timeRemaining, setTimeRemaining] = useState<number>(initialTimeInSeconds);
-  const [running, setRunningWim] = useState<boolean>(false); // Start the timer manually
+  const [running, setRunningWim] = useState<boolean>(true); // Start the timer automatically
   const [countdownIndex, setCountdownIndex] = useState<number>(0);
   const [countdownTimes, setCountdownTimes] = useState<number[]>([initialTimeInSeconds, 15, 2]);
 
