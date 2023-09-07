@@ -3,16 +3,18 @@ Write-Host "Importing the LithnetRMA module..."
 Import-Module LithnetRMA
 
 # Define the output file name based on the current date and time
-$OutputLogFileName = "C:\Users\z14809z\Desktop\" + (Get-Date -Format "yyyyMMdd-HHmmss") + ".csv"
+$OutputLogFileName = "C:\Users\username\Desktop\" + (Get-Date -Format "yyyyMMdd-HHmmss") + ".csv"
 Write-Host "Output file name: $OutputLogFileName"
 
 # Search for user objects in LithnetRMA
 Write-Host "Searching for user objects..."
-$users = Search-Resources -XPath "/Person" -AttributesToGet @("ObjectID","AccountName") -SortAttributes @("AccountName")
+$users = Search-Resources -XPath "/Person" -AttributesToGet @("ObjectID","toyUID","toyWorkforceID","DisplayName","AccountName","title","FirstName","MiddleName","LastName","Domain","ebusBirthDate","JobTitle","ebusStartDate","ebusTerminationDate","Manager","TelephoneNumber","MobilePhone","Email","Company","City","Address","Region","Locale","msidmPamLinkedUser","ebusRoles","siteLocation","sourceou","toyIsK","toyIsDealer","toyCN","toyDealerCompanyRef","toyOUreference","toywmMasterOfGroups","eBusVirtualEntity")
+-SortAttributes @("AccountName")
+
 Write-Host "Found $($users.Count) user objects."
 
 # Specify the properties you want to export to the CSV file
-$properties = @("ObjectID","AccountName")
+$properties = @("ObjectID","toyUID","toyWorkforceID","DisplayName","AccountName","title","FirstName","MiddleName","LastName","Domain","ebusBirthDate","JobTitle","ebusStartDate","ebusTerminationDate","Manager","TelephoneNumber","MobilePhone","Email","Company","City","Address","Region","Locale","msidmPamLinkedUser","ebusRoles","siteLocation","sourceou","toyIsK","toyIsDealer","toyCN","toyDealerCompanyRef","toyOUreference","toywmMasterOfGroups","eBusVirtualEntity")
 
 # Create an array to hold the data
 $data = @()
