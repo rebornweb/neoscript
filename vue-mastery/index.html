@@ -6,22 +6,32 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.2.0/dist/vue.global.js"></script>
-
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
   </head>
   <body>
     <div id="app">
-      <h1>{{products.product}}</h1>
-      <p>{{products.description}}</p>
+      <div class="nav-bar"></div>
+      
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image">
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Import App -->
     <script src="./main.js"></script>
 
-    <!---Mount App-->
+    <!-- Mount App -->
     <script>
-      const mountedApp = app.mount('#app');
+      const mountedApp = app.mount('#app')
     </script>
   </body>
 </html>
-``

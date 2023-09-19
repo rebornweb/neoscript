@@ -1,0 +1,3 @@
+- git filter-repo --invert-paths --path "README.md" --force
+- Git push --all --force https://github.com/rebornweb/neoscript.git
+- Git push --tags --force https://github.com/rebornweb/neoscript.git
