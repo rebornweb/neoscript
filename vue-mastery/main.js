@@ -1,4 +1,5 @@
-//Start at level 6
+//Start at level 7
+//https://www.vuemastery.com/courses/intro-to-vue-3/class-and-style-binding-vue3
 
 const app = Vue.createApp({
     data() {
@@ -13,5 +14,19 @@ const app = Vue.createApp({
               { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg' },
             ]
         }
+    },
+    methods:{
+    addToCart(){
+        this.cart += 1;
+    },
+    updateImage(variantImage){
+        this.image = variantImage
+    },
+    removeItemCart(){
+        if(this.cart > 0){
+        this.cart -= 1;
+        }
     }
+
+}
 })
