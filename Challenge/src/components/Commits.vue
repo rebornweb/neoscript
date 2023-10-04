@@ -1,10 +1,20 @@
 <template>
   <div class="container-fluid">
     <h2>Latest Commits</h2>
+    <button @click="toggleListVisibility">
+      {{ showList ? 'Hide List' : 'Show List' }}
+    </button>
     <div class="commitList">
-  
-      <ul>
-        <template v-for="{ html_url, sha, author, commit } in commits" :key="html_url">
+      <div class="controls">
+        <label for="commitsPerPageSelect">Commits per Page:</label>
+        <select id="commitsPerPageSelect" v-model="commitsPerPage" @change="applyCommitsPerPage">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+        </select>
+      </div>
+      <ul v-if="showList">
+        <template v-for="{ html_url, sha, author, commit } in displayedCommits" :key="html_url">
           <li>
             <a :href="html_url" target="_blank" class="commit">{{ sha.slice(0, 7) }}</a>
             by <i class="fa fa-fw fa-user"></i><span class="author"> <a :href="author.html_url" target="_blank">{{ commit.author.name }}</a></span>
@@ -21,7 +31,6 @@
 </template>
 
 
-
 <script>
 
 import moment from "moment";
@@ -36,9 +45,15 @@ export default {
       API_URL:
         "https://api.github.com/repos/vuejs/core/commits?per_page=10&sha=main",
       commits: null,
+      showList: true,
+      commitsPerPage: 10, 
     };
   },
-  computed: {},
+  computed: {
+    displayedCommits() {
+      return this.commits ? this.commits.slice(0, this.commitsPerPage) : [];
+    },
+  },
   watch: {},
   beforeCreate: function () {},
   created: function () {
@@ -62,6 +77,12 @@ export default {
     },
     formatDate: function (date) {
       return moment(date);
+    },
+    toggleListVisibility() {
+      this.showList = !this.showList;
+    },
+    applyCommitsPerPage() {
+      this.$forceUpdate();
     },
   },
 };
@@ -106,5 +127,8 @@ li {
   margin-bottom: 5px;
   font-weight: bold;
   color: #259D3D;
+}
+.controls {
+  margin-bottom: 10px;
 }
 </style>
