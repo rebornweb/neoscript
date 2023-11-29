@@ -98,15 +98,15 @@ namespace Mms_Metaverse
                             _csentry.CommitNewConnector();
                         }
                     }
-                    else if (!(mventry["terminated"].IsPresent) && mventry["UNIFY_orgUnitNumber"].IsPresent)
+                    else if (!(mventry["terminated"].IsPresent) && mventry["Host_orgUnitNumber"].IsPresent)
                     {
                         //do nothing
 
                     }
                 }
                 ////Phase 2: Rename User object based on Department
-                //if (numOfConnectors == 1 && mventry["UNIFY_orgUnitNumber"].IsPresent && (mventry["terminated"].IsPresent && mventry["terminated"].Value.ToLower() == "false"))
-                if (numOfConnectors == 1 && mventry["UNIFY_orgUnitNumber"].IsPresent)
+                //if (numOfConnectors == 1 && mventry["Host_orgUnitNumber"].IsPresent && (mventry["terminated"].IsPresent && mventry["terminated"].Value.ToLower() == "false"))
+                if (numOfConnectors == 1 && mventry["Host_orgUnitNumber"].IsPresent)
 
                 {
                     // Check if the connector has a different DN and rename if necessary.
@@ -114,343 +114,343 @@ namespace Mms_Metaverse
                     _csentry = adMA.Connectors.ByIndex[0];
 
                     #region LegacyOU Placement
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "2")
+                    //if (mventry["Host_orgUnitNumber"].Value == "2")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area2OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "3")
+                    //if (mventry["Host_orgUnitNumber"].Value == "3")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area3OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "4")
+                    //if (mventry["Host_orgUnitNumber"].Value == "4")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area4OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "5")
+                    //if (mventry["Host_orgUnitNumber"].Value == "5")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area5OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "6")
+                    //if (mventry["Host_orgUnitNumber"].Value == "6")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area6OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "7")
+                    //if (mventry["Host_orgUnitNumber"].Value == "7")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area7OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "8")
+                    //if (mventry["Host_orgUnitNumber"].Value == "8")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area8OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "9")
+                    //if (mventry["Host_orgUnitNumber"].Value == "9")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area9OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "10")
+                    //if (mventry["Host_orgUnitNumber"].Value == "10")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area10OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "11")
+                    //if (mventry["Host_orgUnitNumber"].Value == "11")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area11OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "12")
+                    //if (mventry["Host_orgUnitNumber"].Value == "12")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area12OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "13")
+                    //if (mventry["Host_orgUnitNumber"].Value == "13")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area13OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "14")
+                    //if (mventry["Host_orgUnitNumber"].Value == "14")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area14OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "15")
+                    //if (mventry["Host_orgUnitNumber"].Value == "15")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area15OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "16")
+                    //if (mventry["Host_orgUnitNumber"].Value == "16")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area16OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "17")
+                    //if (mventry["Host_orgUnitNumber"].Value == "17")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area17OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "18")
+                    //if (mventry["Host_orgUnitNumber"].Value == "18")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area18OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "19")
+                    //if (mventry["Host_orgUnitNumber"].Value == "19")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area19OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "20")
+                    //if (mventry["Host_orgUnitNumber"].Value == "20")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area20OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "21")
+                    //if (mventry["Host_orgUnitNumber"].Value == "21")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area21OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "22")
+                    //if (mventry["Host_orgUnitNumber"].Value == "22")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area22OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "23")
+                    //if (mventry["Host_orgUnitNumber"].Value == "23")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area23OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "24")
+                    //if (mventry["Host_orgUnitNumber"].Value == "24")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area24OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "25")
+                    //if (mventry["Host_orgUnitNumber"].Value == "25")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area25OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "26")
+                    //if (mventry["Host_orgUnitNumber"].Value == "26")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area26OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "27")
+                    //if (mventry["Host_orgUnitNumber"].Value == "27")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area27OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "28")
+                    //if (mventry["Host_orgUnitNumber"].Value == "28")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area28OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "29")
+                    //if (mventry["Host_orgUnitNumber"].Value == "29")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area29OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "30")
+                    //if (mventry["Host_orgUnitNumber"].Value == "30")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area30OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "31")
+                    //if (mventry["Host_orgUnitNumber"].Value == "31")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area31OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "32")
+                    //if (mventry["Host_orgUnitNumber"].Value == "32")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area32OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "33")
+                    //if (mventry["Host_orgUnitNumber"].Value == "33")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area33OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "34")
+                    //if (mventry["Host_orgUnitNumber"].Value == "34")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area34OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "35")
+                    //if (mventry["Host_orgUnitNumber"].Value == "35")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area35OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "36")
+                    //if (mventry["Host_orgUnitNumber"].Value == "36")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area36OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "37")
+                    //if (mventry["Host_orgUnitNumber"].Value == "37")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area37OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "38")
+                    //if (mventry["Host_orgUnitNumber"].Value == "38")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area38OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "39")
+                    //if (mventry["Host_orgUnitNumber"].Value == "39")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area39OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "40")
+                    //if (mventry["Host_orgUnitNumber"].Value == "40")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area40OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "41")
+                    //if (mventry["Host_orgUnitNumber"].Value == "41")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area41OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "42")
+                    //if (mventry["Host_orgUnitNumber"].Value == "42")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area42OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "43")
+                    //if (mventry["Host_orgUnitNumber"].Value == "43")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area43OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "44")
+                    //if (mventry["Host_orgUnitNumber"].Value == "44")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area44OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "45")
+                    //if (mventry["Host_orgUnitNumber"].Value == "45")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area45OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "46")
+                    //if (mventry["Host_orgUnitNumber"].Value == "46")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area46OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "47")
+                    //if (mventry["Host_orgUnitNumber"].Value == "47")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area47OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "48")
+                    //if (mventry["Host_orgUnitNumber"].Value == "48")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area48OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "49")
+                    //if (mventry["Host_orgUnitNumber"].Value == "49")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area49OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "50")
+                    //if (mventry["Host_orgUnitNumber"].Value == "50")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area50OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "51")
+                    //if (mventry["Host_orgUnitNumber"].Value == "51")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area51OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "52")
+                    //if (mventry["Host_orgUnitNumber"].Value == "52")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area52OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "53")
+                    //if (mventry["Host_orgUnitNumber"].Value == "53")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area53OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "54")
+                    //if (mventry["Host_orgUnitNumber"].Value == "54")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area54OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "55")
+                    //if (mventry["Host_orgUnitNumber"].Value == "55")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area55OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "56")
+                    //if (mventry["Host_orgUnitNumber"].Value == "56")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area56OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "57")
+                    //if (mventry["Host_orgUnitNumber"].Value == "57")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area57OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "58")
+                    //if (mventry["Host_orgUnitNumber"].Value == "58")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area58OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "59")
+                    //if (mventry["Host_orgUnitNumber"].Value == "59")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area59OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "60")
+                    //if (mventry["Host_orgUnitNumber"].Value == "60")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area60OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "61")
+                    //if (mventry["Host_orgUnitNumber"].Value == "61")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area61OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "62")
+                    //if (mventry["Host_orgUnitNumber"].Value == "62")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area62OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "63")
+                    //if (mventry["Host_orgUnitNumber"].Value == "63")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area63OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "64")
+                    //if (mventry["Host_orgUnitNumber"].Value == "64")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area64OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "65")
+                    //if (mventry["Host_orgUnitNumber"].Value == "65")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area65OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "66")
+                    //if (mventry["Host_orgUnitNumber"].Value == "66")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area66OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "67")
+                    //if (mventry["Host_orgUnitNumber"].Value == "67")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area67OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "68")
+                    //if (mventry["Host_orgUnitNumber"].Value == "68")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area68OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "69")
+                    //if (mventry["Host_orgUnitNumber"].Value == "69")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area69OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "70")
+                    //if (mventry["Host_orgUnitNumber"].Value == "70")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area70OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "71")
+                    //if (mventry["Host_orgUnitNumber"].Value == "71")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area71OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "72")
+                    //if (mventry["Host_orgUnitNumber"].Value == "72")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area72OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "73")
+                    //if (mventry["Host_orgUnitNumber"].Value == "73")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area73OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "74")
+                    //if (mventry["Host_orgUnitNumber"].Value == "74")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area74OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "75")
+                    //if (mventry["Host_orgUnitNumber"].Value == "75")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area75OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "76")
+                    //if (mventry["Host_orgUnitNumber"].Value == "76")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area76OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "77")
+                    //if (mventry["Host_orgUnitNumber"].Value == "77")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area77OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "78")
+                    //if (mventry["Host_orgUnitNumber"].Value == "78")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area78OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "79")
+                    //if (mventry["Host_orgUnitNumber"].Value == "79")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area79OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "80")
+                    //if (mventry["Host_orgUnitNumber"].Value == "80")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area80OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "81")
+                    //if (mventry["Host_orgUnitNumber"].Value == "81")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area81OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "82")
+                    //if (mventry["Host_orgUnitNumber"].Value == "82")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area82OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "83")
+                    //if (mventry["Host_orgUnitNumber"].Value == "83")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area83OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "84")
+                    //if (mventry["Host_orgUnitNumber"].Value == "84")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area84OU;
                     //}
-                    //if (mventry["UNIFY_orgUnitNumber"].Value == "85")
+                    //if (mventry["Host_orgUnitNumber"].Value == "85")
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_Area85OU;
                     //}
-                    //int OrgUnitNumber = Convert.ToInt32(mventry["UNIFY_orgUnitNumber"].Value);
+                    //int OrgUnitNumber = Convert.ToInt32(mventry["Host_orgUnitNumber"].Value);
                     //if (OrgUnitNumber > 85)
                     //{
                     //    _Container = _Preferences.GlobalConfiguration.ADMA_DefaultNSLOU;
@@ -478,349 +478,349 @@ namespace Mms_Metaverse
                     // Microsoft Identity Integration Server<entity type="nbsp"/>2003 will rename/move if different, if not, nothing will happen.
                     _csentry.DN = _DN;
                 }
-                if (numOfConnectors == 0 && mventry["employeeID"].IsPresent && mventry["UNIFY_DateofBirth"].IsPresent && mventry["terminated"].Value.ToLower() == "false") //&& mventry["terminated"].Value != "true")
+                if (numOfConnectors == 0 && mventry["employeeID"].IsPresent && mventry["Host_DateofBirth"].IsPresent && mventry["terminated"].Value.ToLower() == "false") //&& mventry["terminated"].Value != "true")
                 {
                     
                     _csentry = adMA.Connectors.StartNewConnector("user");
 
                     #region LegacyOU Placement
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "2")
+                    if (mventry["Host_orgUnitNumber"].Value == "2")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area2OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "3")
+                    if (mventry["Host_orgUnitNumber"].Value == "3")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area3OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "4")
+                    if (mventry["Host_orgUnitNumber"].Value == "4")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area4OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "5")
+                    if (mventry["Host_orgUnitNumber"].Value == "5")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area5OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "6")
+                    if (mventry["Host_orgUnitNumber"].Value == "6")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area6OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "7")
+                    if (mventry["Host_orgUnitNumber"].Value == "7")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area7OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "8")
+                    if (mventry["Host_orgUnitNumber"].Value == "8")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area8OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "9")
+                    if (mventry["Host_orgUnitNumber"].Value == "9")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area9OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "10")
+                    if (mventry["Host_orgUnitNumber"].Value == "10")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area10OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "11")
+                    if (mventry["Host_orgUnitNumber"].Value == "11")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area11OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "12")
+                    if (mventry["Host_orgUnitNumber"].Value == "12")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area12OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "13")
+                    if (mventry["Host_orgUnitNumber"].Value == "13")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area13OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "14")
+                    if (mventry["Host_orgUnitNumber"].Value == "14")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area14OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "15")
+                    if (mventry["Host_orgUnitNumber"].Value == "15")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area15OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "16")
+                    if (mventry["Host_orgUnitNumber"].Value == "16")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area16OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "17")
+                    if (mventry["Host_orgUnitNumber"].Value == "17")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area17OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "18")
+                    if (mventry["Host_orgUnitNumber"].Value == "18")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area18OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "19")
+                    if (mventry["Host_orgUnitNumber"].Value == "19")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area19OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "20")
+                    if (mventry["Host_orgUnitNumber"].Value == "20")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area20OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "21")
+                    if (mventry["Host_orgUnitNumber"].Value == "21")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area21OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "22")
+                    if (mventry["Host_orgUnitNumber"].Value == "22")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area22OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "23")
+                    if (mventry["Host_orgUnitNumber"].Value == "23")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area23OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "24")
+                    if (mventry["Host_orgUnitNumber"].Value == "24")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area24OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "25")
+                    if (mventry["Host_orgUnitNumber"].Value == "25")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area25OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "26")
+                    if (mventry["Host_orgUnitNumber"].Value == "26")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area26OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "27")
+                    if (mventry["Host_orgUnitNumber"].Value == "27")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area27OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "28")
+                    if (mventry["Host_orgUnitNumber"].Value == "28")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area28OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "29")
+                    if (mventry["Host_orgUnitNumber"].Value == "29")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area29OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "30")
+                    if (mventry["Host_orgUnitNumber"].Value == "30")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area30OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "31")
+                    if (mventry["Host_orgUnitNumber"].Value == "31")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area31OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "32")
+                    if (mventry["Host_orgUnitNumber"].Value == "32")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area32OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "33")
+                    if (mventry["Host_orgUnitNumber"].Value == "33")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area33OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "34")
+                    if (mventry["Host_orgUnitNumber"].Value == "34")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area34OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "35")
+                    if (mventry["Host_orgUnitNumber"].Value == "35")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area35OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "36")
+                    if (mventry["Host_orgUnitNumber"].Value == "36")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area36OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "37")
+                    if (mventry["Host_orgUnitNumber"].Value == "37")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area37OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "38")
+                    if (mventry["Host_orgUnitNumber"].Value == "38")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area38OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "39")
+                    if (mventry["Host_orgUnitNumber"].Value == "39")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area39OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "40")
+                    if (mventry["Host_orgUnitNumber"].Value == "40")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area40OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "41")
+                    if (mventry["Host_orgUnitNumber"].Value == "41")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area41OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "42")
+                    if (mventry["Host_orgUnitNumber"].Value == "42")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area42OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "43")
+                    if (mventry["Host_orgUnitNumber"].Value == "43")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area43OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "44")
+                    if (mventry["Host_orgUnitNumber"].Value == "44")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area44OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "45")
+                    if (mventry["Host_orgUnitNumber"].Value == "45")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area45OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "46")
+                    if (mventry["Host_orgUnitNumber"].Value == "46")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area46OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "47")
+                    if (mventry["Host_orgUnitNumber"].Value == "47")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area47OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "48")
+                    if (mventry["Host_orgUnitNumber"].Value == "48")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area48OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "49")
+                    if (mventry["Host_orgUnitNumber"].Value == "49")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area49OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "50")
+                    if (mventry["Host_orgUnitNumber"].Value == "50")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area50OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "51")
+                    if (mventry["Host_orgUnitNumber"].Value == "51")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area51OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "52")
+                    if (mventry["Host_orgUnitNumber"].Value == "52")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area52OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "53")
+                    if (mventry["Host_orgUnitNumber"].Value == "53")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area53OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "54")
+                    if (mventry["Host_orgUnitNumber"].Value == "54")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area54OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "55")
+                    if (mventry["Host_orgUnitNumber"].Value == "55")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area55OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "56")
+                    if (mventry["Host_orgUnitNumber"].Value == "56")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area56OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "57")
+                    if (mventry["Host_orgUnitNumber"].Value == "57")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area57OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "58")
+                    if (mventry["Host_orgUnitNumber"].Value == "58")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area58OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "59")
+                    if (mventry["Host_orgUnitNumber"].Value == "59")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area59OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "60")
+                    if (mventry["Host_orgUnitNumber"].Value == "60")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area60OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "61")
+                    if (mventry["Host_orgUnitNumber"].Value == "61")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area61OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "62")
+                    if (mventry["Host_orgUnitNumber"].Value == "62")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area62OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "63")
+                    if (mventry["Host_orgUnitNumber"].Value == "63")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area63OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "64")
+                    if (mventry["Host_orgUnitNumber"].Value == "64")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area64OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "65")
+                    if (mventry["Host_orgUnitNumber"].Value == "65")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area65OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "66")
+                    if (mventry["Host_orgUnitNumber"].Value == "66")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area66OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "67")
+                    if (mventry["Host_orgUnitNumber"].Value == "67")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area67OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "68")
+                    if (mventry["Host_orgUnitNumber"].Value == "68")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area68OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "69")
+                    if (mventry["Host_orgUnitNumber"].Value == "69")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area69OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "70")
+                    if (mventry["Host_orgUnitNumber"].Value == "70")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area70OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "71")
+                    if (mventry["Host_orgUnitNumber"].Value == "71")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area71OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "72")
+                    if (mventry["Host_orgUnitNumber"].Value == "72")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area72OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "73")
+                    if (mventry["Host_orgUnitNumber"].Value == "73")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area73OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "74")
+                    if (mventry["Host_orgUnitNumber"].Value == "74")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area74OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "75")
+                    if (mventry["Host_orgUnitNumber"].Value == "75")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area75OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "76")
+                    if (mventry["Host_orgUnitNumber"].Value == "76")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area76OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "77")
+                    if (mventry["Host_orgUnitNumber"].Value == "77")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area77OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "78")
+                    if (mventry["Host_orgUnitNumber"].Value == "78")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area78OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "79")
+                    if (mventry["Host_orgUnitNumber"].Value == "79")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area79OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "80")
+                    if (mventry["Host_orgUnitNumber"].Value == "80")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area80OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "81")
+                    if (mventry["Host_orgUnitNumber"].Value == "81")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area81OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "82")
+                    if (mventry["Host_orgUnitNumber"].Value == "82")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area82OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "83")
+                    if (mventry["Host_orgUnitNumber"].Value == "83")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area83OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "84")
+                    if (mventry["Host_orgUnitNumber"].Value == "84")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area84OU;
                     }
-                    if (mventry["UNIFY_orgUnitNumber"].Value == "85")
+                    if (mventry["Host_orgUnitNumber"].Value == "85")
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_Area85OU;
                     }
-                    int OrgUnitNumber = Convert.ToInt32(mventry["UNIFY_orgUnitNumber"].Value);
+                    int OrgUnitNumber = Convert.ToInt32(mventry["Host_orgUnitNumber"].Value);
                     if (OrgUnitNumber > 85)
                     {
                         _Container = _Preferences.GlobalConfiguration.ADMA_DefaultNSLOU;
@@ -869,7 +869,7 @@ namespace Mms_Metaverse
                         {
                             _csentry["userAccountControl"].IntegerValue = ADS_UF_NORMAL_ACCOUNT & ~ADS_UF_ACCOUNTDISABLE; // enable normal account
                             _csentry["displayName"].Value = mventry["displayName"].StringValue;
-                            _csentry["unicodePwd"].Value = mventry["UNIFY_DateofBirth"].StringValue + "@Company";
+                            _csentry["unicodePwd"].Value = mventry["Host_DateofBirth"].StringValue + "@Company";
                             _csentry["pwdLastSet"].IntegerValue = 0; // force password reset on first logon
                             //DoesSamAccountNameExist
 
@@ -942,11 +942,11 @@ namespace Mms_Metaverse
 
                 if (numOfSecConnectors == 0)
                 {
-                    if (mventry["accountname"].IsPresent && mventry["employeeID"].IsPresent && mventry["UNIFY_DateofBirth"].IsPresent)
+                    if (mventry["accountname"].IsPresent && mventry["employeeID"].IsPresent && mventry["Host_DateofBirth"].IsPresent)
                     {
 
                         string accountName = mventry["accountname"].Value.ToLower();
-                        string personNumber = mventry["UNIFY_PersonNumber"].Value;
+                        string personNumber = mventry["Host_PersonNumber"].Value;
                         string displayname = mventry["displayname"].Value;
                         string employeeID = mventry["employeeID"].Value;
 
@@ -1036,9 +1036,9 @@ namespace Mms_Metaverse
 
             if (Seq < Properties.Settings.Default.maxSAMAccountNameRetries)
             {
-                if (mvUser["UNIFY_PreferredName"].IsPresent && mvUser["lastName"].IsPresent)
+                if (mvUser["Host_PreferredName"].IsPresent && mvUser["lastName"].IsPresent)
                 {
-                    _SamAccountName = mvUser["UNIFY_sAMAccountName"].StringValue + "." + mvUser["lastName"].StringValue;
+                    _SamAccountName = mvUser["Host_sAMAccountName"].StringValue + "." + mvUser["lastName"].StringValue;
                     _SamAccountName = GetSafeSAMAccountName(_SamAccountName, true);
                     // truncate samAccountName if too long
                     if (_SamAccountName.Length >= Properties.Settings.Default.maxSAMAccountNameLength)
@@ -1158,9 +1158,9 @@ namespace Mms_Metaverse
         {
             // Generate an initial password
             String _Password = string.Empty;
-            if (mvUser["UNIFY_DateofBirth"].IsPresent)
+            if (mvUser["Host_DateofBirth"].IsPresent)
             {
-                _Password = mvUser["UNIFY_DateofBirth"] + "@Company";
+                _Password = mvUser["Host_DateofBirth"] + "@Company";
             }
             else
             {
