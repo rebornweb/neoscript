@@ -6,6 +6,7 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
+<<<<<<< HEAD
     <script src="https://unpkg.com/vue@3.2.0/dist/vue.global.js"></script>
 
   </head>
@@ -13,11 +14,40 @@
     <div id="app">
       <h1>{{products.product}}</h1>
       <p>{{products.description}}</p>
+=======
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav-bar"></div>
+
+      <div class="cart">Cart({{ cart }})</div>
+      
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image">
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <ul>
+              <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{ variant.color }}</div>
+            <button class="button" v-on:click="addToCart">Add to Cart</button>
+            <button class="button" v-on:click="removeItemCart">Remove from Cart</button>
+          </div>
+        </div>
+      </div>
+>>>>>>> c74920f933b3da867091e3e6fc680ce22c07aef2
     </div>
 
     <!-- Import App -->
     <script src="./main.js"></script>
 
+<<<<<<< HEAD
     <!---Mount App-->
     <script>
       const mountedApp = app.mount('#app');
@@ -25,3 +55,11 @@
   </body>
 </html>
 ``
+=======
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
+</html>
+>>>>>>> c74920f933b3da867091e3e6fc680ce22c07aef2
