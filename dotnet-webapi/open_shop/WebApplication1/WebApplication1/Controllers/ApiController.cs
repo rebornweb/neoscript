@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic; // Required for List<T>
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Data.SqlClient; // For .NET Core
-// If you're using .NET Framework, you would use System.Data.SqlClient instead
+using Microsoft.Data.SqlClient;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -16,30 +15,41 @@ public class StoredProceduresController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetStoredProcedures()
+    public IActionResult ExecuteStoredProcedure()
     {
         using (var connection = new SqlConnection(_connectionString))
         {
             connection.Open();
-            var commandText = "SELECT name AS ProcedureName, create_date AS CreateDate FROM sys.procedures ORDER BY name";
+            var storedProcedureName = "[dbo].[uspGetBillOfMaterials]";
+            var startProductID = 893;
+            var checkDate = "2010-05-26";
 
-            using (var command = new SqlCommand(commandText, connection))
+            using (var command = new SqlCommand(storedProcedureName, connection))
             {
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                // Add parameters
+                command.Parameters.AddWithValue("@StartProductID", startProductID);
+                command.Parameters.AddWithValue("@CheckDate", checkDate);
+
+                // Execute the stored procedure
                 using (var reader = command.ExecuteReader())
                 {
-                    var procedures = new List<Dictionary<string, object>>();
+                    var results = new List<Dictionary<string, object>>();
 
                     while (reader.Read())
                     {
-                        var procedure = new Dictionary<string, object>();
+                        var row = new Dictionary<string, object>();
+
                         for (var i = 0; i < reader.FieldCount; i++)
                         {
-                            procedure[reader.GetName(i)] = reader[i];
+                            row[reader.GetName(i)] = reader[i];
                         }
-                        procedures.Add(procedure);
+
+                        results.Add(row);
                     }
 
-                    return Ok(procedures);
+                    return Ok(results);
                 }
             }
         }
