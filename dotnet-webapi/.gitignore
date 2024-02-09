@@ -1,0 +1,27 @@
+# ASP.NET & .NET Core
+## Dependency directories
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/
+obj/
+# .NET Core
+*.dll
+*.exe
+*.pdb
+*.log
+*.vscode/
+*/bin/*
+*/obj/*
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+# Rider
+.idea/
+*.sln.iml
+## Other tools
+_ReSharper
