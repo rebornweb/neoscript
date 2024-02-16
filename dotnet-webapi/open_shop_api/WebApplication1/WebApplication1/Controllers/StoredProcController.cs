@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Cors;
 
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class StoredProceduresController : ControllerBase
 {
@@ -15,7 +16,7 @@ public class StoredProceduresController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult ExecuteStoredProcedure()
+    public IActionResult GetBillofMaterials()
     {
         using (var connection = new SqlConnection(_connectionString))
         {
