@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Cors;
 
-[Route("api/[controller]/[action]")]
+[Route("api/[controller]")]
 [ApiController]
 public class StoredProceduresController : ControllerBase
 {
@@ -15,7 +15,7 @@ public class StoredProceduresController : ControllerBase
         _connectionString = configuration.GetConnectionString("DefaultConnection");
     }
 
-    [HttpGet]
+    [HttpGet("getbillofmaterials")]
     public IActionResult GetBillofMaterials()
     {
         using (var connection = new SqlConnection(_connectionString))
