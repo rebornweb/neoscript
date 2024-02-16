@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace YourNamespace.Controllers
 {
