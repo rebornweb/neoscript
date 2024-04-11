@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # neoscript reborn
 
 This is A Repo of Andrei Nicolas
