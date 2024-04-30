@@ -43,5 +43,3 @@ wifeisAlwaysRight();
 # neoscript
 Andrei Nicolas - Code Crush
 
-Repo of my Projects
->>>>>>> c74920f933b3da867091e3e6fc680ce22c07aef2
